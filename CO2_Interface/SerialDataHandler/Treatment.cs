@@ -51,12 +51,11 @@ namespace CO2_Interface.SerialDataHandler
                 for (int i = 0; i < BytesNbr; i++)
                 {
                     //The following data's shall be extracted from Queue List
-                    //++on doit verif les bytes de debut/fin trame 
                     if (Data.Collections.SerialBuffer.Count > 6)
                     {
                         byte serial1 = Data.Collections.SerialBuffer.Dequeue();
                         byte serial2 = Data.Collections.SerialBuffer.Dequeue();
-                        obj.Serial = (byte)(serial1 + serial2);
+                        obj.Serial = (byte)((UInt16)(serial1<< 8) + (UInt16)serial2);
                         Console.WriteLine(obj.Serial.ToString());
                         obj.ID = Data.Collections.SerialBuffer.Dequeue();
                         obj.Type = Data.Collections.SerialBuffer.Dequeue();
