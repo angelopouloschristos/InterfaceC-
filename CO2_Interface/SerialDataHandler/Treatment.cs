@@ -59,7 +59,9 @@ namespace CO2_Interface.SerialDataHandler
                         Console.WriteLine(obj.Serial.ToString());
                         obj.ID = Data.Collections.SerialBuffer.Dequeue();
                         obj.Type = Data.Collections.SerialBuffer.Dequeue();
-                        obj.BinaryData = Data.Collections.SerialBuffer.Dequeue();
+                        byte data1 = Data.Collections.SerialBuffer.Dequeue();
+                        byte data2 = Data.Collections.SerialBuffer.Dequeue();
+                        obj.BinaryData = (byte)((UInt16)(data1 << 8) + (UInt16)data2);
                         //bit shift to left 
                         obj.Checksum = Data.Collections.SerialBuffer.Dequeue();
                     }
