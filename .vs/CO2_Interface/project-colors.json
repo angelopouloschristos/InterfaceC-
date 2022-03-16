@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "390f13b5-9e99-4ef7-87a1-4db4a06ebd80": {
+      "ProjectGuid": "390f13b5-9e99-4ef7-87a1-4db4a06ebd80",
+      "DisplayName": "CO2_Interface",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
