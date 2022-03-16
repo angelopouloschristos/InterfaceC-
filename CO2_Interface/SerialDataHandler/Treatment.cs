@@ -8,12 +8,11 @@ namespace CO2_Interface.SerialDataHandler
     internal static partial class Reception
     {
         //elle est appele dans mainForm
-        static byte[] debut_trame = {0x55, 0x55,0xAA};
-        static byte[] fin_trame = { 0xAA,0xAA,0x55};
-        static byte[] verif_trame ;
-        static bool found;
+        
+
         internal static void DataTreatment(DataTable dt, DataGridView dg)
         {
+            //CHECK LE DEBUT DE TRAMME ET ENLEVE LES 3 PREMIERS ELEMENTS DE LA QUEUE LIST
             while(  (Data.Collections.SerialBuffer.ElementAt(0) != 0x55)  &&
                     (Data.Collections.SerialBuffer.ElementAt(1) != 0x55)  &&
                     (Data.Collections.SerialBuffer.ElementAt(2) != 0xAA) &&
@@ -39,6 +38,8 @@ namespace CO2_Interface.SerialDataHandler
                 //bit shift to left 
                 obj.Checksum = Data.Collections.SerialBuffer.Dequeue();
 
+
+                // ENLEVE LES 3 DERNIERS ELEMENTS DE LA QUEUE LIST
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
@@ -56,11 +57,7 @@ namespace CO2_Interface.SerialDataHandler
             
             
             Data.Collections.ObjectList.Add(obj);
-            //insersion dans la table d'affichage 
-            // [85 85 170] id type Nbrbytes data checksum [170 170 85]
-            
-
-            //si le tab est vide
+            //si le grid view est vide
             if (dt.Rows.Count == 0) 
             {
                 dt.Rows.Add(new object[] { obj.Serial,obj.ID, obj.Type,  obj.BinaryData ,obj.Checksum});
