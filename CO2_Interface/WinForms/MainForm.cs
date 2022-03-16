@@ -17,9 +17,9 @@ namespace CO2_Interface
             //reception de donnees
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
 
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Serial);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.ID);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Type);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.NbrBytes);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.BinaryData);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Checksum);
             

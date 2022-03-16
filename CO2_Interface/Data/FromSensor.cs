@@ -13,17 +13,17 @@ namespace CO2_Interface.Data
         {
             internal byte ID;
             internal UInt32 BinaryData;
-            internal byte NbrBytes;
+            internal byte Serial;
             internal byte Type;
             internal byte Checksum;
-            internal Base(byte id, byte type, byte nbrbytes, UInt32 data,byte cs)
+            internal Base(byte serial,byte id, byte type,  UInt32 data,byte cs)
             {
+                Serial = serial;
                 //id du octet
                 ID = id;
                 //data a decoder
                 BinaryData = data;
                 //nombres de bytes --> checksum
-                NbrBytes = nbrbytes;
                 //type de mesure
                 Type = type;
                 Checksum = cs;

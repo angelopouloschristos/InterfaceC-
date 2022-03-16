@@ -54,9 +54,12 @@ namespace CO2_Interface.SerialDataHandler
                     //++on doit verif les bytes de debut/fin trame 
                     if (Data.Collections.SerialBuffer.Count > 6)
                     {
+                        byte serial1 = Data.Collections.SerialBuffer.Dequeue();
+                        byte serial2 = Data.Collections.SerialBuffer.Dequeue();
+                        obj.Serial = (byte)(serial1 + serial2);
+                        Console.WriteLine(obj.Serial.ToString());
                         obj.ID = Data.Collections.SerialBuffer.Dequeue();
                         obj.Type = Data.Collections.SerialBuffer.Dequeue();
-                        obj.NbrBytes = Data.Collections.SerialBuffer.Dequeue();
                         obj.BinaryData = Data.Collections.SerialBuffer.Dequeue();
                         //bit shift to left 
                         obj.Checksum = Data.Collections.SerialBuffer.Dequeue();
@@ -77,17 +80,18 @@ namespace CO2_Interface.SerialDataHandler
                         if (fin_trame[2] == verif_trame[2])
                         {
                             error= false;
-                            MessageBox.Show("fin trame trouve");
+                            //MessageBox.Show("fin trame trouve");
                         }
                     }
                 }
                 //si il y a pas de erreur pour check fin trame
                 if (!error )
                 {
+                    ObjToList(obj, dt, dg);
                     //checksum okk
-                    if (obj.Type+ obj.NbrBytes+ obj.BinaryData==obj.Checksum)
+                    if (obj.Type+  obj.BinaryData==obj.Checksum)
                     {
-                        ObjToList(obj, dt, dg);
+                        
                     }
                     else
                     {
@@ -126,7 +130,7 @@ namespace CO2_Interface.SerialDataHandler
             //si le tab est vide
             if (dt.Rows.Count == 0) 
             {
-                dt.Rows.Add(new object[] { obj.ID, obj.Type, obj.NbrBytes, obj.BinaryData ,obj.Checksum});
+                dt.Rows.Add(new object[] { obj.Serial,obj.ID, obj.Type,  obj.BinaryData ,obj.Checksum});
             }
             else
             {
@@ -148,7 +152,7 @@ namespace CO2_Interface.SerialDataHandler
                 //si pas trouver alors on creer un nouveau item 
                 if (pas_trouve) 
                 {
-                    dt.Rows.Add(new object[] { obj.ID, obj.Type, obj.NbrBytes, obj.BinaryData, obj.Checksum });
+                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, obj.Type,  obj.BinaryData, obj.Checksum });
                 }
             }
             
