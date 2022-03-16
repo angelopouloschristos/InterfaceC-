@@ -13,10 +13,10 @@ namespace CO2_Interface.Data
         {
             internal byte ID;
             internal UInt32 BinaryData;
-            internal byte Serial;
+            internal UInt16 Serial;
             internal byte Type;
-            internal byte Checksum;
-            internal Base(byte serial,byte id, byte type,  UInt32 data,byte cs)
+            internal UInt32 Checksum;
+            internal Base(byte serial,byte id, byte type,  UInt32 data,UInt32 cs)
             {
                 Serial = serial;
                 //id du octet

@@ -14,110 +14,42 @@ namespace CO2_Interface.SerialDataHandler
         static bool found;
         internal static void DataTreatment(DataTable dt, DataGridView dg)
         {
+            while(  (Data.Collections.SerialBuffer.ElementAt(0) != 0x55)  &&
+                    (Data.Collections.SerialBuffer.ElementAt(1) != 0x55)  &&
+                    (Data.Collections.SerialBuffer.ElementAt(2) != 0xAA) &&
+                    (Data.Collections.SerialBuffer.Count > 3)) Data.Collections.SerialBuffer.Dequeue();
 
-            //regarde la taille de la queue list
-            int BytesNbr = Data.Collections.SerialBuffer.Count;    // Fix value to avoid changes in for loop
-            verif_trame = new byte[3];
+            Data.FromSensor.Base obj = new Data.FromSensor.Base(0, 0, 0, 0, 0);
 
-            //MessageBox.Show(found.ToString());
-            found = false;
-            BytesNbr = found_start(BytesNbr);
-            //creation de l'objet de data mesure
-            //[85 85 170] id type Nbrbytes data checksum[170 170 85]
-            if (BytesNbr> 14)
+            while (Data.Collections.SerialBuffer.Count > 13)
             {
-                verif_trame[0]= Data.Collections.SerialBuffer.Dequeue();
-                if (debut_trame[0]==verif_trame[0])
-                {
-                    //MessageBox.Show("ok1");
-                    verif_trame[1]= Data.Collections.SerialBuffer.Dequeue();
-                    if (debut_trame[1] == verif_trame[1])
-                    {
-                        //MessageBox.Show("ok2");
-                        verif_trame[2] = Data.Collections.SerialBuffer.Dequeue();
-                        if (debut_trame[2] == verif_trame[2])
-                        {
-                            //MessageBox.Show("found all");
-                            found = true;
-                        }
-                    }
-                }
+                Data.Collections.SerialBuffer.Dequeue();
+                Data.Collections.SerialBuffer.Dequeue();
+                Data.Collections.SerialBuffer.Dequeue();
+
+                obj.Serial = Data.Collections.SerialBuffer.Dequeue();
+                obj.Serial <<= 8;
+                obj.Serial += Data.Collections.SerialBuffer.Dequeue();
+      
+                obj.ID = Data.Collections.SerialBuffer.Dequeue();
+                obj.Type = Data.Collections.SerialBuffer.Dequeue();
+                obj.BinaryData = Data.Collections.SerialBuffer.Dequeue();
+                obj.BinaryData <<= 8;
+                obj.BinaryData += Data.Collections.SerialBuffer.Dequeue();
+                //bit shift to left 
+                obj.Checksum = Data.Collections.SerialBuffer.Dequeue();
+
+                Data.Collections.SerialBuffer.Dequeue();
+                Data.Collections.SerialBuffer.Dequeue();
+                Data.Collections.SerialBuffer.Dequeue();
+
+                ObjToList(obj, dt, dg);
             }
-            //MessageBox.Show(found.ToString());
-            if (found)
-            {
-                Data.FromSensor.Base obj = new Data.FromSensor.Base(0,0,0,0,0);
-
-                for (int i = 0; i < BytesNbr; i++)
-                {
-                    //The following data's shall be extracted from Queue List
-                    if (Data.Collections.SerialBuffer.Count > 6)
-                    {
-                        byte serial1 = Data.Collections.SerialBuffer.Dequeue();
-                        byte serial2 = Data.Collections.SerialBuffer.Dequeue();
-                        obj.Serial = (byte)((UInt16)(serial1<< 8) + (UInt16)serial2);
-                        Console.WriteLine(obj.Serial.ToString());
-                        obj.ID = Data.Collections.SerialBuffer.Dequeue();
-                        obj.Type = Data.Collections.SerialBuffer.Dequeue();
-                        byte data1 = Data.Collections.SerialBuffer.Dequeue();
-                        byte data2 = Data.Collections.SerialBuffer.Dequeue();
-                        obj.BinaryData = (byte)((UInt16)(data1 << 8) + (UInt16)data2);
-                        //bit shift to left 
-                        obj.Checksum = Data.Collections.SerialBuffer.Dequeue();
-                    }
-                    //This part shall be modified once rules have been defined 
-                }
-                verif_trame = new byte[fin_trame.Length];
-                bool error = true;
-                verif_trame[0] = Data.Collections.SerialBuffer.Dequeue();
-                if (fin_trame[0] == verif_trame[0])
-                {
-                    //MessageBox.Show("ok1");
-                    verif_trame[1] = Data.Collections.SerialBuffer.Dequeue();
-                    if (fin_trame[1] == verif_trame[1])
-                    {
-                        //MessageBox.Show("ok2");
-                        verif_trame[2] = Data.Collections.SerialBuffer.Dequeue();
-                        if (fin_trame[2] == verif_trame[2])
-                        {
-                            error= false;
-                            //MessageBox.Show("fin trame trouve");
-                        }
-                    }
-                }
-                //si il y a pas de erreur pour check fin trame
-                if (!error )
-                {
-                    ObjToList(obj, dt, dg);
-                    //checksum okk
-                    if (obj.Type+  obj.BinaryData==obj.Checksum)
-                    {
                         
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error checksum");
-                    }
-                    
-                }
-                //++ on doit verifier le checksum sinon alert error et on ajoute pas
-                
-                //+++++ fin de trame  [170 170 85]
-
-
-            }
+            // SI IL A TROUVER LE DEBUT DE TRAMME
         }
 
-        private static int found_start(int bytesNbr)
-        {
-            while (Data.Collections.SerialBuffer.Dequeue()!=85 &&
-               Data.Collections.SerialBuffer.Dequeue() != 85 &&
-               Data.Collections.SerialBuffer.Dequeue() != 170 && bytesNbr >4) 
-            {
-                bytesNbr--;
-            }
-            return bytesNbr;
-        }
+      
 
         internal static void ObjToList(Data.FromSensor.Base obj, DataTable dt, DataGridView dg)
         {
