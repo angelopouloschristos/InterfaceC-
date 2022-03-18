@@ -22,6 +22,7 @@ namespace CO2_Interface.SerialDataHandler
 
             while (Data.Collections.SerialBuffer.Count > 13)
             {
+                //DEBUT TRAME
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
@@ -39,7 +40,7 @@ namespace CO2_Interface.SerialDataHandler
                 obj.Checksum = Data.Collections.SerialBuffer.Dequeue();
 
 
-                // ENLEVE LES 3 DERNIERS ELEMENTS DE LA QUEUE LIST
+                // ENLEVE LES 3 DERNIERS ELEMENTS DE LA QUEUE LIST (FIN TRAME)
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();

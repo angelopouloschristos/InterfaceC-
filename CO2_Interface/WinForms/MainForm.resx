@@ -120,14 +120,11 @@
   <metadata name="SerialPort.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="usersdataBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>225, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAdoAAAHaCAYAAACn5IivAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAASw1JREFUeF7t3fu7XEWZ9nFnGAg5J8hZkpgjRzEySEYjgnhEEEFEhIS4DYGQEAi8
+        vAAADrwBlbxySQAASw1JREFUeF7t3fu7XEWZ9nFnGAg5J8hZkpgjRzEySEYjgnhEEEFEhIS4DYGQEAi8
         QQYlICgRRh3CiAziBR7eQRjPOo7vv9fvujvX0zy79rN3uquru1d1f3/4XN2p3V1V65C6u9Zavfp9nU4H
         mGlXXXVVZ/Xq1V0rV67sLFu2rPNP//RPnfe97319Oeusszpnnnlm933Lly/v1vGhD32oqTpuD8BsCQuB
         WXL11Vd3zjnnnM6qVat6oamwlChYPXu9nv/DP/xDZ8WKFZ3zzjuvc9111zVVx+0BmC1hITDtfvjjk51D
@@ -453,7 +450,7 @@
   <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOMAAAEeCAYAAAB49aI/AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAHBlJREFUeF7t3UlTW0uaBmC299rGmNHGGC7zaGaMMfM8zxIzEkKIQTIyMlxj31sV
+        vQAADr0BR/uQrQAAHBlJREFUeF7t3UlTW0uaBmC299rGmNHGGC7zaGaMMfM8zxIzEkKIQTIyMlxj31sV
         teuO6EVvOqI33RG1qYiO6OhFL7oi+m/UL8r+UhSNOecVSskgMs/5Fk9Q9d7MBHKwxNE5mVlCCGYw/+KE
         yMrKulNkb52K4vpMHzBk5vAtjNsWn1Vkb42K4vpMHzBk5tieG7UtPquw30tFcX2mDxgyc2zNjtgWn9XJ
         roeK4vpMHzBk5uDF6BwwZObgxegcMGTm4MXoHDBk5lC5gMOL0QwwZObgq6nOAUNmDl6MzgFDZg5ejM4B
@@ -576,4 +573,7 @@
         u+yxiaz/A/YJWjEAOGFSAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="usersdataBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>225, 17</value>
+  </metadata>
 </root>

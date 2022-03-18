@@ -11,12 +11,15 @@ namespace CO2_Interface
     {
         Timer timer1;
         private Controls.MainControl mainConrol;
+        private Controls.GraphsControl graphsConrol;
+        private DataGridView ObjectsGrid;
         public MainForm()
         {
             InitializeComponent();
 
             this.mainConrol = new Controls.MainControl();
-
+            this.graphsConrol = new Controls.GraphsControl();
+            
 
 
             //reception de donnees
@@ -47,6 +50,17 @@ namespace CO2_Interface
             if (SerialPort.IsOpen) ConnexionStatus_Label.Text = "Open";
             else ConnexionStatus_Label.Text = "Close";
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(mainConrol);
+            ObjectsGrid = mainConrol.ObjectsGrid1;
+
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 500; // in miliseconds
+            timer1.Start();
+        }
 
         private void button_DataTreatment_Click(object sender, EventArgs e)
         {
@@ -54,18 +68,9 @@ namespace CO2_Interface
             //SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid);
             //Console.WriteLine(Data.Collections.SerialBuffer.ToString());
             //mise a jour de la bare d'affichage
-            // dt;
+            // utiliser pour rien?>?? effacer???
+                     
             
-
-            ObjectsGrid.DataSource = ObjectsGrid;
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 500; // in miliseconds
-            timer1.Start();/*
-            for (int i = 1; i < 6; i++)
-            {
-                ObjectsGrid.Rows.Add(new object[] { i, 0, 0, 0, 0 });
-            }*/
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -78,15 +83,13 @@ namespace CO2_Interface
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MyContainer.Controls.Clear();
-            MyContainer.Controls.Add(mainConrol);
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(graphsConrol);
+            //graphsConrol.GraphBuilder();
         }
     }
 }

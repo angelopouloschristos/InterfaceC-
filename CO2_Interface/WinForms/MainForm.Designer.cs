@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SerialPort = new System.IO.Ports.SerialPort(this.components);
-            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ObjectsGrid = new System.Windows.Forms.DataGridView();
             this.ConnexionStatus_Label = new System.Windows.Forms.Label();
             this.Connexion_Label = new System.Windows.Forms.Label();
             this.DataTreatmen_Button = new System.Windows.Forms.Button();
@@ -40,26 +38,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.MyContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort
             // 
             this.SerialPort.PortName = "COM2";
-            // 
-            // ObjectsGrid
-            // 
-            this.ObjectsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ObjectsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ObjectsGrid.Location = new System.Drawing.Point(50, 80);
-            this.ObjectsGrid.Margin = new System.Windows.Forms.Padding(2);
-            this.ObjectsGrid.Name = "ObjectsGrid";
-            this.ObjectsGrid.RowHeadersVisible = false;
-            this.ObjectsGrid.RowHeadersWidth = 51;
-            this.ObjectsGrid.RowTemplate.Height = 24;
-            this.ObjectsGrid.Size = new System.Drawing.Size(450, 180);
-            this.ObjectsGrid.TabIndex = 2;
             // 
             // ConnexionStatus_Label
             // 
@@ -83,7 +68,7 @@
             // 
             // DataTreatmen_Button
             // 
-            this.DataTreatmen_Button.Location = new System.Drawing.Point(149, 293);
+            this.DataTreatmen_Button.Location = new System.Drawing.Point(149, 490);
             this.DataTreatmen_Button.Margin = new System.Windows.Forms.Padding(2);
             this.DataTreatmen_Button.Name = "DataTreatmen_Button";
             this.DataTreatmen_Button.Size = new System.Drawing.Size(92, 41);
@@ -94,7 +79,7 @@
             // 
             // COM_Button
             // 
-            this.COM_Button.Location = new System.Drawing.Point(51, 293);
+            this.COM_Button.Location = new System.Drawing.Point(51, 490);
             this.COM_Button.Margin = new System.Windows.Forms.Padding(2);
             this.COM_Button.Name = "COM_Button";
             this.COM_Button.Size = new System.Drawing.Size(92, 41);
@@ -129,16 +114,16 @@
             // 
             // MyContainer
             // 
-            this.MyContainer.Location = new System.Drawing.Point(558, 80);
+            this.MyContainer.Location = new System.Drawing.Point(51, 81);
             this.MyContainer.Name = "MyContainer";
-            this.MyContainer.Size = new System.Drawing.Size(286, 180);
+            this.MyContainer.Size = new System.Drawing.Size(862, 366);
             this.MyContainer.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 413);
+            this.ClientSize = new System.Drawing.Size(1455, 810);
             this.Controls.Add(this.MyContainer);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -146,13 +131,11 @@
             this.Controls.Add(this.DataTreatmen_Button);
             this.Controls.Add(this.Connexion_Label);
             this.Controls.Add(this.ConnexionStatus_Label);
-            this.Controls.Add(this.ObjectsGrid);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,8 +145,6 @@
 
         internal System.IO.Ports.SerialPort SerialPort;
         private System.Windows.Forms.BindingSource usersdataBindingSource;
- //       private DB.Usersdata usersdata;
-        private System.Windows.Forms.DataGridView ObjectsGrid;
         private System.Windows.Forms.Label ConnexionStatus_Label;
         private System.Windows.Forms.Label Connexion_Label;
         private System.Windows.Forms.Button DataTreatmen_Button;

@@ -28,46 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.ObjectsGrid1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // ObjectsGrid1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "docker";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(17, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(264, 172);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.ObjectsGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ObjectsGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ObjectsGrid1.Location = new System.Drawing.Point(0, 2);
+            this.ObjectsGrid1.Margin = new System.Windows.Forms.Padding(2);
+            this.ObjectsGrid1.Name = "ObjectsGrid1";
+            this.ObjectsGrid1.RowHeadersVisible = false;
+            this.ObjectsGrid1.RowHeadersWidth = 51;
+            this.ObjectsGrid1.RowTemplate.Height = 24;
+            this.ObjectsGrid1.Size = new System.Drawing.Size(800, 271);
+            this.ObjectsGrid1.TabIndex = 4;
             // 
             // MainControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.ObjectsGrid1);
             this.Name = "MainControl";
-            this.Size = new System.Drawing.Size(314, 226);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Size = new System.Drawing.Size(1015, 467);
+            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.DataGridView ObjectsGrid1;
     }
 }
