@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SerialPort = new System.IO.Ports.SerialPort(this.components);
             this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-//            this.usersdata = new CO2_Interface.DB.Usersdata();
             this.ObjectsGrid = new System.Windows.Forms.DataGridView();
             this.ConnexionStatus_Label = new System.Windows.Forms.Label();
             this.Connexion_Label = new System.Windows.Forms.Label();
@@ -40,24 +39,14 @@
             this.COM_Button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.MyContainer = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
- //           ((System.ComponentModel.ISupportInitialize)(this.usersdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort
             // 
             this.SerialPort.PortName = "COM2";
-            // 
-            // usersdataBindingSource
-            // 
- //           this.usersdataBindingSource.DataSource = this.usersdata;
-            this.usersdataBindingSource.Position = 0;
-            // 
-            // usersdata
-            // 
-//            this.usersdata.DataSetName = "Usersdata";
- //           this.usersdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ObjectsGrid
             // 
@@ -69,7 +58,7 @@
             this.ObjectsGrid.RowHeadersVisible = false;
             this.ObjectsGrid.RowHeadersWidth = 51;
             this.ObjectsGrid.RowTemplate.Height = 24;
-            this.ObjectsGrid.Size = new System.Drawing.Size(508, 191);
+            this.ObjectsGrid.Size = new System.Drawing.Size(450, 180);
             this.ObjectsGrid.TabIndex = 2;
             // 
             // ConnexionStatus_Label
@@ -123,6 +112,7 @@
             this.button1.Size = new System.Drawing.Size(65, 49);
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -135,12 +125,21 @@
             this.button2.Size = new System.Drawing.Size(62, 50);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // MyContainer
+            // 
+            this.MyContainer.Location = new System.Drawing.Point(558, 80);
+            this.MyContainer.Name = "MyContainer";
+            this.MyContainer.Size = new System.Drawing.Size(286, 180);
+            this.MyContainer.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 383);
+            this.ClientSize = new System.Drawing.Size(955, 413);
+            this.Controls.Add(this.MyContainer);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.COM_Button);
@@ -153,7 +152,6 @@
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).EndInit();
- //           ((System.ComponentModel.ISupportInitialize)(this.usersdata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,6 +170,7 @@
         private System.Windows.Forms.Button COM_Button;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.FlowLayoutPanel MyContainer;
     }
 }
 

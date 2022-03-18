@@ -10,9 +10,14 @@ namespace CO2_Interface
     public partial class MainForm : Form
     {
         Timer timer1;
+        private Controls.MainControl mainConrol;
         public MainForm()
         {
             InitializeComponent();
+
+            this.mainConrol = new Controls.MainControl();
+
+
 
             //reception de donnees
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
@@ -69,6 +74,17 @@ namespace CO2_Interface
 
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(mainConrol);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

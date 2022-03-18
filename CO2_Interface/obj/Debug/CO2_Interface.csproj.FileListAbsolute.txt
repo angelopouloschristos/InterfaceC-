@@ -42,3 +42,4 @@ C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interfac
 C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
 C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.exe
 C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.pdb
+C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
