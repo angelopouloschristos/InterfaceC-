@@ -2,6 +2,7 @@
 using System.Data;
 using System;
 using System.Linq;
+using CO2_Interface.Controls;
 
 namespace CO2_Interface.SerialDataHandler
 {
@@ -56,7 +57,6 @@ namespace CO2_Interface.SerialDataHandler
         internal static void ObjToList(Data.FromSensor.Base obj, DataTable dt, DataGridView dg)
         {
             
-            
             Data.Collections.ObjectList.Add(obj);
             //si le grid view est vide
             if (dt.Rows.Count == 0) 
@@ -83,6 +83,8 @@ namespace CO2_Interface.SerialDataHandler
                 //si pas trouver alors on creer un nouveau item 
                 if (pas_trouve) 
                 {
+                    ComboBox combo = MainForm.GetComboBox();
+                    combo.Items.Add(obj.ID);
                     dt.Rows.Add(new object[] { obj.Serial, obj.ID, obj.Type,  obj.BinaryData, obj.Checksum });
                 }
             }

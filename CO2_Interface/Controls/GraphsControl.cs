@@ -14,30 +14,22 @@ namespace CO2_Interface.Controls
     public partial class GraphsControl : UserControl
     {
         private Queue<int> MyList;
-        Timer timer1;
         Series GraphPoints;
         Title GraphTitle;
         ChartArea Area;
+        public int cpt = 0;
         public GraphsControl()
         {
             InitializeComponent();
-            GraphBuilder();     
+            GraphBuilder();
             
         }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-
-            if (MyList.Count > 99) MyList.Dequeue();
-            MyList.Enqueue(rnd.Next(0, 1000));
-
-            GraphUpdate();
-        }
+        
         public void GraphBuilder()
         {
             MyList = new Queue<int>();
-            GraphPoints = new Series("MySerie");
-            GraphTitle = new Title("MyTitle");
+            GraphPoints = new Series("Taux de co2");
+            GraphTitle = new Title("Local avec id 4");
             Area = new ChartArea("MyChartArea");
 
 
@@ -51,24 +43,19 @@ namespace CO2_Interface.Controls
             Area.BackColor = Color.FromArgb(224, 224,224);
             Area.BorderColor = Color.DarkGray;
             Area.AxisY.IsStartedFromZero = false;
-            Area.AxisY.Minimum = 0;
-            Area.AxisY.Maximum = 1000;
+            Area.AxisY.Minimum = 5000;
+            Area.AxisY.Maximum = 70000;
             Area.AxisX.Minimum = 0;
             
             Chart.Titles.Add(GraphTitle);
             Chart.ChartAreas.Add(Area);
             Chart.Series.Add(GraphPoints);
 
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 200; // in miliseconds
-            timer1.Start();
         }
-        private void GraphUpdate()
+        public void GraphUpdate(int value)
         {
-            GraphPoints.Points.Clear();
-
-            for (int i = 0; i < MyList.Count; i++) GraphPoints.Points.AddXY(i, MyList.ElementAt(i));
+            //GraphPoints.Points.Clear();
+            GraphPoints.Points.AddXY(cpt, value);
         }
     }
 }

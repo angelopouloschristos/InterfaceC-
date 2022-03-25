@@ -39,7 +39,7 @@
             this.Chart.Legends.Add(legend1);
             this.Chart.Location = new System.Drawing.Point(3, 3);
             this.Chart.Name = "Chart";
-            this.Chart.Size = new System.Drawing.Size(734, 367);
+            this.Chart.Size = new System.Drawing.Size(727, 235);
             this.Chart.TabIndex = 0;
             this.Chart.Text = "MyChart";
             // 
@@ -49,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Chart);
             this.Name = "GraphsControl";
-            this.Size = new System.Drawing.Size(781, 414);
+            this.Size = new System.Drawing.Size(747, 257);
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).EndInit();
             this.ResumeLayout(false);
 

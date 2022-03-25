@@ -42,7 +42,7 @@
             this.ObjectsGrid1.RowHeadersVisible = false;
             this.ObjectsGrid1.RowHeadersWidth = 51;
             this.ObjectsGrid1.RowTemplate.Height = 24;
-            this.ObjectsGrid1.Size = new System.Drawing.Size(800, 271);
+            this.ObjectsGrid1.Size = new System.Drawing.Size(769, 271);
             this.ObjectsGrid1.TabIndex = 4;
             // 
             // MainControl
@@ -51,7 +51,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ObjectsGrid1);
             this.Name = "MainControl";
-            this.Size = new System.Drawing.Size(1015, 467);
+            this.Size = new System.Drawing.Size(816, 285);
             ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid1)).EndInit();
             this.ResumeLayout(false);
 

@@ -33,12 +33,12 @@
             this.SerialPort = new System.IO.Ports.SerialPort(this.components);
             this.ConnexionStatus_Label = new System.Windows.Forms.Label();
             this.Connexion_Label = new System.Windows.Forms.Label();
-            this.DataTreatmen_Button = new System.Windows.Forms.Button();
-            this.COM_Button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.MyContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.combobox_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,28 +65,6 @@
             this.Connexion_Label.Size = new System.Drawing.Size(96, 13);
             this.Connexion_Label.TabIndex = 3;
             this.Connexion_Label.Text = "Connexion Status: ";
-            // 
-            // DataTreatmen_Button
-            // 
-            this.DataTreatmen_Button.Location = new System.Drawing.Point(149, 490);
-            this.DataTreatmen_Button.Margin = new System.Windows.Forms.Padding(2);
-            this.DataTreatmen_Button.Name = "DataTreatmen_Button";
-            this.DataTreatmen_Button.Size = new System.Drawing.Size(92, 41);
-            this.DataTreatmen_Button.TabIndex = 1;
-            this.DataTreatmen_Button.Text = "Data Treatment";
-            this.DataTreatmen_Button.UseVisualStyleBackColor = true;
-            this.DataTreatmen_Button.Click += new System.EventHandler(this.button_DataTreatment_Click);
-            // 
-            // COM_Button
-            // 
-            this.COM_Button.Location = new System.Drawing.Point(51, 490);
-            this.COM_Button.Margin = new System.Windows.Forms.Padding(2);
-            this.COM_Button.Name = "COM_Button";
-            this.COM_Button.Size = new System.Drawing.Size(92, 41);
-            this.COM_Button.TabIndex = 0;
-            this.COM_Button.Text = "ConnectToPort";
-            this.COM_Button.UseVisualStyleBackColor = true;
-            this.COM_Button.Click += new System.EventHandler(this.button_COM_Click);
             // 
             // button1
             // 
@@ -116,19 +94,38 @@
             // 
             this.MyContainer.Location = new System.Drawing.Point(51, 81);
             this.MyContainer.Name = "MyContainer";
-            this.MyContainer.Size = new System.Drawing.Size(862, 366);
+            this.MyContainer.Size = new System.Drawing.Size(752, 283);
             this.MyContainer.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(821, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Select the ID";
+            // 
+            // combobox_id
+            // 
+            this.combobox_id.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.combobox_id.FormattingEnabled = true;
+            this.combobox_id.Location = new System.Drawing.Point(908, 78);
+            this.combobox_id.Name = "combobox_id";
+            this.combobox_id.Size = new System.Drawing.Size(66, 21);
+            this.combobox_id.Sorted = true;
+            this.combobox_id.TabIndex = 9;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 810);
+            this.ClientSize = new System.Drawing.Size(997, 403);
+            this.Controls.Add(this.combobox_id);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.MyContainer);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.COM_Button);
-            this.Controls.Add(this.DataTreatmen_Button);
             this.Controls.Add(this.Connexion_Label);
             this.Controls.Add(this.ConnexionStatus_Label);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -147,11 +144,11 @@
         private System.Windows.Forms.BindingSource usersdataBindingSource;
         private System.Windows.Forms.Label ConnexionStatus_Label;
         private System.Windows.Forms.Label Connexion_Label;
-        private System.Windows.Forms.Button DataTreatmen_Button;
-        private System.Windows.Forms.Button COM_Button;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.FlowLayoutPanel MyContainer;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox combobox_id;
     }
 }
 
