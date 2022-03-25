@@ -11,7 +11,7 @@ namespace CO2_Interface.SerialDataHandler
         //elle est appele dans mainForm
         
 
-        internal static void DataTreatment(DataTable dt, DataGridView dg)
+        internal static void DataTreatment(DataTable dt, DataGridView dg,ComboBox combobox)
         {
             //CHECK LE DEBUT DE TRAMME ET ENLEVE LES 3 PREMIERS ELEMENTS DE LA QUEUE LIST
             while(  (Data.Collections.SerialBuffer.ElementAt(0) != 0x55)  &&
@@ -46,7 +46,7 @@ namespace CO2_Interface.SerialDataHandler
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
 
-                ObjToList(obj, dt, dg);
+                ObjToList(obj, dt, dg, combobox);
             }
                         
             // SI IL A TROUVER LE DEBUT DE TRAMME
@@ -54,7 +54,7 @@ namespace CO2_Interface.SerialDataHandler
 
       
 
-        internal static void ObjToList(Data.FromSensor.Base obj, DataTable dt, DataGridView dg)
+        internal static void ObjToList(Data.FromSensor.Base obj, DataTable dt, DataGridView dg, ComboBox comboBox)
         {
             
             Data.Collections.ObjectList.Add(obj);
@@ -83,8 +83,8 @@ namespace CO2_Interface.SerialDataHandler
                 //si pas trouver alors on creer un nouveau item 
                 if (pas_trouve) 
                 {
-                    ComboBox combo = MainForm.GetComboBox();
-                    combo.Items.Add(obj.ID);
+                    
+                    comboBox.Items.Add(obj.ID);
                     dt.Rows.Add(new object[] { obj.Serial, obj.ID, obj.Type,  obj.BinaryData, obj.Checksum });
                 }
             }

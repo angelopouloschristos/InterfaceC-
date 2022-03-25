@@ -13,10 +13,10 @@ namespace CO2_Interface.Controls
 {
     public partial class GraphsControl : UserControl
     {
-        private Queue<int> MyList;
         Series GraphPoints;
         Title GraphTitle;
         ChartArea Area;
+        public string current_id;
         public int cpt = 0;
         public GraphsControl()
         {
@@ -27,9 +27,8 @@ namespace CO2_Interface.Controls
         
         public void GraphBuilder()
         {
-            MyList = new Queue<int>();
             GraphPoints = new Series("Taux de co2");
-            GraphTitle = new Title("Local avec id 4");
+            GraphTitle = new Title("Local avec id "+current_id);
             Area = new ChartArea("MyChartArea");
 
 

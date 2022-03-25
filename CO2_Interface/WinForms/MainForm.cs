@@ -14,6 +14,8 @@ namespace CO2_Interface
         private Controls.GraphsControl graphsConrol;
         private DataGridView ObjectsGrid;
         public int value = 0;
+        //pour voir quel control est IN USE
+        public string current_control = "start";
         //public static ComboBox combobox_id;
 
 
@@ -51,38 +53,54 @@ namespace CO2_Interface
         //MessageBox.Show(db.Tables.Count.ToString());
     }
 
-        public static ComboBox GetComboBox() { return combobox_id; }
+        
         
         private void button1_Click(object sender, EventArgs e)
         {
+
+            if (current_control == "start")
+            {
+                
+                timer1 = new Timer();
+                timer1.Tick += new EventHandler(timer1_Tick);
+                timer1.Interval = 1000; // in miliseconds
+                timer1.Start();
+            }
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(mainConrol);
             ObjectsGrid = mainConrol.ObjectsGrid1;
-
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000; // in miliseconds
-            timer1.Start();
+            current_control = "main";
         }
 
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid);
+            SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
             graphsConrol.cpt++;
-            //selected_id -> id choisi
-            MessageBox.Show("/"+ combobox_id.SelectedValue.ToString());
-            foreach (Data.FromSensor.Base item in Data.Collections.ObjectList) 
+            if (combobox_id.Text!=null)
             {
-                
-                if (item.ID.ToString()==combobox_id.SelectedValue.ToString())
+                graphsConrol.current_id = combobox_id.Text.ToString();
+                //selected_id -> id choisi
+                //MessageBox.Show("/"+ combobox_id.SelectedValue.ToString());
+                if (current_control=="graph")
                 {
-                    graphsConrol.GraphUpdate((int)item.BinaryData);
-                    
-                }
                 
+                    foreach (Data.FromSensor.Base item in Data.Collections.ObjectList)
+                    {
+                        if (item.ID.ToString()==combobox_id.SelectedItem.ToString())
+                        {
+                            graphsConrol.GraphUpdate((int)item.BinaryData);
+                        }
+                    
+                    }
+                }
             }
             
+            
+            
+            
+            
+
         }
 
 
@@ -97,7 +115,8 @@ namespace CO2_Interface
         {
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(graphsConrol);
-            MessageBox.Show(combobox_id.SelectedValue.ToString());
+            current_control = "graph";
+            //MessageBox.Show(combobox_id.SelectedValue.ToString());
         }
     }
 }
