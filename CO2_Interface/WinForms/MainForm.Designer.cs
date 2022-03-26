@@ -39,6 +39,10 @@
             this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.combobox_id = new System.Windows.Forms.ComboBox();
+            this.lb_clock = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.logo_helb = new System.Windows.Forms.Button();
+            this.account_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,6 +112,7 @@
             // 
             // combobox_id
             // 
+            this.combobox_id.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_id.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.combobox_id.FormattingEnabled = true;
             this.combobox_id.Location = new System.Drawing.Point(908, 78);
@@ -116,11 +121,52 @@
             this.combobox_id.Sorted = true;
             this.combobox_id.TabIndex = 9;
             // 
+            // lb_clock
+            // 
+            this.lb_clock.AutoSize = true;
+            this.lb_clock.Location = new System.Drawing.Point(676, 31);
+            this.lb_clock.Name = "lb_clock";
+            this.lb_clock.Size = new System.Drawing.Size(10, 13);
+            this.lb_clock.TabIndex = 10;
+            this.lb_clock.Text = ".";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Black;
+            this.imageList1.Images.SetKeyName(0, "logo-helb.png");
+            // 
+            // logo_helb
+            // 
+            this.logo_helb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo_helb.BackgroundImage")));
+            this.logo_helb.Enabled = false;
+            this.logo_helb.Location = new System.Drawing.Point(824, 204);
+            this.logo_helb.Name = "logo_helb";
+            this.logo_helb.Size = new System.Drawing.Size(161, 150);
+            this.logo_helb.TabIndex = 11;
+            this.logo_helb.UseVisualStyleBackColor = true;
+            // 
+            // account_button
+            // 
+            this.account_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("account_button.BackgroundImage")));
+            this.account_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.account_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.account_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.account_button.Location = new System.Drawing.Point(199, 12);
+            this.account_button.Name = "account_button";
+            this.account_button.Size = new System.Drawing.Size(62, 50);
+            this.account_button.TabIndex = 12;
+            this.account_button.UseVisualStyleBackColor = true;
+            this.account_button.Click += new System.EventHandler(this.account_button_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 403);
+            this.Controls.Add(this.account_button);
+            this.Controls.Add(this.logo_helb);
+            this.Controls.Add(this.lb_clock);
             this.Controls.Add(this.combobox_id);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MyContainer);
@@ -149,6 +195,10 @@
         private System.Windows.Forms.FlowLayoutPanel MyContainer;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox combobox_id;
+        private System.Windows.Forms.Label lb_clock;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button logo_helb;
+        private System.Windows.Forms.Button account_button;
     }
 }
 

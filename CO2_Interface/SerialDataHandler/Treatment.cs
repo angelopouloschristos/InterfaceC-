@@ -56,12 +56,12 @@ namespace CO2_Interface.SerialDataHandler
 
         internal static void ObjToList(Data.FromSensor.Base obj, DataTable dt, DataGridView dg, ComboBox comboBox)
         {
-            
+            string type = get_type_name(obj.Type);
             Data.Collections.ObjectList.Add(obj);
             //si le grid view est vide
             if (dt.Rows.Count == 0) 
             {
-                dt.Rows.Add(new object[] { obj.Serial,obj.ID, obj.Type,  obj.BinaryData ,obj.Checksum});
+                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type,  obj.BinaryData ,obj.Checksum});
             }
             else
             {
@@ -85,14 +85,33 @@ namespace CO2_Interface.SerialDataHandler
                 {
                     
                     comboBox.Items.Add(obj.ID);
-                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, obj.Type,  obj.BinaryData, obj.Checksum });
+                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.BinaryData, obj.Checksum });
                 }
             }
             
             dg.DataSource = dt;
         }
-        
 
-        
+        private static string get_type_name(byte b)
+        {
+            if (b==0)
+            {
+                return "alarme";
+            }
+            if (b==1)
+            {
+                return "Co2";
+            }
+            if (b == 2)
+            {
+                return "Temperature";
+            }
+            if (b == 3)
+            {
+                return "Humidite";
+            }
+
+            return "type pas dans le systeme";
+        }
     }
 }

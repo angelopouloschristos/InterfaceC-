@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AccountControl.Designer.cs">
+      <DependentUpon>AccountControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GraphsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\AccountControl.resx">
+      <DependentUpon>AccountControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\GraphsControl.resx">
       <DependentUpon>GraphsControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="res\Connexion.png" />
+    <Content Include="res\logo-helb.png" />
     <Content Include="res\Lumiere.png" />
     <Content Include="res\Measure.png" />
   </ItemGroup>
