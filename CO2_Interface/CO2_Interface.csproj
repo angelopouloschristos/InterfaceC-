@@ -71,6 +71,18 @@
     <Compile Include="Data\Collections.cs" />
     <Compile Include="SerialDataHandler\Treatment.cs" />
     <Compile Include="SerialDataHandler\Reception.cs" />
+    <Compile Include="WinForms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WinForms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
