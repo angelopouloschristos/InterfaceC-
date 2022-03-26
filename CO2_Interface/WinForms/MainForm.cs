@@ -140,18 +140,14 @@ namespace CO2_Interface
                     {
                         if (combobox_id.SelectedItem != null)
                         {
-                            if (item.ID.ToString() == combobox_id.SelectedItem.ToString())
+                            if (item.ID.ToString() == combobox_id.Text)
                             {
-                                graphsConrol.GraphUpdate((int)item.BinaryData);
+                                graphsConrol.GraphUpdate(item.BinaryData);
                             }
                         }
                     }
                 }
             }
-
-
-
-
 
 
         }

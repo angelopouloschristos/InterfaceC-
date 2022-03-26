@@ -51,10 +51,11 @@ namespace CO2_Interface.Controls
             Chart.Series.Add(GraphPoints);
 
         }
-        public void GraphUpdate(int value)
+        public void GraphUpdate(uint value)
         {
             //GraphPoints.Points.Clear();
             GraphPoints.Points.AddXY(cpt, value);
+
         }
     }
 }

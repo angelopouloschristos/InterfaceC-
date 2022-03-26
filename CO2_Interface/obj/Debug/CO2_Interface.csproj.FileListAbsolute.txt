@@ -77,3 +77,5 @@ C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.exe
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.pdb
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmRegister.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmLogin.resources
+C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmRegister.resources
+C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmLogin.resources
