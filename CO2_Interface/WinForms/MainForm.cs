@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Configuration;
+using CO2_Interface.WinForms;
 
 namespace CO2_Interface
 {
@@ -60,6 +61,11 @@ namespace CO2_Interface
             timer_clock.Interval = 1000; // in miliseconds
             timer_clock.Start();
 
+
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 1000; // in miliseconds
+
             Refresh();
 
             //MessageBox.Show(db.Tables.Count.ToString());
@@ -115,9 +121,7 @@ namespace CO2_Interface
 
         private void button1_Click(object sender, EventArgs e)
         {
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000; // in miliseconds
+            
             timer1.Start();
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(mainConrol);
@@ -129,29 +133,9 @@ namespace CO2_Interface
         private void timer1_Tick(object sender, EventArgs e)
         {
             SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
+
             graphsConrol.cpt++;
-            if (combobox_id.Text != null)
-            {
-                graphsConrol.current_id = combobox_id.Text.ToString();
-                //selected_id -> id choisi
-                //MessageBox.Show("/"+ combobox_id.SelectedValue.ToString());
-                if (current_control == "graph")
-                {
-
-                    foreach (Data.FromSensor.Base item in Data.Collections.ObjectList)
-                    {
-                        if (combobox_id.SelectedItem != null)
-                        {
-                            if (item.ID.ToString() == combobox_id.Text)
-                            {
-                                graphsConrol.GraphUpdate(item.BinaryData);
-                            }
-                        }
-                    }
-                }
-            }
-
-
+            
         }
     
 
@@ -172,9 +156,11 @@ namespace CO2_Interface
 
         private void account_button_Click(object sender, EventArgs e)
         {
-            MyContainer.Controls.Clear();
-            MyContainer.Controls.Add(AccountControl);
+            //MyContainer.Controls.Clear();
+            //MyContainer.Controls.Add(AccountControl);
             current_control = "account";
+            Form f = new frmLogin();
+            f.Show();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CO2_Interface.SerialDataHandler
     internal static partial class Reception
     {
         //elle est appele dans mainForm
-        
+        static uint cpt = 0; 
 
         internal static void DataTreatment(DataTable dt, DataGridView dg,ComboBox combobox)
         {
@@ -76,7 +76,7 @@ namespace CO2_Interface.SerialDataHandler
                         if ((string)dt.Rows[i]["ID"] == obj.ID.ToString())
                         {
                             dt.Rows[i]["Data"] = obj.BinaryData;
-                            dt.Rows[i]["Last Updated"] = DateTime.Now.Second-obj.time ;
+                            dt.Rows[i]["Last Updated"] = DateTime.Now.TimeOfDay;
                         }
                     }
                     pas_trouve = false;
@@ -91,6 +91,24 @@ namespace CO2_Interface.SerialDataHandler
             }
             
             dg.DataSource = dt;
+            update_graph(comboBox);
+        }
+
+        private static void update_graph(ComboBox comboBox)
+        {
+            if (/*current_control == "graph" &&*/ comboBox.Text != "")
+            {
+                foreach (Data.FromSensor.Base item in Data.Collections.ObjectList)
+                {
+                    if (item.ID.ToString() == comboBox.Text /*&& item.Type==(byte)1*/)
+                    {
+                        Console.WriteLine(item.ID.ToString() + "/" + comboBox.Text);
+                        GraphsControl.GraphUpdate(item.BinaryData);
+                    }
+
+                }
+
+            }
         }
 
         private static string get_type_name(byte b)

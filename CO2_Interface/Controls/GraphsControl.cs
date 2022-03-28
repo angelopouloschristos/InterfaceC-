@@ -13,11 +13,11 @@ namespace CO2_Interface.Controls
 {
     public partial class GraphsControl : UserControl
     {
-        Series GraphPoints;
-        Title GraphTitle;
-        ChartArea Area;
-        public string current_id;
-        public int cpt = 0;
+        static Series GraphPoints;
+        static Title GraphTitle;
+        static ChartArea Area;
+        public static string current_id="";
+        public static int cpt = 0;
         public GraphsControl()
         {
             InitializeComponent();
@@ -51,9 +51,10 @@ namespace CO2_Interface.Controls
             Chart.Series.Add(GraphPoints);
 
         }
-        public void GraphUpdate(uint value)
+        public static void GraphUpdate(uint value)
         {
             //GraphPoints.Points.Clear();
+            GraphTitle = new Title("Local avec id " + current_id);
             GraphPoints.Points.AddXY(cpt, value);
 
         }
