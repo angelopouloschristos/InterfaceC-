@@ -39,6 +39,8 @@ namespace CO2_Interface
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.ID);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Type);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.BinaryData);
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Last_updated);
+
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Checksum);
             try
             {

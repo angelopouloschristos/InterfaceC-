@@ -61,7 +61,7 @@ namespace CO2_Interface.SerialDataHandler
             //si le grid view est vide
             if (dt.Rows.Count == 0) 
             {
-                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type,  obj.BinaryData ,obj.Checksum});
+                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type,  obj.BinaryData, obj.time ,obj.Checksum});
             }
             else
             {
@@ -73,9 +73,10 @@ namespace CO2_Interface.SerialDataHandler
                     //recherche quel index
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        if ((string)dt.Rows[i]["ID"] ==obj.ID.ToString())
+                        if ((string)dt.Rows[i]["ID"] == obj.ID.ToString())
                         {
                             dt.Rows[i]["Data"] = obj.BinaryData;
+                            dt.Rows[i]["Last Updated"] = DateTime.Now.Second-obj.time ;
                         }
                     }
                     pas_trouve = false;
@@ -85,7 +86,7 @@ namespace CO2_Interface.SerialDataHandler
                 {
                     
                     comboBox.Items.Add(obj.ID);
-                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.BinaryData, obj.Checksum });
+                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.BinaryData,obj.time ,obj.Checksum });
                 }
             }
             
