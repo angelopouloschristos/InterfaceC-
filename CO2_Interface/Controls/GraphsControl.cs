@@ -17,13 +17,22 @@ namespace CO2_Interface.Controls
         static Title GraphTitle;
         static ChartArea Area;
         public static string current_id="";
+        public static ComboBox box = new ComboBox();
         public static int cpt = 0;
         public GraphsControl()
         {
             InitializeComponent();
             GraphBuilder();
+            box = comboBox_time;
+            box.Items.Add("minute");
+            box.Items.Add("heure");
             
         }
+        public static void setCpt() 
+        {
+            cpt++;
+        }
+
         
         public void GraphBuilder()
         {
@@ -43,7 +52,7 @@ namespace CO2_Interface.Controls
             Area.BorderColor = Color.DarkGray;
             Area.AxisY.IsStartedFromZero = false;
             Area.AxisY.Minimum = 5000;
-            Area.AxisY.Maximum = 70000;
+            Area.AxisY.Maximum = 65535;
             Area.AxisX.Minimum = 0;
             
             Chart.Titles.Add(GraphTitle);
@@ -53,8 +62,26 @@ namespace CO2_Interface.Controls
         }
         public static void GraphUpdate(uint value)
         {
-            //GraphPoints.Points.Clear();
-            GraphTitle = new Title("Local avec id " + current_id);
+            if (box.Text == "minute")
+            {
+                //reset le tab si il depasse les 60 sec
+                if (cpt>59)
+                {
+                    GraphPoints.Points.Clear();
+                }
+                cpt = cpt % 60;
+                
+            }
+            else
+            {
+                if (cpt > 3599)
+                {
+                    GraphPoints.Points.Clear();
+                }
+                cpt = cpt % 3600;
+            }
+            //
+            //GraphTitle = new Title("Local avec id " + current_id);
             GraphPoints.Points.AddXY(cpt, value);
 
         }

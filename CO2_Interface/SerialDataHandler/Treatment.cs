@@ -9,7 +9,7 @@ namespace CO2_Interface.SerialDataHandler
     internal static partial class Reception
     {
         //elle est appele dans mainForm
-        static uint cpt = 0; 
+        public static uint last_data_used = 0; 
 
         internal static void DataTreatment(DataTable dt, DataGridView dg,ComboBox combobox)
         {
@@ -46,6 +46,8 @@ namespace CO2_Interface.SerialDataHandler
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
 
+                
+                //checksum???
                 ObjToList(obj, dt, dg, combobox);
             }
                         
@@ -89,25 +91,29 @@ namespace CO2_Interface.SerialDataHandler
                     dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.BinaryData,obj.time ,obj.Checksum });
                 }
             }
-            
+
+            update_graph(comboBox, obj);
             dg.DataSource = dt;
-            update_graph(comboBox);
+            
         }
 
-        private static void update_graph(ComboBox comboBox)
+        private static void update_graph(ComboBox comboBox, Data.FromSensor.Base obj )
         {
             if (/*current_control == "graph" &&*/ comboBox.Text != "")
             {
-                foreach (Data.FromSensor.Base item in Data.Collections.ObjectList)
+                
+                if (obj.ID.ToString() == comboBox.Text /*&& item.Type==(byte)1*/)
                 {
-                    if (item.ID.ToString() == comboBox.Text /*&& item.Type==(byte)1*/)
+                    //Console.WriteLine(obj.ID.ToString() + "/" + comboBox.Text);
+                    //il faut save la deriere donnees
+                    if (last_data_used!=obj.BinaryData)
                     {
-                        Console.WriteLine(item.ID.ToString() + "/" + comboBox.Text);
-                        GraphsControl.GraphUpdate(item.BinaryData);
+                        last_data_used=obj.BinaryData;
                     }
-
+                    
                 }
-
+                GraphsControl.GraphUpdate(last_data_used);
+                
             }
         }
 

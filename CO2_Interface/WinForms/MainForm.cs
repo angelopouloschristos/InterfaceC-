@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Configuration;
 using CO2_Interface.WinForms;
+using CO2_Interface.Controls;
 
 namespace CO2_Interface
 {
@@ -134,7 +135,7 @@ namespace CO2_Interface
         {
             SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
 
-            graphsConrol.cpt++;
+            GraphsControl.setCpt();
             
         }
     

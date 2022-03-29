@@ -98,7 +98,7 @@
             // 
             this.MyContainer.Location = new System.Drawing.Point(51, 81);
             this.MyContainer.Name = "MyContainer";
-            this.MyContainer.Size = new System.Drawing.Size(752, 283);
+            this.MyContainer.Size = new System.Drawing.Size(753, 283);
             this.MyContainer.TabIndex = 7;
             // 
             // label1
