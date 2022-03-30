@@ -15,16 +15,18 @@ namespace CO2_Interface.SerialDataHandler
 
         internal static void DataTreatment(DataTable dt, DataGridView dg,ComboBox combobox)
         {
+
             //CHECK LE DEBUT DE TRAMME ET ENLEVE LES 3 PREMIERS ELEMENTS DE LA QUEUE LIST
-            while(  (Data.Collections.SerialBuffer.ElementAt(0) != 0x55)  &&
+            while (  (Data.Collections.SerialBuffer.ElementAt(0) != 0x55)  &&
                     (Data.Collections.SerialBuffer.ElementAt(1) != 0x55)  &&
                     (Data.Collections.SerialBuffer.ElementAt(2) != 0xAA) &&
                     (Data.Collections.SerialBuffer.Count > 3)) Data.Collections.SerialBuffer.Dequeue();
             //-------!!!!!!!!!!!!!!!!!!1 CHANGEMENT DE BASE VERS MESURE
-            Data.FromSensor.Measure obj = new Data.FromSensor.Measure();
             
             while (Data.Collections.SerialBuffer.Count > 13)
             {
+                Data.FromSensor.Measure obj = new Data.FromSensor.Measure();
+
                 //DEBUT TRAME
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
@@ -90,13 +92,12 @@ namespace CO2_Interface.SerialDataHandler
                     
                     comboBox.Items.Add(obj.ID);
                     dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.ConvertedData,obj.time ,obj.Checksum });
-                    Console.WriteLine(obj.ID);
+                    //Console.WriteLine(obj.ID);
                     Data.Collections.ObjectList.Add(obj);
                 }
             }
 
             update_data_table(dt);
-            dg.DataSource = new DataTable();
             dg.DataSource = dt;
             update_graph(comboBox, obj);
         }
@@ -104,12 +105,11 @@ namespace CO2_Interface.SerialDataHandler
         private static void update_data_table(DataTable dt)
         {
             
-            dt.Clear(); 
+            dt.Rows.Clear(); 
             foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
             {
-                
                 dt.Rows.Add(new object[] { obj.Serial, obj.ID, get_type_name(obj.Type), obj.ConvertedData, obj.time, obj.Checksum });
-                
+     
             }
             
         }
