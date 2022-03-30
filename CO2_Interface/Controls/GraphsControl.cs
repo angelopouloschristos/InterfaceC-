@@ -62,17 +62,7 @@ namespace CO2_Interface.Controls
         }
         public static void GraphUpdate(uint value)
         {
-            if (box.Text == "minute")
-            {
-                //reset le tab si il depasse les 60 sec
-                if (cpt>59)
-                {
-                    GraphPoints.Points.Clear();
-                }
-                cpt = cpt % 60;
-                
-            }
-            else
+            if (box.Text == "heure")
             {
                 if (cpt > 3599)
                 {
@@ -80,7 +70,16 @@ namespace CO2_Interface.Controls
                 }
                 cpt = cpt % 3600;
             }
-            //
+            else
+            {
+                //reset le tab si il depasse les 60 sec
+                if (cpt>59)
+                {
+                    GraphPoints.Points.Clear();
+                }
+                cpt = cpt % 60;
+            }
+            
             //GraphTitle = new Title("Local avec id " + current_id);
             GraphPoints.Points.AddXY(cpt, value);
 

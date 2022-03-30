@@ -67,7 +67,7 @@ namespace CO2_Interface.SerialDataHandler
             if (Data.Collections.ObjectList.Count == 0) 
             {
                 Data.Collections.ObjectList.Add(obj);
-                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type,  obj.ConvertedData, obj.time ,obj.Checksum});
+                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type,  obj.ConvertedData, obj.time+"s" ,obj.Checksum});
             }
             else
             {
@@ -77,10 +77,12 @@ namespace CO2_Interface.SerialDataHandler
                 {
                     if (item.ID == obj.ID)
                     {
-                        convert_data(obj);
+                        convert_data(item);
 
-                        item.ConvertedData = obj.ConvertedData;
+                        //item.ConvertedData = obj.ConvertedData;
+                        
                         item.time=0;
+                        increment_time(obj.ID);
                         pas_trouve = false;
                     }
                 
@@ -91,7 +93,7 @@ namespace CO2_Interface.SerialDataHandler
                     //obj.Lowe
                     
                     comboBox.Items.Add(obj.ID);
-                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.ConvertedData,obj.time ,obj.Checksum });
+                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.ConvertedData,obj.time + "s", obj.Checksum });
                     //Console.WriteLine(obj.ID);
                     Data.Collections.ObjectList.Add(obj);
                 }
@@ -102,13 +104,25 @@ namespace CO2_Interface.SerialDataHandler
             update_graph(comboBox, obj);
         }
 
+        private static void increment_time(byte id)
+        {
+            foreach (FromSensor.Measure item in Data.Collections.ObjectList)
+            {
+                if (item.ID != id)
+                {
+                    item.time++;
+                }
+
+            }
+        }
+
         private static void update_data_table(DataTable dt)
         {
             
             dt.Rows.Clear(); 
             foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
             {
-                dt.Rows.Add(new object[] { obj.Serial, obj.ID, get_type_name(obj.Type), obj.ConvertedData, obj.time, obj.Checksum });
+                dt.Rows.Add(new object[] { obj.Serial, obj.ID, get_type_name(obj.Type), obj.ConvertedData, obj.time + "s", obj.Checksum });
      
             }
             
@@ -116,39 +130,37 @@ namespace CO2_Interface.SerialDataHandler
 
         private static void convert_data(FromSensor.Measure obj)
         {
+            
             if (obj.LowLimit!=0  && obj.HighLimit!=0)
             {
-                obj.ConvertedData = (Int32)(obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit;
+                Console.WriteLine(obj.ID+":"+obj.LowLimit+"/"+obj.HighLimit);
+                obj.ConvertedData = (int)(obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit;
                 
             }
+            
         }
         public static void change_min_max(int id, int min, int max) 
         {
-            //Console.WriteLine(id + "/" + min + "/" + max);
-
-
             //on recois la valeur  depuis mainform
             foreach (FromSensor.Measure item in Data.Collections.ObjectList)
             {
-                
-                Console.WriteLine(item.ID + "/" );
-
+                //Console.WriteLine(item.ID + "/" );
                 if (item.ID.ToString() == id.ToString())
                 {
-                   
+                    
                     item.LowLimit = min;
                     item.HighLimit = max;
-                    //Console.WriteLine(item.LowLimit + "/" + item.HighLimit + "/" + item.ConvertedData);
+                    MessageBox.Show("lets go : "+ item.LowLimit+" " +item.HighLimit);
                 }
             }
         }
 
         private static void update_graph(ComboBox comboBox, Data.FromSensor.Base obj )
         {
-            if (/*current_control == "graph" &&*/ comboBox.Text != "")
+            if ( comboBox.Text != "")
             {
                 
-                if (obj.ID.ToString() == comboBox.Text /*&& item.Type==(byte)1*/)
+                if (obj.ID.ToString() == comboBox.Text )
                 {
                     //Console.WriteLine(obj.ID.ToString() + "/" + comboBox.Text);
                     //il faut save la deriere donnees
