@@ -136,7 +136,7 @@ namespace CO2_Interface
             SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
 
             GraphsControl.setCpt();
-            
+            //Console.WriteLine(Data.Collections.ObjectList.Count.ToString());
         }
     
 
@@ -162,6 +162,20 @@ namespace CO2_Interface
             current_control = "account";
             Form f = new frmLogin();
             f.Show();
+        }
+
+        private void btn_change_minmax_Click(object sender, EventArgs e)
+        {
+            int min = 0;
+            int.TryParse(min_value.Text, out min);
+
+            int max = 0;
+            int.TryParse(max_value.Text, out max);
+
+            int id = 0;
+            int.TryParse(combobox_id.Text,out id);
+
+            SerialDataHandler.Reception.change_min_max(id,min,max);
         }
     }
 }

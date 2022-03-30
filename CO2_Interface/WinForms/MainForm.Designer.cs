@@ -43,6 +43,11 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.logo_helb = new System.Windows.Forms.Button();
             this.account_button = new System.Windows.Forms.Button();
+            this.btn_change_minmax = new System.Windows.Forms.Button();
+            this.max_value = new System.Windows.Forms.TextBox();
+            this.min_value = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +122,7 @@
             this.combobox_id.FormattingEnabled = true;
             this.combobox_id.Location = new System.Drawing.Point(908, 78);
             this.combobox_id.Name = "combobox_id";
-            this.combobox_id.Size = new System.Drawing.Size(66, 21);
+            this.combobox_id.Size = new System.Drawing.Size(77, 21);
             this.combobox_id.Sorted = true;
             this.combobox_id.TabIndex = 9;
             // 
@@ -140,7 +145,7 @@
             // 
             this.logo_helb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo_helb.BackgroundImage")));
             this.logo_helb.Enabled = false;
-            this.logo_helb.Location = new System.Drawing.Point(824, 204);
+            this.logo_helb.Location = new System.Drawing.Point(824, 214);
             this.logo_helb.Name = "logo_helb";
             this.logo_helb.Size = new System.Drawing.Size(161, 150);
             this.logo_helb.TabIndex = 11;
@@ -159,11 +164,58 @@
             this.account_button.UseVisualStyleBackColor = true;
             this.account_button.Click += new System.EventHandler(this.account_button_Click);
             // 
+            // btn_change_minmax
+            // 
+            this.btn_change_minmax.Location = new System.Drawing.Point(824, 178);
+            this.btn_change_minmax.Name = "btn_change_minmax";
+            this.btn_change_minmax.Size = new System.Drawing.Size(161, 30);
+            this.btn_change_minmax.TabIndex = 13;
+            this.btn_change_minmax.Text = "Change min and max";
+            this.btn_change_minmax.UseVisualStyleBackColor = true;
+            this.btn_change_minmax.Click += new System.EventHandler(this.btn_change_minmax_Click);
+            // 
+            // max_value
+            // 
+            this.max_value.Location = new System.Drawing.Point(853, 119);
+            this.max_value.Name = "max_value";
+            this.max_value.Size = new System.Drawing.Size(132, 20);
+            this.max_value.TabIndex = 14;
+            // 
+            // min_value
+            // 
+            this.min_value.Location = new System.Drawing.Point(853, 152);
+            this.min_value.Name = "min_value";
+            this.min_value.Size = new System.Drawing.Size(132, 20);
+            this.min_value.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(821, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "max";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(824, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "min";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 403);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.min_value);
+            this.Controls.Add(this.max_value);
+            this.Controls.Add(this.btn_change_minmax);
             this.Controls.Add(this.account_button);
             this.Controls.Add(this.logo_helb);
             this.Controls.Add(this.lb_clock);
@@ -199,6 +251,11 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button logo_helb;
         private System.Windows.Forms.Button account_button;
+        private System.Windows.Forms.Button btn_change_minmax;
+        private System.Windows.Forms.TextBox max_value;
+        private System.Windows.Forms.TextBox min_value;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

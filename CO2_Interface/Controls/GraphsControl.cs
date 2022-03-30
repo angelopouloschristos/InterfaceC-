@@ -52,7 +52,7 @@ namespace CO2_Interface.Controls
             Area.BorderColor = Color.DarkGray;
             Area.AxisY.IsStartedFromZero = false;
             Area.AxisY.Minimum = 5000;
-            Area.AxisY.Maximum = 65535;
+            Area.AxisY.Maximum = 0;
             Area.AxisX.Minimum = 0;
             
             Chart.Titles.Add(GraphTitle);

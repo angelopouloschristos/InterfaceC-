@@ -15,7 +15,7 @@ namespace CO2_Interface.Data
             internal UInt32 BinaryData;
             internal UInt16 Serial;
             internal byte Type;
-            internal DateTime time;
+            internal int time;
             internal UInt32 Checksum;
             internal Base(byte serial,byte id, byte type,  UInt32 data,UInt32 cs)
             {
@@ -28,7 +28,8 @@ namespace CO2_Interface.Data
                 //type de mesure
                 Type = type;
                 Checksum = cs;
-                time = DateTime.Now;
+                //il doit se incrementer tout seul
+                time = 0;
             }
         }
         internal class Measure : Base
