@@ -36,7 +36,7 @@ namespace CO2_Interface.Data
         {
             internal Int32 LowLimit;
             internal Int32 HighLimit;
-            internal Int32 ConvertedData;
+            internal double ConvertedData;
             internal UInt32 AlarmMaxPeriod;
             internal static class AlarmMin
             {

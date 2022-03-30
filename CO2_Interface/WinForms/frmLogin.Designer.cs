@@ -38,6 +38,8 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataSet1 = new System.Data.DataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -47,7 +49,7 @@
             this.label4.ForeColor = System.Drawing.Color.MediumPurple;
             this.label4.Location = new System.Drawing.Point(442, 641);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 23);
+            this.label4.Size = new System.Drawing.Size(111, 19);
             this.label4.TabIndex = 23;
             this.label4.Text = "Create Account";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -57,7 +59,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(396, 618);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 23);
+            this.label3.Size = new System.Drawing.Size(171, 19);
             this.label3.TabIndex = 22;
             this.label3.Text = "Don\'t Have an Account ?";
             // 
@@ -95,7 +97,7 @@
             this.checkbxShowPas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkbxShowPas.Location = new System.Drawing.Point(593, 329);
             this.checkbxShowPas.Name = "checkbxShowPas";
-            this.checkbxShowPas.Size = new System.Drawing.Size(151, 27);
+            this.checkbxShowPas.Size = new System.Drawing.Size(129, 23);
             this.checkbxShowPas.TabIndex = 19;
             this.checkbxShowPas.Text = "Show Password";
             this.checkbxShowPas.UseVisualStyleBackColor = true;
@@ -116,7 +118,7 @@
             this.txtpassword.AutoSize = true;
             this.txtpassword.Location = new System.Drawing.Point(115, 329);
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(84, 23);
+            this.txtpassword.Size = new System.Drawing.Size(73, 19);
             this.txtpassword.TabIndex = 15;
             this.txtpassword.Text = "Password";
             // 
@@ -135,7 +137,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(115, 241);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(76, 19);
             this.label2.TabIndex = 13;
             this.label2.Text = "Username";
             // 
@@ -146,13 +148,17 @@
             this.label1.ForeColor = System.Drawing.Color.MediumPurple;
             this.label1.Location = new System.Drawing.Point(408, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 34);
+            this.label1.Size = new System.Drawing.Size(155, 27);
             this.label1.TabIndex = 12;
             this.label1.Text = "Get Started";
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "NewDataSet";
+            // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 700);
@@ -169,10 +175,11 @@
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Silver;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +197,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Data.DataSet dataSet1;
     }
 }

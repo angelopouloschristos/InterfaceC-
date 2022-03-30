@@ -67,22 +67,23 @@ namespace CO2_Interface.SerialDataHandler
             if (Data.Collections.ObjectList.Count == 0) 
             {
                 Data.Collections.ObjectList.Add(obj);
-                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type,  obj.ConvertedData, obj.time+"s" ,obj.Checksum});
+                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type, get_unite(obj), obj.time+"s" ,obj.Checksum});
+                comboBox.Items.Add(obj.ID);
             }
             else
             {
                 //sinon on cherche dans le tab si le id existe deja
                 bool pas_trouve = true;
+
+                // LE INCREMENT TIME VA TROP VITE??? ON PEUT FAIRE UN TIMER QUI APPEL LA METHODE
+                increment_time(obj.ID);
                 foreach (FromSensor.Measure item in Data.Collections.ObjectList) 
                 {
                     if (item.ID == obj.ID)
                     {
                         convert_data(item);
-
-                        //item.ConvertedData = obj.ConvertedData;
-                        
                         item.time=0;
-                        increment_time(obj.ID);
+                        
                         pas_trouve = false;
                     }
                 
@@ -90,18 +91,38 @@ namespace CO2_Interface.SerialDataHandler
                 //si pas trouver alors on creer un nouveau item 
                 if (pas_trouve) 
                 {
-                    //obj.Lowe
-                    
                     comboBox.Items.Add(obj.ID);
-                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type,  obj.ConvertedData,obj.time + "s", obj.Checksum });
+                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type, get_unite(obj), obj.time + "s", obj.Checksum });
                     //Console.WriteLine(obj.ID);
                     Data.Collections.ObjectList.Add(obj);
                 }
             }
-
+            
             update_data_table(dt);
             dg.DataSource = dt;
             update_graph(comboBox, obj);
+        }
+
+        private static string get_unite(FromSensor.Measure obj)
+        {
+            if (obj.Type == 0)
+            {
+                return (int)obj.ConvertedData+" alarme";
+            }
+            if (obj.Type == 1)
+            {
+                return (int)obj.ConvertedData + " ppm";
+            }
+            if (obj.Type == 2)
+            {
+                return (int)obj.ConvertedData + " °C";
+            }
+            if (obj.Type == 3)
+            {
+                return (int)obj.ConvertedData+" %";
+            }
+
+            return "error";
         }
 
         private static void increment_time(byte id)
@@ -111,6 +132,10 @@ namespace CO2_Interface.SerialDataHandler
                 if (item.ID != id)
                 {
                     item.time++;
+                    if (item.time>10)
+                    {
+                        //MessageBox.Show("Le capteur avec id: "+item.ID+" a pas ete rafrechis", "Alarme", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
             }
@@ -122,7 +147,7 @@ namespace CO2_Interface.SerialDataHandler
             dt.Rows.Clear(); 
             foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
             {
-                dt.Rows.Add(new object[] { obj.Serial, obj.ID, get_type_name(obj.Type), obj.ConvertedData, obj.time + "s", obj.Checksum });
+                dt.Rows.Add(new object[] { obj.Serial, obj.ID, get_type_name(obj.Type), get_unite(obj), obj.time + "s", obj.Checksum });
      
             }
             
@@ -134,7 +159,7 @@ namespace CO2_Interface.SerialDataHandler
             if (obj.LowLimit!=0  && obj.HighLimit!=0)
             {
                 Console.WriteLine(obj.ID+":"+obj.LowLimit+"/"+obj.HighLimit);
-                obj.ConvertedData = (int)(obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit;
+                obj.ConvertedData = (double)((double)obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit;
                 
             }
             
@@ -150,7 +175,7 @@ namespace CO2_Interface.SerialDataHandler
                     
                     item.LowLimit = min;
                     item.HighLimit = max;
-                    MessageBox.Show("lets go : "+ item.LowLimit+" " +item.HighLimit);
+                    //MessageBox.Show("lets go : "+ item.LowLimit+" " +item.HighLimit);
                 }
             }
         }
