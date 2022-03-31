@@ -136,6 +136,13 @@ namespace CO2_Interface
             SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
 
             GraphsControl.setCpt();
+            SerialDataHandler.Reception.update_graph(combobox_id);
+            foreach (Data.FromSensor.Measure item in Data.Collections.ObjectList)
+            {
+                item.time++;
+                
+
+            }
             //Console.WriteLine(Data.Collections.ObjectList.Count.ToString());
         }
     
