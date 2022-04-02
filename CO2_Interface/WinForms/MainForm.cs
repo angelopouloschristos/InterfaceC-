@@ -14,11 +14,11 @@ namespace CO2_Interface
         private Controls.MainControl mainConrol;
         private Controls.GraphsControl graphsConrol;
         private Controls.AccountControl AccountControl;
+        private Controls.AlarmControl alarmControl;
         private DataGridView ObjectsGrid;
         public int value = 0;
         //pour voir quel control est IN USE
         public string current_control = "start";
-        //public static ComboBox combobox_id;
 
 
         public MainForm()
@@ -28,24 +28,19 @@ namespace CO2_Interface
             this.mainConrol = new Controls.MainControl();
             this.graphsConrol = new Controls.GraphsControl();
             this.AccountControl = new Controls.AccountControl();
-
-            string applicationDirectory = Application.ExecutablePath;
-            //MessageBox.Show(applicationDirectory);
-            //combobox_id = combobox_id;
-            //selected_id = combobox_id.SelectedValue.ToString();
-            string sPath = System.Windows.Forms.Application.StartupPath.ToLower();
-            MessageBox.Show(sPath);
+            this.alarmControl = new Controls.AlarmControl();
 
             //reception de donnees
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
 
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Serial);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.ID);
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Config_status);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Type);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.BinaryData);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Last_updated);
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Alarm);
 
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Checksum);
+
             try
             {
                 SerialPort.Open();
@@ -136,16 +131,23 @@ namespace CO2_Interface
         private void timer1_Tick(object sender, EventArgs e)
         {
             SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
-
-            GraphsControl.setCpt();
-            SerialDataHandler.Reception.update_graph(combobox_id);
+            if (current_control=="graph")
+            {
+                GraphsControl.setCpt();
+                SerialDataHandler.Reception.update_graph(combobox_id);
+            }
+            
             foreach (Data.FromSensor.Measure item in Data.Collections.ObjectList)
             {
                 item.time++;
                 
-
+                if (item.time > 10 && !item.outdated)
+                {
+                    //MessageBox.Show("Le capteur avec id: " + item.ID + " a pas ete rafrechis", "Alarme", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    item.outdated = true;
+                }
+                
             }
-            //Console.WriteLine(Data.Collections.ObjectList.Count.ToString());
         }
     
 
@@ -161,16 +163,13 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(graphsConrol);
             current_control = "graph";
-            //MessageBox.Show(combobox_id.SelectedValue.ToString());
         }
 
         private void account_button_Click(object sender, EventArgs e)
         {
-            //MyContainer.Controls.Clear();
-            //MyContainer.Controls.Add(AccountControl);
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(AccountControl);
             current_control = "account";
-            Form frmLogin = new FrmLogin();
-            frmLogin.Show();
         }
 
         private void btn_change_minmax_Click(object sender, EventArgs e)
@@ -185,6 +184,13 @@ namespace CO2_Interface
             int.TryParse(combobox_id.Text,out id);
 
             SerialDataHandler.Reception.change_min_max(id,min,max);
+        }
+
+        private void alarm_button_Click(object sender, EventArgs e)
+        {
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(alarmControl);
+            current_control = "alarm";
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CO2_Interface.Controls
 {
-    partial class MainControl
+    partial class AlarmControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,38 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ObjectsGrid1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid1)).BeginInit();
+            this.alarm_grid_view = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.alarm_grid_view)).BeginInit();
             this.SuspendLayout();
             // 
-            // ObjectsGrid1
+            // alarm_grid_view
             // 
-            this.ObjectsGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ObjectsGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ObjectsGrid1.Location = new System.Drawing.Point(0, 0);
-            this.ObjectsGrid1.Margin = new System.Windows.Forms.Padding(2);
-            this.ObjectsGrid1.Name = "ObjectsGrid1";
-            this.ObjectsGrid1.ReadOnly = true;
-            this.ObjectsGrid1.RowHeadersVisible = false;
-            this.ObjectsGrid1.RowHeadersWidth = 51;
-            this.ObjectsGrid1.RowTemplate.Height = 24;
-            this.ObjectsGrid1.Size = new System.Drawing.Size(769, 271);
-            this.ObjectsGrid1.TabIndex = 4;
+            this.alarm_grid_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.alarm_grid_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.alarm_grid_view.Location = new System.Drawing.Point(0, 0);
+            this.alarm_grid_view.Name = "alarm_grid_view";
+            this.alarm_grid_view.ReadOnly = true;
+            this.alarm_grid_view.RowHeadersVisible = false;
+            this.alarm_grid_view.Size = new System.Drawing.Size(769, 271);
+            this.alarm_grid_view.TabIndex = 4;
             // 
-            // MainControl
+            // AlarmControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ObjectsGrid1);
-            this.Name = "MainControl";
+            this.Controls.Add(this.alarm_grid_view);
+            this.Name = "AlarmControl";
             this.Size = new System.Drawing.Size(816, 285);
-            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alarm_grid_view)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public System.Windows.Forms.DataGridView ObjectsGrid1;
+        private System.Windows.Forms.DataGridView alarm_grid_view;
     }
 }

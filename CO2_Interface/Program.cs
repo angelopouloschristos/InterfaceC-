@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LoginRegis;
+using System;
 using System.Windows.Forms;
 
 namespace CO2_Interface
@@ -13,7 +14,7 @@ namespace CO2_Interface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new FrmLogin());
         }
     }
 }

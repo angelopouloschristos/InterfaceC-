@@ -100,3 +100,6 @@ C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.pdb
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmControl.resources

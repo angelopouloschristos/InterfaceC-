@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CO2_Interface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,9 @@ namespace LoginRegis
         {
             InitializeComponent();
         }
+
+        
+
 
         oCenter oC = new oCenter();
 
@@ -73,7 +77,11 @@ namespace LoginRegis
                 oCenter.sLastName = dsAction.Tables["tbUser"].Rows[0]["LastName"].ToString();
                 oCenter.sEmail = dsAction.Tables["tbUser"].Rows[0]["Email"].ToString();
 
-                this.Close();
+                
+                Form main_form = new MainForm();
+                main_form.Closed += (s, args) => this.Close();
+                main_form.Show();
+                this.Hide();
 
             }
             else

@@ -10,7 +10,7 @@ namespace CO2_Interface.SerialDataHandler
     internal static partial class Reception
     {
         //elle est appele dans mainForm
-        public static uint last_data_used = 0; 
+        public static double last_data_used = 0; 
 
 
         internal static void DataTreatment(DataTable dt, DataGridView dg,ComboBox combobox)
@@ -67,7 +67,14 @@ namespace CO2_Interface.SerialDataHandler
             if (Data.Collections.ObjectList.Count == 0) 
             {
                 Data.Collections.ObjectList.Add(obj);
-                dt.Rows.Add(new object[] { obj.Serial,obj.ID, type, get_unite(obj), obj.time+"s" ,obj.Checksum});
+                if (obj.config_status)
+                {
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+                }
+                else
+                {
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
+                }
                 comboBox.Items.Add(obj.ID);
             }
             else
@@ -75,15 +82,14 @@ namespace CO2_Interface.SerialDataHandler
                 //sinon on cherche dans le tab si le id existe deja
                 bool pas_trouve = true;
 
-                // LE INCREMENT TIME VA TROP VITE??? ON PEUT FAIRE UN TIMER QUI APPEL LA METHODE
-                //increment_time(obj.ID);
                 foreach (FromSensor.Measure item in Data.Collections.ObjectList) 
                 {
                     if (item.ID == obj.ID)
                     {
+                        item.BinaryData = obj.BinaryData;
                         convert_data(item);
                         item.time=0;
-                        
+                        item.outdated = false;
                         pas_trouve = false;
                     }
                 
@@ -92,7 +98,14 @@ namespace CO2_Interface.SerialDataHandler
                 if (pas_trouve) 
                 {
                     comboBox.Items.Add(obj.ID);
-                    dt.Rows.Add(new object[] { obj.Serial, obj.ID, type, get_unite(obj), obj.time + "s", obj.Checksum });
+                    if (obj.config_status)
+                    {
+                        dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+                    }
+                    else
+                    {
+                        dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
+                    }
                     //Console.WriteLine(obj.ID);
                     Data.Collections.ObjectList.Add(obj);
                 }
@@ -100,54 +113,44 @@ namespace CO2_Interface.SerialDataHandler
             
             update_data_table(dt);
             dg.DataSource = dt;
-            //update_graph(comboBox, obj);
         }
 
-        private static string get_unite(FromSensor.Measure obj)
+        public static string get_unite(FromSensor.Measure obj)
         {
             if (obj.Type == 0)
             {
-                return (int)obj.ConvertedData+" alarme";
+                return " alarme";
             }
             if (obj.Type == 1)
             {
-                return (int)obj.ConvertedData + " ppm";
+                return " ppm";
             }
             if (obj.Type == 2)
             {
-                return (int)obj.ConvertedData + " °C";
+                return " °C";
             }
             if (obj.Type == 3)
             {
-                return (int)obj.ConvertedData+" %";
+                return " %";
             }
 
             return "error";
         }
 
-        private static void increment_time(byte id)
-        {
-            foreach (FromSensor.Measure item in Data.Collections.ObjectList)
-            {
-                if (item.ID != id)
-                {
-                    if (item.time>10)
-                    {
-                        MessageBox.Show("Le capteur avec id: "+item.ID+" a pas ete rafrechis", "Alarme", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-            }
-        }
 
         private static void update_data_table(DataTable dt)
         {
-            
             dt.Rows.Clear(); 
             foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
             {
-                dt.Rows.Add(new object[] { obj.Serial, obj.ID, get_type_name(obj.Type), get_unite(obj), obj.time + "s", obj.Checksum });
-     
+                if (obj.config_status)
+                {
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+                }
+                else
+                {
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
+                }
             }
             
         }
@@ -155,13 +158,29 @@ namespace CO2_Interface.SerialDataHandler
         private static void convert_data(FromSensor.Measure obj)
         {
             
-            if (obj.LowLimit!=0  && obj.HighLimit!=0)
+            if (obj.config_status)
             {
-                Console.WriteLine(obj.ID+":"+obj.LowLimit+"/"+obj.HighLimit);
+                //Console.WriteLine(obj.ID+":"+obj.LowLimit+"/"+obj.HighLimit);
                 obj.ConvertedData = (double)((double)obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit;
-                
+
+                obj.WarningMin = (int)(obj.HighLimit * 0.40);
+                obj.WarningMax = (int)(obj.HighLimit * 0.70);
+                obj.CriticalMin = (int)(obj.HighLimit * 0.30);
+                obj.CriticalMax = (int)(obj.HighLimit * 0.80);
+
             }
-            
+
+        }
+        private static string get_config_status(bool stat) 
+        {
+            if (stat)
+            {
+                return "Done";
+            }
+            else
+            {
+                return "Not Done";
+            }
         }
         public static void change_min_max(int id, int min, int max) 
         {
@@ -171,10 +190,10 @@ namespace CO2_Interface.SerialDataHandler
                 //Console.WriteLine(item.ID + "/" );
                 if (item.ID.ToString() == id.ToString())
                 {
-                    
+                    item.config_status = true;
                     item.LowLimit = min;
                     item.HighLimit = max;
-                    //MessageBox.Show("lets go : "+ item.LowLimit+" " +item.HighLimit);
+                    
                 }
             }
         }
@@ -185,24 +204,24 @@ namespace CO2_Interface.SerialDataHandler
             {
                 foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
                 {
-                    if (obj.ID.ToString() == comboBox.Text )
+                    if (obj.ID.ToString() == comboBox.Text && obj.config_status)
                     {
                         //Console.WriteLine(obj.ID.ToString() + "/" + comboBox.Text);
                         //il faut save la deriere donnees
-                        if (last_data_used!=obj.BinaryData)
+                        if (last_data_used!=obj.ConvertedData)
                         {
-                            last_data_used=obj.BinaryData;
+                            last_data_used=obj.ConvertedData;
                         }
-
+                        GraphsControl.GraphUpdate(last_data_used, obj.Type, obj.LowLimit, obj.HighLimit, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax);
                     }
-                    GraphsControl.GraphUpdate(last_data_used);
+                    
                 
                 }
                 
             }
         }
 
-        private static string get_type_name(byte b)
+        public static string get_type_name(byte b)
         {
             if (b==0)
             {
@@ -222,6 +241,31 @@ namespace CO2_Interface.SerialDataHandler
             }
 
             return "type pas dans le systeme";
+        }
+        //ON DOIT FAIRE UNE DUPICATION DE LA METHODE CAR ON SE TROUVE DANS UNE CLASSE STATIC
+        public static string getStatus(double data, int cMin, int wMin, int wMax, int cMax)
+        {
+            if (data <= cMin)
+            {
+                return "too low";
+            }
+            else if (data > cMin && data <= wMin)
+            {
+                return "low";
+            }
+            else if (data > wMin && data <= wMax)
+            {
+                return "ok";
+            }
+            else if (data > wMax && data < cMax)
+            {
+                return "high";
+            }
+            else if (data >= cMax)
+            {
+                return "too high";
+            }
+            return "";
         }
     }
 }

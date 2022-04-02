@@ -30,10 +30,6 @@ namespace LoginRegis
                 string sDatabase = "login_regis.accdb";
                 string sConn = "Provider = Microsoft.ACE.OLEDB.12.0; data source =" + sPath + "\\" + sDatabase;
 
-                //string sPath = System.Windows.Forms.Application.StartupPath.ToLower();
-                //string sDatabase = "login_regis.accdb";
-                //string sConn = "Provider = Microsoft.ACE.OLEDB.12.0; data source = " + "C:\\Users\\Christos\\Desktop\\InterfaceC-\\CO2_Interface\\bin\\Debug\\login_regis.accdb";
-
                 if (oleCon.State == ConnectionState.Open)
                 {
                     oleCon.Close();

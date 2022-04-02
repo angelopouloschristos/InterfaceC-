@@ -36,7 +36,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.MyContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.combobox_id = new System.Windows.Forms.ComboBox();
             this.lb_clock = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@
             this.min_value = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.alarm_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,7 +110,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(821, 81);
+            this.label1.Location = new System.Drawing.Point(821, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 8;
@@ -120,7 +121,7 @@
             this.combobox_id.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobox_id.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.combobox_id.FormattingEnabled = true;
-            this.combobox_id.Location = new System.Drawing.Point(908, 78);
+            this.combobox_id.Location = new System.Drawing.Point(908, 81);
             this.combobox_id.Name = "combobox_id";
             this.combobox_id.Size = new System.Drawing.Size(77, 21);
             this.combobox_id.Sorted = true;
@@ -157,7 +158,7 @@
             this.account_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.account_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.account_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.account_button.Location = new System.Drawing.Point(199, 12);
+            this.account_button.Location = new System.Drawing.Point(258, 11);
             this.account_button.Name = "account_button";
             this.account_button.Size = new System.Drawing.Size(62, 50);
             this.account_button.TabIndex = 12;
@@ -166,7 +167,7 @@
             // 
             // btn_change_minmax
             // 
-            this.btn_change_minmax.Location = new System.Drawing.Point(824, 178);
+            this.btn_change_minmax.Location = new System.Drawing.Point(824, 181);
             this.btn_change_minmax.Name = "btn_change_minmax";
             this.btn_change_minmax.Size = new System.Drawing.Size(161, 30);
             this.btn_change_minmax.TabIndex = 13;
@@ -176,14 +177,14 @@
             // 
             // max_value
             // 
-            this.max_value.Location = new System.Drawing.Point(853, 119);
+            this.max_value.Location = new System.Drawing.Point(853, 122);
             this.max_value.Name = "max_value";
             this.max_value.Size = new System.Drawing.Size(132, 20);
             this.max_value.TabIndex = 14;
             // 
             // min_value
             // 
-            this.min_value.Location = new System.Drawing.Point(853, 152);
+            this.min_value.Location = new System.Drawing.Point(853, 155);
             this.min_value.Name = "min_value";
             this.min_value.Size = new System.Drawing.Size(132, 20);
             this.min_value.TabIndex = 15;
@@ -191,7 +192,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(821, 122);
+            this.label2.Location = new System.Drawing.Point(821, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 16;
@@ -200,17 +201,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(824, 155);
+            this.label3.Location = new System.Drawing.Point(824, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 13);
             this.label3.TabIndex = 17;
             this.label3.Text = "min";
+            // 
+            // alarm_button
+            // 
+            this.alarm_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alarm_button.BackgroundImage")));
+            this.alarm_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.alarm_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.alarm_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.alarm_button.Location = new System.Drawing.Point(190, 12);
+            this.alarm_button.Name = "alarm_button";
+            this.alarm_button.Size = new System.Drawing.Size(62, 50);
+            this.alarm_button.TabIndex = 18;
+            this.alarm_button.UseVisualStyleBackColor = true;
+            this.alarm_button.Click += new System.EventHandler(this.alarm_button_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 403);
+            this.Controls.Add(this.alarm_button);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.min_value);
@@ -256,6 +271,7 @@
         private System.Windows.Forms.TextBox min_value;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button alarm_button;
     }
 }
 
