@@ -31,26 +31,11 @@ namespace CO2_Interface.Controls
             timer.Interval = 1000; // in miliseconds
             timer.Start();
 
-            //alarm_grid_view.DataSource = Tables.AlarmData;
-            //Refresh();
-            //alarm_grid_view.Refresh();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
-            {
-                if (obj.config_status)
-                {
-                    Data.Tables.AlarmData.Rows.Add(new object[] { 
-                        obj.ID, SerialDataHandler.Reception.get_type_name(obj.Type), 
-                        obj.CriticalMin + SerialDataHandler.Reception.get_unite(obj), 
-                        obj.WarningMin+ SerialDataHandler.Reception.get_unite(obj), 
-                        obj.WarningMax + SerialDataHandler.Reception.get_unite(obj), 
-                        obj.CriticalMax + SerialDataHandler.Reception.get_unite(obj), 
-                        getStatus(obj.ConvertedData,obj.CriticalMin,obj.WarningMin,obj.WarningMax,obj.CriticalMax) });
-                }
-            }
+            
 
             update_data_table(Tables.AlarmData);
             alarm_grid_view.DataSource = Tables.AlarmData;
@@ -86,13 +71,17 @@ namespace CO2_Interface.Controls
             dt.Rows.Clear();
             foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
             {
-                Data.Tables.AlarmData.Rows.Add(new object[] {
+
+                if (obj.config_status)
+                {
+                    Data.Tables.AlarmData.Rows.Add(new object[] {
                         obj.ID, SerialDataHandler.Reception.get_type_name(obj.Type),
                         obj.CriticalMin + SerialDataHandler.Reception.get_unite(obj),
                         obj.WarningMin+ SerialDataHandler.Reception.get_unite(obj),
                         obj.WarningMax + SerialDataHandler.Reception.get_unite(obj),
                         obj.CriticalMax + SerialDataHandler.Reception.get_unite(obj),
                         getStatus(obj.ConvertedData,obj.CriticalMin,obj.WarningMin,obj.WarningMax,obj.CriticalMax) });
+                }
 
             }
 
