@@ -5,85 +5,64 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
-namespace LoginRegis
+namespace CO2_Interface.WinForms
 {
-    public partial class FrmLogin : Form
+    public partial class frmLogin : Form
     {
-        public FrmLogin()
+        public frmLogin()
         {
             InitializeComponent();
         }
 
-        oCenter oC = new oCenter();
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
+        OleDbCommand cmd = new OleDbCommand();
+        OleDbDataAdapter da = new OleDbDataAdapter();
 
-        private void txtUsername_Enter(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            oC.CheckEnterTextBox(txtUsername, "Username");
-        }
+            con.Open();
+            string login = "SELECT * FROM tbl_users WHERE username= '" + txtUsername.Text + "' and password= '" + txtpassword.Text + "'";
+            cmd = new OleDbCommand(login, con);
+            OleDbDataReader dr = cmd.ExecuteReader();
 
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-            oC.CheckEnterTextBox(txtPassword, "Password");
-        }
-
-        private void txtUsername_Leave(object sender, EventArgs e)
-        {
-            oC.CheckLeaveTextBox(txtUsername, "Username");
-        }
-
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            oC.CheckLeaveTextBox(txtPassword, "Password");
-        }
-
-        private void cmdExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void cmdRegister_Click(object sender, EventArgs e)
-        {
-            FrmRegister Frm = new FrmRegister();
-            Frm.ShowDialog();
-        }
-
-        private void cmdLogin_Click(object sender, EventArgs e)
-        {
-            if (txtUsername.Text.Equals("") || txtUsername.Text.Equals("Username"))
+            if (dr.Read() == true)
             {
-                MessageBox.Show("Input Username", "Msg", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                //The Form which will appear after loggin in
+                new MainForm().Show();
+                //ICI METTRE NOTRE FORM MAIN
+                this.Hide();
             }
-
-            if (txtPassword.Text.Equals("") || txtPassword.Text.Equals("Password"))
+            else
             {
-                MessageBox.Show("Input Password", "Msg", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Invalid Username or Password, Please Try Again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUsername.Text = "";
+                txtpassword.Text = "";
+                txtUsername.Focus();
             }
+        }
 
-            DataSet dsAction = new DataSet("Sample");
-            string sSqlSave = "SELECT * FROM tbUser WHERE Username = '" + txtUsername.Text.Trim() + "' AND LPassword = '" + txtPassword.Text + "'";
-            dsAction = oC.ShowData(sSqlSave, "tbUser", dsAction);
-            if (dsAction.Tables["tbUser"].Rows.Count > 0)
+        private void checkbxShowPas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkbxShowPas.Checked)
             {
-
-                oCenter.sFirstName = dsAction.Tables["tbUser"].Rows[0]["FirstName"].ToString();
-                oCenter.sLastName = dsAction.Tables["tbUser"].Rows[0]["LastName"].ToString();
-                oCenter.sEmail = dsAction.Tables["tbUser"].Rows[0]["Email"].ToString();
-
-                this.Close();
+                textBox1.PasswordChar = '\0';
 
             }
             else
             {
-                MessageBox.Show("Login Fail", "Msg", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUsername.Text = "";
-                txtPassword.Text = "";
+                textBox1.PasswordChar = '•';
 
             }
+        }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+            new frmRegister().Show();
+            this.Hide();
         }
     }
 }

@@ -76,7 +76,7 @@ namespace CO2_Interface.SerialDataHandler
                 bool pas_trouve = true;
 
                 // LE INCREMENT TIME VA TROP VITE??? ON PEUT FAIRE UN TIMER QUI APPEL LA METHODE
-                increment_time(obj.ID);
+                //increment_time(obj.ID);
                 foreach (FromSensor.Measure item in Data.Collections.ObjectList) 
                 {
                     if (item.ID == obj.ID)
@@ -100,7 +100,7 @@ namespace CO2_Interface.SerialDataHandler
             
             update_data_table(dt);
             dg.DataSource = dt;
-            update_graph(comboBox, obj);
+            //update_graph(comboBox, obj);
         }
 
         private static string get_unite(FromSensor.Measure obj)
@@ -131,10 +131,9 @@ namespace CO2_Interface.SerialDataHandler
             {
                 if (item.ID != id)
                 {
-                    item.time++;
                     if (item.time>10)
                     {
-                        //MessageBox.Show("Le capteur avec id: "+item.ID+" a pas ete rafrechis", "Alarme", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Le capteur avec id: "+item.ID+" a pas ete rafrechis", "Alarme", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -180,22 +179,25 @@ namespace CO2_Interface.SerialDataHandler
             }
         }
 
-        private static void update_graph(ComboBox comboBox, Data.FromSensor.Base obj )
+        public static void update_graph(ComboBox comboBox )
         {
             if ( comboBox.Text != "")
             {
-                
-                if (obj.ID.ToString() == comboBox.Text )
+                foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
                 {
-                    //Console.WriteLine(obj.ID.ToString() + "/" + comboBox.Text);
-                    //il faut save la deriere donnees
-                    if (last_data_used!=obj.BinaryData)
+                    if (obj.ID.ToString() == comboBox.Text )
                     {
-                        last_data_used=obj.BinaryData;
+                        //Console.WriteLine(obj.ID.ToString() + "/" + comboBox.Text);
+                        //il faut save la deriere donnees
+                        if (last_data_used!=obj.BinaryData)
+                        {
+                            last_data_used=obj.BinaryData;
+                        }
+
                     }
-                    
+                    GraphsControl.GraphUpdate(last_data_used);
+                
                 }
-                GraphsControl.GraphUpdate(last_data_used);
                 
             }
         }

@@ -98,6 +98,3 @@ C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.exe
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.pdb
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmMain.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
