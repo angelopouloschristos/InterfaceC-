@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -69,19 +69,20 @@
     <Compile Include="Data\Tables.cs" />
     <Compile Include="Data\FromSensor.cs" />
     <Compile Include="Data\Collections.cs" />
+    <Compile Include="oCenter.cs" />
     <Compile Include="SerialDataHandler\Treatment.cs" />
     <Compile Include="SerialDataHandler\Reception.cs" />
-    <Compile Include="WinForms\Form1.cs">
+    <Compile Include="WinForms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="WinForms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\frmLogin.cs">
+    <Compile Include="WinForms\FrmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForms\frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="WinForms\FrmRegister.Designer.cs">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\MainForm.cs">
       <SubType>Form</SubType>
@@ -109,11 +110,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WinForms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="WinForms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="WinForms\FrmRegister.resx">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

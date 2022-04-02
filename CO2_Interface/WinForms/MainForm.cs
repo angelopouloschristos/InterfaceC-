@@ -1,11 +1,8 @@
 ﻿using System;
 using System.IO.Ports;
-using System.Data;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.Configuration;
-using CO2_Interface.WinForms;
 using CO2_Interface.Controls;
+using LoginRegis;
 
 namespace CO2_Interface
 {
@@ -31,8 +28,13 @@ namespace CO2_Interface
             this.mainConrol = new Controls.MainControl();
             this.graphsConrol = new Controls.GraphsControl();
             this.AccountControl = new Controls.AccountControl();
+
+            string applicationDirectory = Application.ExecutablePath;
+            //MessageBox.Show(applicationDirectory);
             //combobox_id = combobox_id;
             //selected_id = combobox_id.SelectedValue.ToString();
+            string sPath = System.Windows.Forms.Application.StartupPath.ToLower();
+            MessageBox.Show(sPath);
 
             //reception de donnees
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
@@ -167,8 +169,8 @@ namespace CO2_Interface
             //MyContainer.Controls.Clear();
             //MyContainer.Controls.Add(AccountControl);
             current_control = "account";
-            Form f = new frmLogin();
-            f.Show();
+            Form frmLogin = new FrmLogin();
+            frmLogin.Show();
         }
 
         private void btn_change_minmax_Click(object sender, EventArgs e)
