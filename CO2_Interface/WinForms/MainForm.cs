@@ -1,7 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.IO.Ports;
+using System.Text;
 using System.Windows.Forms;
 using CO2_Interface.Controls;
+using CO2_Interface.Data;
 using LoginRegis;
 
 namespace CO2_Interface
@@ -53,6 +56,8 @@ namespace CO2_Interface
             if (SerialPort.IsOpen) ConnexionStatus_Label.Text = "Open";
             else ConnexionStatus_Label.Text = "Error with port";
 
+            loadData();
+
             //TIMER POUR LA HORLOGE
             timer_clock = new Timer();
             timer_clock.Tick += new EventHandler(timer_clock_Tick);
@@ -67,6 +72,100 @@ namespace CO2_Interface
             Refresh();
 
             //MessageBox.Show(db.Tables.Count.ToString());
+        }
+
+        private void loadData()
+        {
+            int i, j;
+
+            string FilePath = Directory.GetCurrentDirectory();
+            FilePath += "\\Config.csv";
+
+            try
+            {
+                StreamReader Reader = new StreamReader(FilePath, ASCIIEncoding.Default);
+                string fileContent = Reader.ReadToEnd();
+
+                Reader.Close();
+
+                i = fileContent.IndexOf("\r");
+
+                var Text = string.Empty;
+                for (j = 0; j < i; j++) Text += fileContent[j];
+
+
+                if (Text == "DataSave")
+                {
+                    i = fileContent.IndexOf("Start");
+                    int FileEnd = fileContent.IndexOf("End");
+                    //on fait +=7 car Start a 5 chiffres et \r\n est considere commme 2 chiffre
+                    //on va se trouver juste apres start
+                    i += 7;
+
+                    if (i >= FileEnd) ConfigFile_Status.Text = "Empty";
+
+                    //ConfigFile_Content.Text = "";
+                    String[] display = new String[5];
+                    int current_elem = 0;
+                    FromSensor.Measure obj = new FromSensor.Measure();
+
+                    while (i < FileEnd)
+                    {
+                        display[current_elem] += fileContent[i].ToString();
+                        i++;
+                        if (fileContent[i]==';')
+                        {
+                            if (current_elem==0)
+                            {
+                                obj.ID = Convert.ToByte(display[current_elem]);
+                            }
+                            else if (current_elem == 1)
+                            {
+                                obj.Type = Convert.ToByte(display[current_elem]);
+                            }
+                            else if (current_elem == 2)
+                            {
+                                obj.ConvertedData = Convert.ToByte(display[current_elem]);
+
+                            }
+                            else if (current_elem == 3)
+                            {
+                                obj.LowLimit = Convert.ToByte(display[current_elem]);
+
+                            }
+                            else if (current_elem == 4)
+                            {
+                                obj.HighLimit = Convert.ToByte(display[current_elem]);
+
+                            }
+
+                            i++;
+                            current_elem++;
+                            if (current_elem>4)
+                            {
+                                current_elem = 0;
+                                obj = new FromSensor.Measure();
+                            }
+                            
+                        }
+                    }
+                    ConfigFile_Status.Text = "Load Complete";
+                }
+                else ConfigFile_Status.Text = "Load Corrupted";
+            }
+            catch (FileNotFoundException)
+            {
+                ConfigFile_Status.Text = "Load file Not found";
+            }
+            catch (IOException)
+            {
+                ConfigFile_Status.Text = "Not loaded";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                ConfigFile_Status.Text = "Error";
+            }
         }
 
         private void timer_clock_Tick(object sender, EventArgs e) 
@@ -191,6 +290,70 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(alarmControl);
             current_control = "alarm";
+        }
+
+        //selected data is going to be save to a csv file
+        private void save_button_Click(object sender, EventArgs e)
+        {
+            int id = 0;// the selected id
+            int.TryParse(combobox_id.Text, out id);
+            var fileContent = string.Empty;
+            fileContent += "DataSave\r\n";
+            fileContent += "Saved at "+DateTime.Now + "\r\n";
+            fileContent += "ID ;";
+            fileContent += "Type ;";
+            fileContent += "Data ;";
+            fileContent += "Low Limit ;";
+            fileContent += "High Limit ;";
+            fileContent += "\r\n";
+            fileContent += "Start";
+            fileContent += "\r\n";
+
+
+            foreach (FromSensor.Measure item in Collections.ObjectList)
+            {
+                if (item.config_status)
+                {
+                    fileContent += item.ID+";";
+                    fileContent += item.Type + ";";
+                    fileContent += (int)item.ConvertedData + ";";
+                    fileContent += item.LowLimit + ";";
+                    fileContent += item.HighLimit + ";";
+                    fileContent += "\r\n";
+                }
+                
+            }
+
+            fileContent += "End";
+
+            string filePath = Directory.GetCurrentDirectory();
+            filePath += "\\Config.csv";
+
+            StreamWriter Writer = new StreamWriter(filePath, false);
+            Writer.Write(fileContent);
+            Writer.Close();
+            MessageBox.Show("Saved with succes");
+        }
+        public string get_type_name(byte b)
+        {
+            if (b == 0)
+            {
+                return "alarme";
+            }
+            if (b == 1)
+            {
+                return "Co2";
+            }
+            if (b == 2)
+            {
+                return "Temperature";
+            }
+            if (b == 3)
+            {
+                return "Humidite";
+            }
+
+            return "type pas dans le systeme";
         }
     }
 }

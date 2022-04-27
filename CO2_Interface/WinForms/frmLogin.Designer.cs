@@ -47,8 +47,8 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(334, 38);
-            this.txtPassword.TabIndex = 30;
+            this.txtPassword.Size = new System.Drawing.Size(334, 32);
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "Password";
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
@@ -71,8 +71,8 @@
             this.txtUsername.Location = new System.Drawing.Point(209, 216);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(334, 38);
-            this.txtUsername.TabIndex = 28;
+            this.txtUsername.Size = new System.Drawing.Size(334, 32);
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Username";
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
@@ -97,7 +97,7 @@
             this.cmdRegister.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(330, 70);
-            this.cmdRegister.TabIndex = 23;
+            this.cmdRegister.TabIndex = 4;
             this.cmdRegister.Text = "Register";
             this.cmdRegister.UseVisualStyleBackColor = false;
             this.cmdRegister.Click += new System.EventHandler(this.cmdRegister_Click);
@@ -111,7 +111,7 @@
             this.cmdLogin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdLogin.Name = "cmdLogin";
             this.cmdLogin.Size = new System.Drawing.Size(330, 70);
-            this.cmdLogin.TabIndex = 22;
+            this.cmdLogin.TabIndex = 3;
             this.cmdLogin.Text = "Login";
             this.cmdLogin.UseVisualStyleBackColor = false;
             this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
@@ -125,7 +125,7 @@
             this.cmdExit.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(330, 70);
-            this.cmdExit.TabIndex = 31;
+            this.cmdExit.TabIndex = 4;
             this.cmdExit.Text = "Exit";
             this.cmdExit.UseVisualStyleBackColor = false;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
@@ -156,10 +156,10 @@
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 750);
+            this.ClientSize = new System.Drawing.Size(600, 749);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdExit);

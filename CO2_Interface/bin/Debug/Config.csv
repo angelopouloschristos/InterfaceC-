@@ -1,0 +1,15 @@
+DataSave
+Saved at 20-04-22 11:01:32
+ID ;Type ;Data ;Low Limit ;High Limit ;
+Start
+6;Temperature;0;0;0;
+0;alarme;0;0;0;
+1;Temperature;0;0;0;
+4;Temperature;0;0;0;
+2;Co2;0;0;0;
+7;Co2;0;0;0;
+9;Temperature;0;0;0;
+3;Temperature;0;0;0;
+8;Co2;0;0;0;
+5;Temperature;0;0;0;
+End

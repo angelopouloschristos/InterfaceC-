@@ -49,6 +49,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.alarm_button = new System.Windows.Forms.Button();
+            this.save_button = new System.Windows.Forms.Button();
+            this.ConfigFile_Status = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -220,11 +222,33 @@
             this.alarm_button.UseVisualStyleBackColor = true;
             this.alarm_button.Click += new System.EventHandler(this.alarm_button_Click);
             // 
+            // save_button
+            // 
+            this.save_button.BackColor = System.Drawing.Color.Fuchsia;
+            this.save_button.Location = new System.Drawing.Point(824, 3);
+            this.save_button.Name = "save_button";
+            this.save_button.Size = new System.Drawing.Size(161, 41);
+            this.save_button.TabIndex = 19;
+            this.save_button.Text = "Save data";
+            this.save_button.UseVisualStyleBackColor = false;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
+            // 
+            // ConfigFile_Status
+            // 
+            this.ConfigFile_Status.AutoSize = true;
+            this.ConfigFile_Status.Location = new System.Drawing.Point(824, 51);
+            this.ConfigFile_Status.Name = "ConfigFile_Status";
+            this.ConfigFile_Status.Size = new System.Drawing.Size(35, 13);
+            this.ConfigFile_Status.TabIndex = 20;
+            this.ConfigFile_Status.Text = "label4";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 403);
+            this.Controls.Add(this.ConfigFile_Status);
+            this.Controls.Add(this.save_button);
             this.Controls.Add(this.alarm_button);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -272,6 +296,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button alarm_button;
+        private System.Windows.Forms.Button save_button;
+        private System.Windows.Forms.Label ConfigFile_Status;
     }
 }
 
