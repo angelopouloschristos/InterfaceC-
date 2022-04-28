@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.IO.Ports;
 using System.Text;
@@ -77,16 +78,19 @@ namespace CO2_Interface
         private void loadData()
         {
             int i, j;
-
+            //string FilePath = Application.StartupPath.ToLower();
             string FilePath = Directory.GetCurrentDirectory();
+            
+            //FilePath.Replace(@"\", @"\\");
             FilePath += "\\Config.csv";
-
             try
-            {
+            {   
+                
                 StreamReader Reader = new StreamReader(FilePath, ASCIIEncoding.Default);
-                string fileContent = Reader.ReadToEnd();
+                //MessageBox.Show(FilePath);
 
-                Reader.Close();
+
+                string fileContent = Reader.ReadToEnd();
 
                 i = fileContent.IndexOf("\r");
 
@@ -96,76 +100,129 @@ namespace CO2_Interface
 
                 if (Text == "DataSave")
                 {
+                    //get index line of start
                     i = fileContent.IndexOf("Start");
+                    //get index line of end
                     int FileEnd = fileContent.IndexOf("End");
                     //on fait +=7 car Start a 5 chiffres et \r\n est considere commme 2 chiffre
                     //on va se trouver juste apres start
                     i += 7;
 
+                    //si le start 
                     if (i >= FileEnd) ConfigFile_Status.Text = "Empty";
 
                     //ConfigFile_Content.Text = "";
-                    String[] display = new String[5];
+                    ArrayList display = new ArrayList();
                     int current_elem = 0;
                     FromSensor.Measure obj = new FromSensor.Measure();
 
                     while (i < FileEnd)
                     {
-                        display[current_elem] += fileContent[i].ToString();
+                        display.Add(fileContent[i].ToString());
                         i++;
+                        //si on a trouve un seperateur de element
+                        //le current element dit si on est entrain de prende un id,type,data,...
                         if (fileContent[i]==';')
                         {
                             if (current_elem==0)
                             {
-                                obj.ID = Convert.ToByte(display[current_elem]);
+                                obj.ID =string_to_byte(display);
+                                display.Clear();
                             }
                             else if (current_elem == 1)
                             {
-                                obj.Type = Convert.ToByte(display[current_elem]);
+                                obj.Type = string_to_byte(display);
+                                display.Clear();
+
                             }
                             else if (current_elem == 2)
                             {
-                                obj.ConvertedData = Convert.ToByte(display[current_elem]);
+                                obj.ConvertedData = string_to_int16(display);
+                                display.Clear();
 
                             }
                             else if (current_elem == 3)
                             {
-                                obj.LowLimit = Convert.ToByte(display[current_elem]);
+                                obj.LowLimit = string_to_int16(display);
+                                display.Clear();
 
                             }
                             else if (current_elem == 4)
                             {
-                                obj.HighLimit = Convert.ToByte(display[current_elem]);
+                                obj.HighLimit = string_to_int16(display);
+                                display.Clear();
 
                             }
 
+
                             i++;
                             current_elem++;
+                            //si on a trouve tout les elemets de la ligne
                             if (current_elem>4)
                             {
                                 current_elem = 0;
+                                obj.config_status = true;
+                                Collections.ObjectList.Add(obj);
+                                combobox_id.Items.Add(obj.ID);
+                                SerialDataHandler.Reception.change_min_max(obj.ID,obj.LowLimit,obj.HighLimit);
                                 obj = new FromSensor.Measure();
                             }
                             
                         }
                     }
                     ConfigFile_Status.Text = "Load Complete";
+                    Reader.Close();
+                    foreach (FromSensor.Measure item in Collections.ObjectList)
+                    {
+                        Console.WriteLine("===================================");
+                        Console.WriteLine(item.ID+" "+item.Type+" "+item.ConvertedData+" "+item.LowLimit+" "+item.HighLimit);
+                        Console.WriteLine("===================================");
+
+                    }
                 }
-                else ConfigFile_Status.Text = "Load Corrupted";
+                else ConfigFile_Status.Text = "Load Corrupted incomplete debut fichier";
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException e)
             {
                 ConfigFile_Status.Text = "Load file Not found";
+                MessageBox.Show("Error: " + e.ToString());
             }
-            catch (IOException)
+            catch (IOException e)
             {
                 ConfigFile_Status.Text = "Not loaded";
+                MessageBox.Show("Error: " + e.ToString());
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: "+ex.Message);
                 ConfigFile_Status.Text = "Error";
             }
+
+        }
+
+        private byte string_to_byte(ArrayList display)
+        {
+            string result ="";
+            foreach (var item in display)
+            {
+                result+=item.ToString();
+            }
+            //MessageBox.Show(result);
+            byte temp = byte.Parse(result);
+
+            return temp;
+        }
+        private Int16 string_to_int16(ArrayList display)
+        {
+            string result = "";
+            foreach (var item in display)
+            {
+                result += item.ToString();
+            }
+            //MessageBox.Show(result);
+            Int16 temp = Int16.Parse(result);
+
+            return temp;
         }
 
         private void timer_clock_Tick(object sender, EventArgs e) 

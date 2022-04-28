@@ -12,14 +12,14 @@ namespace CO2_Interface.Data
         internal class Base
         {
             internal byte ID;
-            internal UInt32 BinaryData;
+            internal UInt16 BinaryData;
             internal UInt16 Serial;
             internal byte Type;
             internal int time;
             internal UInt32 Checksum;
             internal bool outdated;
             internal bool config_status;
-            internal Base(byte serial,byte id, byte type,  UInt32 data,UInt32 cs)
+            internal Base(UInt16 serial,byte id, byte type, UInt16 data,UInt32 cs)
             {
                 Serial = serial;
                 //id du octet
@@ -40,7 +40,7 @@ namespace CO2_Interface.Data
         {
             internal Int32 LowLimit;
             internal Int32 HighLimit;
-            internal double ConvertedData;
+            internal Int16 ConvertedData;
             internal UInt32 AlarmMaxPeriod;
             internal Int32 WarningMin;         //User Alarm
             internal Int32 CriticalMin; 

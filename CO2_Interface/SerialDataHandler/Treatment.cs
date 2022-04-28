@@ -161,7 +161,7 @@ namespace CO2_Interface.SerialDataHandler
             if (obj.config_status)
             {
                 //Console.WriteLine(obj.ID+":"+obj.LowLimit+"/"+obj.HighLimit);
-                obj.ConvertedData = (double)((double)obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit;
+                obj.ConvertedData = (Int16)(((double)obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit);
 
                 obj.WarningMin = (int)(obj.HighLimit * 0.40);
                 obj.WarningMax = (int)(obj.HighLimit * 0.70);
