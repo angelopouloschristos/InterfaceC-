@@ -123,15 +123,15 @@ namespace CO2_Interface.SerialDataHandler
             }
             if (obj.Type == 1)
             {
-                return " ppm";
+                return " °C";
             }
             if (obj.Type == 2)
             {
-                return " °C";
+                return " %";
             }
             if (obj.Type == 3)
             {
-                return " %";
+                return " ppm";
             }
 
             return "error";
@@ -223,21 +223,21 @@ namespace CO2_Interface.SerialDataHandler
 
         public static string get_type_name(byte b)
         {
-            if (b==0)
+            if (b == 0)
             {
                 return "alarme";
             }
-            if (b==1)
-            {
-                return "Co2";
-            }
-            if (b == 2)
+            if (b == 1)
             {
                 return "Temperature";
             }
-            if (b == 3)
+            if (b == 2)
             {
                 return "Humidite";
+            }
+            if (b == 3)
+            {
+                return "Co2";
             }
 
             return "type pas dans le systeme";

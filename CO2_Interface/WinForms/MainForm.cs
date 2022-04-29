@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System.IO.Ports;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using CO2_Interface.Controls;
@@ -399,18 +400,55 @@ namespace CO2_Interface
             }
             if (b == 1)
             {
-                return "Co2";
+                return "Temperature";
             }
             if (b == 2)
             {
-                return "Temperature";
+                return "Humidite";
             }
             if (b == 3)
             {
-                return "Humidite";
+                return "Co2";
             }
 
             return "type pas dans le systeme";
+        }
+
+        private void btn_send_Click(object sender, EventArgs e)
+        {
+            int id = -1;// the selected id
+            int.TryParse(combobox_id.Text, out id);
+            int local = -1;
+            int.TryParse(tb_local_input.Text, out local);
+            bool found = false;
+            int type = -1;
+            int taux = -1;
+            foreach (FromSensor.Measure item in Collections.ObjectList)
+            {
+                if (item.config_status && item.ID == id)
+                {
+                    type = item.Type ;
+                    taux = (int)item.ConvertedData ;
+                    found = true;
+                }
+
+            }
+            if (found)
+            {
+                string URL = "http://vps-70f2628e.vps.ovh.net/csharp.php?taux=" + taux + "&type=" + type + "&local=" + local;
+                lb_status.Text = "Status: Sending....";
+                using (WebClient client = new WebClient())
+                {
+                    string src = client.DownloadString(URL);
+                }
+                lb_status.Text = "Status: Done :)";
+            }
+            else
+            {
+                lb_status.Text = "Please enter valid values";
+                return;
+            }
+            
         }
     }
 }

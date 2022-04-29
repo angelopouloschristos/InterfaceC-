@@ -122,15 +122,15 @@ namespace CO2_Interface.Controls
             }
             if (b == 1)
             {
-                return "Co2";
+                return "Temperature";
             }
             if (b == 2)
             {
-                return "Temperature";
+                return "Humidite";
             }
             if (b == 3)
             {
-                return "Humidite";
+                return "Co2";
             }
 
             return "type pas dans le systeme";

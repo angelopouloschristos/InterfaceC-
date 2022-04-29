@@ -51,7 +51,12 @@
             this.alarm_button = new System.Windows.Forms.Button();
             this.save_button = new System.Windows.Forms.Button();
             this.ConfigFile_Status = new System.Windows.Forms.Label();
+            this.gb_send = new System.Windows.Forms.GroupBox();
+            this.btn_send = new System.Windows.Forms.Button();
+            this.tb_local_input = new System.Windows.Forms.TextBox();
+            this.lb_status = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
+            this.gb_send.SuspendLayout();
             this.SuspendLayout();
             // 
             // SerialPort
@@ -242,11 +247,50 @@
             this.ConfigFile_Status.TabIndex = 20;
             this.ConfigFile_Status.Text = "label4";
             // 
+            // gb_send
+            // 
+            this.gb_send.Controls.Add(this.lb_status);
+            this.gb_send.Controls.Add(this.tb_local_input);
+            this.gb_send.Controls.Add(this.btn_send);
+            this.gb_send.Location = new System.Drawing.Point(326, 12);
+            this.gb_send.Name = "gb_send";
+            this.gb_send.Size = new System.Drawing.Size(284, 52);
+            this.gb_send.TabIndex = 21;
+            this.gb_send.TabStop = false;
+            this.gb_send.Text = "Select local to send (id)";
+            // 
+            // btn_send
+            // 
+            this.btn_send.Location = new System.Drawing.Point(215, 17);
+            this.btn_send.Name = "btn_send";
+            this.btn_send.Size = new System.Drawing.Size(58, 23);
+            this.btn_send.TabIndex = 0;
+            this.btn_send.Text = "SEND";
+            this.btn_send.UseVisualStyleBackColor = true;
+            this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
+            // 
+            // tb_local_input
+            // 
+            this.tb_local_input.Location = new System.Drawing.Point(144, 19);
+            this.tb_local_input.Name = "tb_local_input";
+            this.tb_local_input.Size = new System.Drawing.Size(65, 20);
+            this.tb_local_input.TabIndex = 1;
+            // 
+            // lb_status
+            // 
+            this.lb_status.AutoSize = true;
+            this.lb_status.Location = new System.Drawing.Point(15, 21);
+            this.lb_status.Name = "lb_status";
+            this.lb_status.Size = new System.Drawing.Size(78, 13);
+            this.lb_status.TabIndex = 2;
+            this.lb_status.Text = "Status: nothing";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 403);
+            this.Controls.Add(this.gb_send);
             this.Controls.Add(this.ConfigFile_Status);
             this.Controls.Add(this.save_button);
             this.Controls.Add(this.alarm_button);
@@ -270,6 +314,8 @@
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).EndInit();
+            this.gb_send.ResumeLayout(false);
+            this.gb_send.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,6 +344,10 @@
         private System.Windows.Forms.Button alarm_button;
         private System.Windows.Forms.Button save_button;
         private System.Windows.Forms.Label ConfigFile_Status;
+        private System.Windows.Forms.GroupBox gb_send;
+        private System.Windows.Forms.Label lb_status;
+        private System.Windows.Forms.TextBox tb_local_input;
+        private System.Windows.Forms.Button btn_send;
     }
 }
 
