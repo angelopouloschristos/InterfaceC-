@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
 using System.Net;
@@ -16,24 +17,32 @@ namespace CO2_Interface
         Timer timer1;
         Timer timer_clock;
 
-        private Controls.MainControl mainConrol;
-        private Controls.GraphsControl graphsConrol;
-        private Controls.AccountControl AccountControl;
-        private Controls.AlarmControl alarmControl;
+        private MainControl mainConrol;
+        private GraphsControl graphsConrol;
+        private AccountControl AccountControl;
+        private AlarmControl alarmControl;
+        private SettingsControl settingsControl;
+        private ManagerControl managerControl;
         private DataGridView ObjectsGrid;
+        private bool connected = false;
         public int value = 0;
+        public int send_time = 0;
         //pour voir quel control est IN USE
         public string current_control = "start";
+        Random rnd = new Random();
+        private string port_name = "";
 
 
         public MainForm()
         {
             InitializeComponent();
 
-            this.mainConrol = new Controls.MainControl();
-            this.graphsConrol = new Controls.GraphsControl();
-            this.AccountControl = new Controls.AccountControl();
-            this.alarmControl = new Controls.AlarmControl();
+            this.mainConrol = new MainControl();
+            this.graphsConrol = new GraphsControl();
+            this.AccountControl = new AccountControl();
+            this.alarmControl = new AlarmControl();
+            this.settingsControl = new SettingsControl();
+            this.managerControl = new ManagerControl();
 
             //reception de donnees
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
@@ -45,18 +54,7 @@ namespace CO2_Interface
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Last_updated);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Alarm);
 
-
-            try
-            {
-                SerialPort.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (SerialPort.IsOpen) ConnexionStatus_Label.Text = "Open";
-            else ConnexionStatus_Label.Text = "Error with port";
+            
 
             loadData();
 
@@ -73,7 +71,6 @@ namespace CO2_Interface
 
             Refresh();
 
-            //MessageBox.Show(db.Tables.Count.ToString());
         }
 
         private void loadData()
@@ -88,9 +85,6 @@ namespace CO2_Interface
             {   
                 
                 StreamReader Reader = new StreamReader(FilePath, ASCIIEncoding.Default);
-                //MessageBox.Show(FilePath);
-
-
                 string fileContent = Reader.ReadToEnd();
 
                 i = fileContent.IndexOf("\r");
@@ -276,18 +270,37 @@ namespace CO2_Interface
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (connected)
+            {
+                timer1.Start();
+                MyContainer.Controls.Clear();
+                MyContainer.Controls.Add(mainConrol);
+                ObjectsGrid = mainConrol.ObjectsGrid1;
+                current_control = "main";
+            }
+            else 
+            {
+                ConnexionStatus_Label.Text = "Connect to your port";
+                ConnexionStatus_Label.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+            }
             
-            timer1.Start();
-            MyContainer.Controls.Clear();
-            MyContainer.Controls.Add(mainConrol);
-            ObjectsGrid = mainConrol.ObjectsGrid1;
-            current_control = "main";
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //partie sending data every x temps
+            send_time++;
+            if (send_time >= settingsControl.time_to_send)
+            {
+                send_time = 0;
+                send_data_to_server();
+            }
+
+
             SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
+            ObjectsGrid.Sort(ObjectsGrid.Columns[0], ListSortDirection.Ascending);
+
             if (current_control=="graph")
             {
                 GraphsControl.setCpt();
@@ -306,7 +319,32 @@ namespace CO2_Interface
                 
             }
         }
-    
+
+        private void send_data_to_server()
+        {
+            
+            int local = -1;
+            int type = -1;
+            int taux = -1;
+            lb_status.Text = "Sending status: Sending....";
+            foreach (FromSensor.Measure item in Collections.ObjectList)
+            {
+                if (item.config_status )
+                {
+                    local = rnd.Next(1,4);
+                    type = item.Type;
+                    taux = (int)item.ConvertedData;
+                    string URL = "http://vps-70f2628e.vps.ovh.net/csharp.php?taux=" + taux + "&type=" + type + "&local=" + local;
+                    using (WebClient client = new WebClient())
+                    {
+                        string src = client.DownloadString(URL);
+                    }
+                    lb_status.Text = "Sending status: Done :)";
+
+                }
+
+            }
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -325,8 +363,8 @@ namespace CO2_Interface
         private void account_button_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
-            MyContainer.Controls.Add(AccountControl);
-            current_control = "account";
+            MyContainer.Controls.Add(managerControl);
+            current_control = "manager";
         }
 
         private void btn_change_minmax_Click(object sender, EventArgs e)
@@ -413,41 +451,65 @@ namespace CO2_Interface
 
             return "type pas dans le systeme";
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_send_Click(object sender, EventArgs e)
         {
-            int id = -1;// the selected id
-            int.TryParse(combobox_id.Text, out id);
-            int local = -1;
-            int.TryParse(tb_local_input.Text, out local);
-            bool found = false;
-            int type = -1;
-            int taux = -1;
-            foreach (FromSensor.Measure item in Collections.ObjectList)
+           
+            
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void strip_button_settings_Click(object sender, EventArgs e)
+        {
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(settingsControl);
+            current_control = "settings";
+        }
+
+        private void connect_button_Click(object sender, EventArgs e)
+        {
+
+            port_name = combo_box_com.Text;
+            SerialPort.PortName = port_name;
+
+            if (port_name == "")//error
             {
-                if (item.config_status && item.ID == id)
+                ConnexionStatus_Label.Text = "Select port please";
+                ConnexionStatus_Label.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+            }
+            else 
+            {
+                try
                 {
-                    type = item.Type ;
-                    taux = (int)item.ConvertedData ;
-                    found = true;
+                    SerialPort.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
 
-            }
-            if (found)
-            {
-                string URL = "http://vps-70f2628e.vps.ovh.net/csharp.php?taux=" + taux + "&type=" + type + "&local=" + local;
-                lb_status.Text = "Status: Sending....";
-                using (WebClient client = new WebClient())
+                if (SerialPort.IsOpen)
                 {
-                    string src = client.DownloadString(URL);
+                    ConnexionStatus_Label.Text = "Port Open";
+                    ConnexionStatus_Label.ForeColor = System.Drawing.ColorTranslator.FromHtml("#1aff00");
+                    connected = true;
                 }
-                lb_status.Text = "Status: Done :)";
+                else
+                {
+                    ConnexionStatus_Label.Text = "Error with port";
+                    ConnexionStatus_Label.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+
+                }
             }
-            else
-            {
-                lb_status.Text = "Please enter valid values";
-                return;
-            }
+
             
         }
     }

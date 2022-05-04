@@ -15,7 +15,6 @@ namespace CO2_Interface.Controls
         public MainControl()
         {
             InitializeComponent();
-            
         }
     }
 }

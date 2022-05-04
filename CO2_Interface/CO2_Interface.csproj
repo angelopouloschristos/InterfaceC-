@@ -72,6 +72,18 @@
     <Compile Include="Controls\MainControl.Designer.cs">
       <DependentUpon>MainControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ManagerControl.Designer.cs">
+      <DependentUpon>ManagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\Tables.cs" />
     <Compile Include="Data\FromSensor.cs" />
     <Compile Include="Data\Collections.cs" />
@@ -109,6 +121,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MainControl.resx">
       <DependentUpon>MainControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ManagerControl.resx">
+      <DependentUpon>ManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsControl.resx">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

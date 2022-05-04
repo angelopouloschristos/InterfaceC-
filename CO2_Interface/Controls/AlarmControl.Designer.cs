@@ -40,7 +40,7 @@
             this.alarm_grid_view.Name = "alarm_grid_view";
             this.alarm_grid_view.ReadOnly = true;
             this.alarm_grid_view.RowHeadersVisible = false;
-            this.alarm_grid_view.Size = new System.Drawing.Size(769, 271);
+            this.alarm_grid_view.Size = new System.Drawing.Size(760, 275);
             this.alarm_grid_view.TabIndex = 4;
             // 
             // AlarmControl
@@ -49,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.alarm_grid_view);
             this.Name = "AlarmControl";
-            this.Size = new System.Drawing.Size(816, 285);
+            this.Size = new System.Drawing.Size(765, 280);
             ((System.ComponentModel.ISupportInitialize)(this.alarm_grid_view)).EndInit();
             this.ResumeLayout(false);
 

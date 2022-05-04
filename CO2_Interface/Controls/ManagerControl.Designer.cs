@@ -1,6 +1,6 @@
 ﻿namespace CO2_Interface.Controls
 {
-    partial class MainControl
+    partial class ManagerControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,38 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ObjectsGrid1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid1)).BeginInit();
+            this.data_grid_accounts = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.data_grid_accounts)).BeginInit();
             this.SuspendLayout();
             // 
-            // ObjectsGrid1
+            // data_grid_accounts
             // 
-            this.ObjectsGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ObjectsGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ObjectsGrid1.Location = new System.Drawing.Point(0, 0);
-            this.ObjectsGrid1.Margin = new System.Windows.Forms.Padding(2);
-            this.ObjectsGrid1.Name = "ObjectsGrid1";
-            this.ObjectsGrid1.ReadOnly = true;
-            this.ObjectsGrid1.RowHeadersVisible = false;
-            this.ObjectsGrid1.RowHeadersWidth = 51;
-            this.ObjectsGrid1.RowTemplate.Height = 24;
-            this.ObjectsGrid1.Size = new System.Drawing.Size(760, 275);
-            this.ObjectsGrid1.TabIndex = 4;
+            this.data_grid_accounts.AllowUserToAddRows = false;
+            this.data_grid_accounts.AllowUserToDeleteRows = false;
+            this.data_grid_accounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_grid_accounts.Location = new System.Drawing.Point(0, 0);
+            this.data_grid_accounts.Name = "data_grid_accounts";
+            this.data_grid_accounts.ReadOnly = true;
+            this.data_grid_accounts.Size = new System.Drawing.Size(760, 275);
+            this.data_grid_accounts.TabIndex = 0;
             // 
-            // MainControl
+            // ManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ObjectsGrid1);
-            this.Name = "MainControl";
+            this.Controls.Add(this.data_grid_accounts);
+            this.Name = "ManagerControl";
             this.Size = new System.Drawing.Size(765, 280);
-            ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.data_grid_accounts)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public System.Windows.Forms.DataGridView ObjectsGrid1;
+        private System.Windows.Forms.DataGridView data_grid_accounts;
     }
 }

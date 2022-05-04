@@ -26,6 +26,7 @@ namespace CO2_Interface.Controls
             Tables.AlarmData.Columns.Add(Tables.Columns.Criitical_max);
             Tables.AlarmData.Columns.Add(Tables.Columns.Status);
 
+
             timer = new Timer();
             timer.Tick += new EventHandler(timer_Tick);
             timer.Interval = 1000; // in miliseconds
@@ -39,6 +40,8 @@ namespace CO2_Interface.Controls
 
             update_data_table(Tables.AlarmData);
             alarm_grid_view.DataSource = Tables.AlarmData;
+            alarm_grid_view.Sort(alarm_grid_view.Columns[0], ListSortDirection.Ascending);
+
         }
 
         public string getStatus(double data,int cMin,int wMin, int wMax, int cMax)

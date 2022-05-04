@@ -28,6 +28,14 @@ namespace CO2_Interface.Controls
             lblEmail.Text = "Email : " + oCenter.sEmail;
         }
 
-       
+        private void AccountControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
