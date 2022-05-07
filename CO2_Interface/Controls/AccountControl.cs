@@ -23,9 +23,8 @@ namespace CO2_Interface.Controls
         
         private void LoadInfo()
         {
-            lblFirstName.Text = "First Name : " + oCenter.sFirstName;
-            lblLastName.Text = "Last Name : " + oCenter.sLastName;
-            lblEmail.Text = "Email : " + oCenter.sEmail;
+            lblFirstName.Text = "First Name : " + oCenter.sName;
+            lblLastName.Text = "Last Name : " + oCenter.sPassword;
         }
 
         private void AccountControl_Load(object sender, EventArgs e)

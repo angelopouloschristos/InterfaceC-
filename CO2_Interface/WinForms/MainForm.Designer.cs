@@ -53,15 +53,15 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.layout_left = new System.Windows.Forms.FlowLayoutPanel();
+            this.accountControl1 = new CO2_Interface.Controls.AccountControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.combo_box_com = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.combo_box_com = new System.Windows.Forms.ToolStripComboBox();
+            this.connect_button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.strip_button_settings = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.connect_button = new System.Windows.Forms.ToolStripButton();
-            this.accountControl1 = new CO2_Interface.Controls.AccountControl();
             ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.layout_left.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -79,9 +79,9 @@
             this.ConnexionStatus_Label.Location = new System.Drawing.Point(7, 29);
             this.ConnexionStatus_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ConnexionStatus_Label.Name = "ConnexionStatus_Label";
-            this.ConnexionStatus_Label.Size = new System.Drawing.Size(87, 24);
+            this.ConnexionStatus_Label.Size = new System.Drawing.Size(148, 24);
             this.ConnexionStatus_Label.TabIndex = 4;
-            this.ConnexionStatus_Label.Text = "Port here";
+            this.ConnexionStatus_Label.Text = "No port selected";
             // 
             // button1
             // 
@@ -279,6 +279,14 @@
             this.layout_left.Size = new System.Drawing.Size(215, 440);
             this.layout_left.TabIndex = 22;
             // 
+            // accountControl1
+            // 
+            this.accountControl1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.accountControl1.Location = new System.Drawing.Point(3, 3);
+            this.accountControl1.Name = "accountControl1";
+            this.accountControl1.Size = new System.Drawing.Size(210, 201);
+            this.accountControl1.TabIndex = 23;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.RoyalBlue;
@@ -297,6 +305,11 @@
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 57);
+            // 
             // combo_box_com
             // 
             this.combo_box_com.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -306,10 +319,15 @@
             this.combo_box_com.Name = "combo_box_com";
             this.combo_box_com.Size = new System.Drawing.Size(121, 57);
             // 
-            // toolStripSeparator1
+            // connect_button
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 57);
+            this.connect_button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.connect_button.Image = ((System.Drawing.Image)(resources.GetObject("connect_button.Image")));
+            this.connect_button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.connect_button.Name = "connect_button";
+            this.connect_button.Size = new System.Drawing.Size(104, 54);
+            this.connect_button.Text = "Connect";
+            this.connect_button.Click += new System.EventHandler(this.connect_button_Click);
             // 
             // toolStripSeparator2
             // 
@@ -344,24 +362,6 @@
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(253, 100);
             this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // connect_button
-            // 
-            this.connect_button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.connect_button.Image = ((System.Drawing.Image)(resources.GetObject("connect_button.Image")));
-            this.connect_button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.connect_button.Name = "connect_button";
-            this.connect_button.Size = new System.Drawing.Size(104, 54);
-            this.connect_button.Text = "Connect";
-            this.connect_button.Click += new System.EventHandler(this.connect_button_Click);
-            // 
-            // accountControl1
-            // 
-            this.accountControl1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.accountControl1.Location = new System.Drawing.Point(3, 3);
-            this.accountControl1.Name = "accountControl1";
-            this.accountControl1.Size = new System.Drawing.Size(210, 201);
-            this.accountControl1.TabIndex = 23;
             // 
             // MainForm
             // 

@@ -10,6 +10,8 @@ namespace CO2_Interface.Data
         //on y stock tout les donnes
         internal static ArrayList ObjectList = new ArrayList();
         internal static Queue<byte> SerialBuffer = new Queue<byte>();
+        internal static ArrayList Users = new ArrayList();
+        internal static ArrayList AccessList = new ArrayList();
 
     }
 }

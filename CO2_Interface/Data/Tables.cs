@@ -11,6 +11,8 @@ namespace CO2_Interface.Data
     {
         internal static DataTable DataFromSensor = new DataTable();
         public static DataTable AlarmData = new DataTable("alarm");
+        internal static DataTable Users = new DataTable();
+        internal static DataTable Permissions = new DataTable();
         
         internal class Columns
         {
@@ -32,6 +34,24 @@ namespace CO2_Interface.Data
             internal static DataColumn Warning_max = new DataColumn("Warning Max");
             internal static DataColumn Criitical_max = new DataColumn("Criitical Max");
             internal static DataColumn Status = new DataColumn("Status");
+
+            //Users table
+            internal static DataColumn ID_user = new DataColumn("ID");
+            internal static DataColumn user_name = new DataColumn("Name");
+            internal static DataColumn user_password = new DataColumn("Password");
+            internal static DataColumn Access_id = new DataColumn("Access ID");
+
+            //permissions
+            internal static DataColumn ID_access = new DataColumn("ID");
+            internal static DataColumn name = new DataColumn("Rights");
+            internal static DataColumn create_id = new DataColumn("Allow Create ID");
+            internal static DataColumn destroy_id = new DataColumn("Allow Destroy ID");
+            internal static DataColumn config_alarm = new DataColumn("Allow Config Alarm");
+            internal static DataColumn create_user = new DataColumn("User Creation");
+
+
+
+
         }
     }
    

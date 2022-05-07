@@ -142,3 +142,5 @@ C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_In
 C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.pdb
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.SettingsControl.resources
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.ManagerControl.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ManagerControl.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.SettingsControl.resources

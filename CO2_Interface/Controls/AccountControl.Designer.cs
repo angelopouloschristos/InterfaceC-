@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountControl));
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.profile_picture = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -53,16 +52,6 @@
             this.lblLastName.TabIndex = 1;
             this.lblLastName.Text = "last name here";
             // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(27, 145);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(55, 13);
-            this.lblEmail.TabIndex = 2;
-            this.lblEmail.Text = "email here";
-            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
-            // 
             // profile_picture
             // 
             this.profile_picture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profile_picture.BackgroundImage")));
@@ -79,7 +68,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Controls.Add(this.profile_picture);
-            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Name = "AccountControl";
@@ -94,7 +82,6 @@
 
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button profile_picture;
     }
 }

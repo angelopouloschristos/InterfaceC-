@@ -14,9 +14,8 @@ namespace LoginRegis
         OleDbDataAdapter oleDaAc = new OleDbDataAdapter();
         OleDbConnection oleCon = new OleDbConnection();
 
-        public static string sFirstName = "";
-        public static string sLastName = "";
-        public static string sEmail = "";
+        public static string sName = "";
+        public static string sPassword = "";
         private bool bCheckConnect = false;
 
         private void ConnectDB()

@@ -68,14 +68,13 @@ namespace LoginRegis
             }
 
             DataSet dsAction = new DataSet("Sample");
-            string sSqlSave = "SELECT * FROM tbUser WHERE Username = '" + txtUsername.Text.Trim() + "' AND LPassword = '" + txtPassword.Text + "'";
-            dsAction = oC.ShowData(sSqlSave, "tbUser", dsAction);
-            if (dsAction.Tables["tbUser"].Rows.Count > 0)
+            string sSqlSave = "SELECT * FROM UserTable WHERE UserName = '" + txtUsername.Text.Trim() + "' AND UserPassword = '" + txtPassword.Text + "'";
+            dsAction = oC.ShowData(sSqlSave, "UserTable", dsAction);
+            if (dsAction.Tables["UserTable"].Rows.Count > 0)
             {
 
-                oCenter.sFirstName = dsAction.Tables["tbUser"].Rows[0]["FirstName"].ToString();
-                oCenter.sLastName = dsAction.Tables["tbUser"].Rows[0]["LastName"].ToString();
-                oCenter.sEmail = dsAction.Tables["tbUser"].Rows[0]["Email"].ToString();
+                oCenter.sName = dsAction.Tables["UserTable"].Rows[0]["UserName"].ToString();
+                oCenter.sPassword = dsAction.Tables["UserTable"].Rows[0]["UserPassword"].ToString();
 
                 
                 Form main_form = new MainForm();

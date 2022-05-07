@@ -84,9 +84,11 @@
     <Compile Include="Controls\SettingsControl.Designer.cs">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\Access.cs" />
     <Compile Include="Data\Tables.cs" />
     <Compile Include="Data\FromSensor.cs" />
     <Compile Include="Data\Collections.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="oCenter.cs" />
     <Compile Include="SerialDataHandler\Treatment.cs" />
     <Compile Include="SerialDataHandler\Reception.cs" />

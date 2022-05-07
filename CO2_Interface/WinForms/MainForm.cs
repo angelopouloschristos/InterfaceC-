@@ -24,18 +24,20 @@ namespace CO2_Interface
         private SettingsControl settingsControl;
         private ManagerControl managerControl;
         private DataGridView ObjectsGrid;
-        private bool connected = false;
+        private bool connected = false; //connected to port
         public int value = 0;
         public int send_time = 0;
         //pour voir quel control est IN USE
         public string current_control = "start";
         Random rnd = new Random();
         private string port_name = "";
-
-
+        
         public MainForm()
         {
             InitializeComponent();
+
+
+
 
             this.mainConrol = new MainControl();
             this.graphsConrol = new GraphsControl();
@@ -47,12 +49,12 @@ namespace CO2_Interface
             //reception de donnees
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
 
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.ID);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Config_status);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Type);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.BinaryData);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Last_updated);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.Columns.Alarm);
+            Tables.DataFromSensor.Columns.Add(Tables.Columns.ID);
+            Tables.DataFromSensor.Columns.Add(Tables.Columns.Config_status);
+            Tables.DataFromSensor.Columns.Add(Tables.Columns.Type);
+            Tables.DataFromSensor.Columns.Add(Tables.Columns.BinaryData);
+            Tables.DataFromSensor.Columns.Add(Tables.Columns.Last_updated);
+            Tables.DataFromSensor.Columns.Add(Tables.Columns.Alarm);
 
             
 
