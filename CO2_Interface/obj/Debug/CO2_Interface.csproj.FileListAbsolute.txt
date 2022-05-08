@@ -1,147 +1,20 @@
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
-D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
-C:\Users\patry\Desktop\Q4\c#\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.exe
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.pdb
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\bin\Debug\CO2_Interface.exe
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\bin\Debug\CO2_Interface.pdb
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.exe
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.pdb
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.exe
-C:\Users\AN-GE\Documents\GitHub\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.pdb
-<<<<<<< Updated upstream
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
-=======
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
->>>>>>> Stashed changes
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.GraphsControl.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.GraphsControl.resources
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.AccountControl.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.exe
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.pdb
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.AccountControl.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.GraphsControl.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.exe
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.pdb
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmRegister.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmLogin.resources
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmRegister.resources
-C:\Users\patry\OneDrive\Pulpit\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmLogin.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.AccountControl.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmRegister.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmLogin.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.exe.config
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.exe
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\bin\Debug\CO2_Interface.pdb
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.AccountControl.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmControl.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ConfigControl.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.GraphsControl.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ManagerControl.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.SettingsControl.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmRegister.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.frmLogin.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
+C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.exe
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.pdb
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmControl.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmControl.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
-C:\Users\patry\Desktop\OneDrive\c#\Interface C#\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\bin\Debug\CO2_Interface.exe
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\bin\Debug\CO2_Interface.pdb
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.AccountControl.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmControl.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.GraphsControl.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.exe
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.pdb
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\bin\Debug\CO2_Interface.exe.config
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\bin\Debug\CO2_Interface.exe
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\bin\Debug\CO2_Interface.pdb
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.Controls.AccountControl.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmControl.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.Controls.GraphsControl.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.exe
-C:\Users\patry\OneDrive\Pulpit\InterfaceC- - Copy\CO2_Interface\obj\Debug\CO2_Interface.pdb
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.SettingsControl.resources
-C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.ManagerControl.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ManagerControl.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.SettingsControl.resources
-C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ConfigControl.resources
