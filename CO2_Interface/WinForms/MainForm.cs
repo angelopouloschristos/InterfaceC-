@@ -42,11 +42,14 @@ namespace CO2_Interface
 
             this.mainConrol = new MainControl();
             this.graphsConrol = new GraphsControl();
-            this.AccountControl = accountControl1 ;
+            this.AccountControl = new AccountControl() ;
             this.alarmControl = new AlarmControl();
             this.settingsControl = new SettingsControl();
             this.managerControl = new ManagerControl();
             configControl = new ConfigControl();
+
+            login_container.Controls.Clear();
+            login_container.Controls.Add(AccountControl);
 
             //AccountControl.Hide();
 
@@ -532,6 +535,11 @@ namespace CO2_Interface
             }
 
             
+        }
+
+        private void accountControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

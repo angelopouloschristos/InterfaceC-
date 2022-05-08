@@ -62,7 +62,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ConfigContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.accountControl1 = new CO2_Interface.Controls.AccountControl();
+            this.login_container = new System.Windows.Forms.FlowLayoutPanel();
             this.layout_left.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -270,7 +270,7 @@
             // layout_left
             // 
             this.layout_left.BackColor = System.Drawing.Color.DarkBlue;
-            this.layout_left.Controls.Add(this.accountControl1);
+            this.layout_left.Controls.Add(this.login_container);
             this.layout_left.Controls.Add(this.button1);
             this.layout_left.Controls.Add(this.button2);
             this.layout_left.Controls.Add(this.alarm_button);
@@ -363,13 +363,12 @@
             this.ConfigContainer.Size = new System.Drawing.Size(170, 375);
             this.ConfigContainer.TabIndex = 26;
             // 
-            // accountControl1
+            // login_container
             // 
-            this.accountControl1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.accountControl1.Location = new System.Drawing.Point(3, 3);
-            this.accountControl1.Name = "accountControl1";
-            this.accountControl1.Size = new System.Drawing.Size(210, 201);
-            this.accountControl1.TabIndex = 23;
+            this.login_container.Location = new System.Drawing.Point(3, 3);
+            this.login_container.Name = "login_container";
+            this.login_container.Size = new System.Drawing.Size(210, 201);
+            this.login_container.TabIndex = 27;
             // 
             // MainForm
             // 
@@ -433,7 +432,6 @@
         private System.Windows.Forms.Label lb_status;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.FlowLayoutPanel layout_left;
-        private Controls.AccountControl accountControl1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripComboBox combo_box_com;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -443,6 +441,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ToolStripButton connect_button;
         private System.Windows.Forms.FlowLayoutPanel ConfigContainer;
+        private System.Windows.Forms.FlowLayoutPanel login_container;
     }
 }
 
