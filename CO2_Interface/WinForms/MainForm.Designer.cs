@@ -282,7 +282,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.toolStrip1.BackColor = System.Drawing.Color.SlateBlue;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(100, 50);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
