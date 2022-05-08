@@ -46,14 +46,12 @@
             this.min_value = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.alarm_button = new System.Windows.Forms.Button();
             this.save_button = new System.Windows.Forms.Button();
             this.ConfigFile_Status = new System.Windows.Forms.Label();
             this.lb_status = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.layout_left = new System.Windows.Forms.FlowLayoutPanel();
-            this.accountControl1 = new CO2_Interface.Controls.AccountControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.combo_box_com = new System.Windows.Forms.ToolStripComboBox();
@@ -62,10 +60,13 @@
             this.strip_button_settings = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
+            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ConfigContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.accountControl1 = new CO2_Interface.Controls.AccountControl();
             this.layout_left.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort
@@ -279,14 +280,6 @@
             this.layout_left.Size = new System.Drawing.Size(215, 440);
             this.layout_left.TabIndex = 22;
             // 
-            // accountControl1
-            // 
-            this.accountControl1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.accountControl1.Location = new System.Drawing.Point(3, 3);
-            this.accountControl1.Name = "accountControl1";
-            this.accountControl1.Size = new System.Drawing.Size(210, 201);
-            this.accountControl1.TabIndex = 23;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.RoyalBlue;
@@ -363,12 +356,28 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(253, 100);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
+            // ConfigContainer
+            // 
+            this.ConfigContainer.Location = new System.Drawing.Point(1002, 60);
+            this.ConfigContainer.Name = "ConfigContainer";
+            this.ConfigContainer.Size = new System.Drawing.Size(170, 375);
+            this.ConfigContainer.TabIndex = 26;
+            // 
+            // accountControl1
+            // 
+            this.accountControl1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.accountControl1.Location = new System.Drawing.Point(3, 3);
+            this.accountControl1.Name = "accountControl1";
+            this.accountControl1.Size = new System.Drawing.Size(210, 201);
+            this.accountControl1.TabIndex = 23;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(1184, 506);
+            this.Controls.Add(this.ConfigContainer);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.layout_left);
@@ -388,12 +397,12 @@
             this.Name = "MainForm";
             this.Text = "Interface HELB";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).EndInit();
             this.layout_left.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,6 +442,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ToolStripButton connect_button;
+        private System.Windows.Forms.FlowLayoutPanel ConfigContainer;
     }
 }
 

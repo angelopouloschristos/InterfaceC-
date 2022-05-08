@@ -18,7 +18,7 @@ namespace CO2_Interface.Controls
 
         oCenter oC = new oCenter();
         DataTable dt = new DataTable();
-        public bool is_logged = false;
+        public static bool is_logged = false;
 
         public ManagerControl()
         {
@@ -44,7 +44,7 @@ namespace CO2_Interface.Controls
             data_grid_perm.Sort(data_grid_perm.Columns[0], ListSortDirection.Ascending);
             LoadPerm();
 
-            LoadInfo();
+            //LoadInfo();
 
 
 
@@ -82,7 +82,7 @@ namespace CO2_Interface.Controls
             }
         }
 
-        private void LoadInfo()
+        public void LoadInfo()
         {
 
             //data_grid_accounts.Rows.Clear();
@@ -92,6 +92,7 @@ namespace CO2_Interface.Controls
             dsAction = oC.ShowData(sSqlSave, "UserTable", dsAction);
             if (dsAction.Tables["UserTable"].Rows.Count > 0)
             {
+                Collections.Users.Clear();
                 for (int i = 0; i < dsAction.Tables["UserTable"].Rows.Count; i++)
                 {
                     string user_id = dsAction.Tables["UserTable"].Rows[i]["ID"].ToString();
@@ -103,11 +104,13 @@ namespace CO2_Interface.Controls
 
                     User user = new User(id,name,password,id_a);
                     Collections.Users.Add(user);
-                    Tables.Users.Rows.Add(new object[] {id.ToString(),name,password, id_a.ToString() });
+                    //Tables.Users.Rows.Add(new object[] {id.ToString(),name,password, id_a.ToString() });
+                    
 
                 }
+                //data_grid_accounts.DataSource = Tables.Users;
                 //MessageBox.Show(dsAction.Tables["tbUser"].Rows.Count.ToString()); // <-- MAX
-
+                Refresh();
             }
             else
             {
@@ -115,6 +118,17 @@ namespace CO2_Interface.Controls
 
             }
 
+        }
+
+        public void update_users() 
+        {
+            Tables.Users.Rows.Clear();
+            foreach (User user in Collections.Users)
+            {
+                Tables.Users.Rows.Add( new object[] { user.id,user.name,user.password,user.access_id});
+            }
+            data_grid_accounts.DataSource = Tables.Users;
+            Refresh();
         }
     }
 }

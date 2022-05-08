@@ -8,10 +8,10 @@ namespace CO2_Interface.Data
 {
     internal class User
     {
-        private Int32 id { get; set; }
-        private string name { get; set; }
-        private string password { get; set; }
-        private Int32 access_id { get; set; }
+        public Int32 id;
+        public string name;
+        public string password;
+        public Int32 access_id;
 
         public User(Int32 id, string name, string password, Int32 access_id)
         {

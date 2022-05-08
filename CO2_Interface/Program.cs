@@ -14,7 +14,7 @@ namespace CO2_Interface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -23,6 +23,7 @@ namespace CO2_Interface
         private AlarmControl alarmControl;
         private SettingsControl settingsControl;
         private ManagerControl managerControl;
+        private ConfigControl configControl;
         private DataGridView ObjectsGrid;
         private bool connected = false; //connected to port
         public int value = 0;
@@ -41,10 +42,13 @@ namespace CO2_Interface
 
             this.mainConrol = new MainControl();
             this.graphsConrol = new GraphsControl();
-            this.AccountControl = new AccountControl();
+            this.AccountControl = accountControl1 ;
             this.alarmControl = new AlarmControl();
             this.settingsControl = new SettingsControl();
             this.managerControl = new ManagerControl();
+            configControl = new ConfigControl();
+
+            //AccountControl.Hide();
 
             //reception de donnees
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
@@ -56,7 +60,8 @@ namespace CO2_Interface
             Tables.DataFromSensor.Columns.Add(Tables.Columns.Last_updated);
             Tables.DataFromSensor.Columns.Add(Tables.Columns.Alarm);
 
-            
+            managerControl.LoadInfo();
+
 
             loadData();
 
@@ -275,6 +280,9 @@ namespace CO2_Interface
             if (connected)
             {
                 timer1.Start();
+                ConfigContainer.Controls.Clear();
+                ConfigContainer.Controls.Add(configControl);
+
                 MyContainer.Controls.Clear();
                 MyContainer.Controls.Add(mainConrol);
                 ObjectsGrid = mainConrol.ObjectsGrid1;
@@ -364,9 +372,20 @@ namespace CO2_Interface
 
         private void account_button_Click(object sender, EventArgs e)
         {
-            MyContainer.Controls.Clear();
-            MyContainer.Controls.Add(managerControl);
-            current_control = "manager";
+            if (ManagerControl.is_logged)
+            {
+                MyContainer.Controls.Clear();
+                MyContainer.Controls.Add(managerControl);
+                current_control = "manager";
+                managerControl.LoadInfo();
+                managerControl.update_users();
+
+            }
+            else
+            {
+                MessageBox.Show("Please login first");
+            }
+            
         }
 
         private void btn_change_minmax_Click(object sender, EventArgs e)
