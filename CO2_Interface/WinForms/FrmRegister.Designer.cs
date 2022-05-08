@@ -40,9 +40,9 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MediumPurple;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(98, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 43);
@@ -52,9 +52,9 @@
             // 
             // cmdLogin
             // 
-            this.cmdLogin.BackColor = System.Drawing.Color.MediumPurple;
+            this.cmdLogin.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.cmdLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cmdLogin.ForeColor = System.Drawing.Color.White;
+            this.cmdLogin.ForeColor = System.Drawing.Color.Black;
             this.cmdLogin.Location = new System.Drawing.Point(96, 369);
             this.cmdLogin.Name = "cmdLogin";
             this.cmdLogin.Size = new System.Drawing.Size(248, 57);
@@ -65,9 +65,9 @@
             // 
             // lblFirstName
             // 
-            this.lblFirstName.BackColor = System.Drawing.Color.White;
+            this.lblFirstName.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblFirstName.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.ForeColor = System.Drawing.Color.Gray;
+            this.lblFirstName.ForeColor = System.Drawing.Color.Black;
             this.lblFirstName.Location = new System.Drawing.Point(25, 147);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(144, 31);
@@ -76,9 +76,9 @@
             // 
             // cmdRegister
             // 
-            this.cmdRegister.BackColor = System.Drawing.Color.MediumPurple;
+            this.cmdRegister.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.cmdRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cmdRegister.ForeColor = System.Drawing.Color.White;
+            this.cmdRegister.ForeColor = System.Drawing.Color.Black;
             this.cmdRegister.Location = new System.Drawing.Point(96, 269);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(248, 57);
@@ -89,6 +89,7 @@
             // 
             // txtFirstName
             // 
+            this.txtFirstName.BackColor = System.Drawing.Color.Lavender;
             this.txtFirstName.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.Color.Gray;
             this.txtFirstName.Location = new System.Drawing.Point(175, 147);
@@ -101,6 +102,7 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.BackColor = System.Drawing.Color.Lavender;
             this.txtPassword.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.Gray;
             this.txtPassword.Location = new System.Drawing.Point(175, 194);
@@ -114,9 +116,9 @@
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(25, 194);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 31);
@@ -127,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(436, 509);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPassword);
