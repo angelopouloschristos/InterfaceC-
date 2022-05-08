@@ -41,7 +41,7 @@ namespace CO2_Interface.Data
             internal Int32 LowLimit;
             internal Int32 HighLimit;
             internal Int16 ConvertedData;
-            internal UInt32 AlarmMaxPeriod;
+            internal Int32 AlarmMaxPeriod;
             internal Int32 WarningMin;         //User Alarm
             internal Int32 CriticalMin; 
             internal Int32 WarningMax;         //User Alarm
@@ -52,7 +52,7 @@ namespace CO2_Interface.Data
                 LowLimit = 0;
                 HighLimit = 0;
                 ConvertedData = 0;
-                AlarmMaxPeriod = 0;
+                AlarmMaxPeriod = 10;
                 WarningMin = 0;
                 CriticalMin = 0;
                 WarningMax = 0;

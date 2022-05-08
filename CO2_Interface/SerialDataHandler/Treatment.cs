@@ -69,7 +69,8 @@ namespace CO2_Interface.SerialDataHandler
                 Data.Collections.ObjectList.Add(obj);
                 if (obj.config_status)
                 {
-                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", obj.time > obj.AlarmMaxPeriod ? "Outdated" : getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
                 }
                 else
                 {
@@ -100,7 +101,7 @@ namespace CO2_Interface.SerialDataHandler
                     comboBox.Items.Add(obj.ID);
                     if (obj.config_status)
                     {
-                        dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+                        dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", obj.time > obj.AlarmMaxPeriod ? "Outdated" : getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
                     }
                     else
                     {
@@ -145,7 +146,7 @@ namespace CO2_Interface.SerialDataHandler
             {
                 if (obj.config_status)
                 {
-                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", obj.time > obj.AlarmMaxPeriod ? "Outdated" : getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
                 }
                 else
                 {
@@ -163,10 +164,7 @@ namespace CO2_Interface.SerialDataHandler
                 //Console.WriteLine(obj.ID+":"+obj.LowLimit+"/"+obj.HighLimit);
                 obj.ConvertedData = (Int16)(((double)obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit);
 
-                obj.WarningMin = (int)(obj.HighLimit * 0.40);
-                obj.WarningMax = (int)(obj.HighLimit * 0.70);
-                obj.CriticalMin = (int)(obj.HighLimit * 0.30);
-                obj.CriticalMax = (int)(obj.HighLimit * 0.80);
+   
 
             }
 
@@ -182,18 +180,26 @@ namespace CO2_Interface.SerialDataHandler
                 return "Not Done";
             }
         }
-        public static void change_min_max(int id, int min, int max) 
+
+        public static void change_min_max(int id, FromSensor.Measure mesure)
         {
+
             //on recois la valeur  depuis mainform
             foreach (FromSensor.Measure item in Data.Collections.ObjectList)
             {
                 //Console.WriteLine(item.ID + "/" );
                 if (item.ID.ToString() == id.ToString())
                 {
+                    item.WarningMin = mesure.WarningMin;
+                    item.WarningMax = mesure.WarningMax;
+                    item.CriticalMin = mesure.CriticalMin;  
+                    item.CriticalMax = mesure.CriticalMax;  
+                    item.AlarmMaxPeriod = mesure.AlarmMaxPeriod;
+                    item.HighLimit = mesure.HighLimit;  
+                    item.LowLimit = mesure.LowLimit;
+
                     item.config_status = true;
-                    item.LowLimit = min;
-                    item.HighLimit = max;
-                    
+
                 }
             }
         }

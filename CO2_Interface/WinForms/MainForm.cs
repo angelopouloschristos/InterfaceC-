@@ -169,7 +169,7 @@ namespace CO2_Interface
                                 obj.config_status = true;
                                 Collections.ObjectList.Add(obj);
                                 combobox_id.Items.Add(obj.ID);
-                                SerialDataHandler.Reception.change_min_max(obj.ID,obj.LowLimit,obj.HighLimit);
+                                SerialDataHandler.Reception.change_min_max(obj.ID, obj);
                                 obj = new FromSensor.Measure();
                             }
                             
@@ -283,8 +283,8 @@ namespace CO2_Interface
             if (connected)
             {
                 timer1.Start();
-                ConfigContainer.Controls.Clear();
-                ConfigContainer.Controls.Add(configControl);
+                //ConfigContainer.Controls.Clear();
+                //ConfigContainer.Controls.Add(configControl);
 
                 MyContainer.Controls.Clear();
                 MyContainer.Controls.Add(mainConrol);
@@ -393,16 +393,29 @@ namespace CO2_Interface
 
         private void btn_change_minmax_Click(object sender, EventArgs e)
         {
-            int min = 0;
-            int.TryParse(min_value.Text, out min);
 
-            int max = 0;
-            int.TryParse(max_value.Text, out max);
+            FromSensor.Measure mesure = new FromSensor.Measure();
+
+
+
+            int.TryParse(min_value.Text, out mesure.LowLimit);
+
+            int.TryParse(max_value.Text, out mesure.HighLimit);
+       
+            int.TryParse(criticalMinValue.Text, out mesure.CriticalMin);
+
+            int.TryParse(criticalMaxValue.Text, out mesure.CriticalMax);
+    
+            int.TryParse(warningMinValue.Text, out mesure.WarningMin);
+     
+            int.TryParse(warningMaxValue.Text, out mesure.WarningMax);
+
+            int.TryParse(maxPeriodValue.Text, out mesure.AlarmMaxPeriod);
 
             int id = 0;
             int.TryParse(combobox_id.Text,out id);
 
-            SerialDataHandler.Reception.change_min_max(id,min,max);
+            SerialDataHandler.Reception.change_min_max(id, mesure);
         }
 
         private void alarm_button_Click(object sender, EventArgs e)
@@ -500,10 +513,16 @@ namespace CO2_Interface
 
         private void connect_button_Click(object sender, EventArgs e)
         {
-
             port_name = combo_box_com.Text;
-            SerialPort.PortName = port_name;
 
+            if(port_name == "")
+            {
+                MessageBox.Show("Please select a Port");
+                return;
+            }
+
+            SerialPort.PortName = port_name;
+            
             if (port_name == "")//error
             {
                 ConnexionStatus_Label.Text = "Select port please";
@@ -541,5 +560,6 @@ namespace CO2_Interface
         {
 
         }
+
     }
 }
