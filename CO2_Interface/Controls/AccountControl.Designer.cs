@@ -100,16 +100,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(3, 41);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Name";
             // 
             // tb_input_name
             // 
-            this.tb_input_name.Location = new System.Drawing.Point(61, 44);
+            this.tb_input_name.BackColor = System.Drawing.Color.Lavender;
+            this.tb_input_name.Location = new System.Drawing.Point(65, 44);
             this.tb_input_name.Name = "tb_input_name";
             this.tb_input_name.Size = new System.Drawing.Size(122, 20);
             this.tb_input_name.TabIndex = 4;
@@ -117,37 +119,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(3, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Password";
             // 
             // tb_input_password
             // 
-            this.tb_input_password.Location = new System.Drawing.Point(62, 70);
+            this.tb_input_password.BackColor = System.Drawing.Color.Lavender;
+            this.tb_input_password.Location = new System.Drawing.Point(70, 70);
             this.tb_input_password.Name = "tb_input_password";
             this.tb_input_password.Size = new System.Drawing.Size(122, 20);
             this.tb_input_password.TabIndex = 3;
             // 
             // login_button
             // 
+            this.login_button.BackColor = System.Drawing.Color.Lavender;
+            this.login_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.login_button.Location = new System.Drawing.Point(3, 96);
             this.login_button.Name = "login_button";
             this.login_button.Size = new System.Drawing.Size(197, 43);
             this.login_button.TabIndex = 0;
             this.login_button.Text = "Login";
-            this.login_button.UseVisualStyleBackColor = true;
+            this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
             // register_btn
             // 
+            this.register_btn.BackColor = System.Drawing.Color.Lavender;
+            this.register_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.register_btn.Location = new System.Drawing.Point(3, 145);
             this.register_btn.Name = "register_btn";
-            this.register_btn.Size = new System.Drawing.Size(197, 23);
+            this.register_btn.Size = new System.Drawing.Size(197, 25);
             this.register_btn.TabIndex = 6;
             this.register_btn.Text = "Register";
-            this.register_btn.UseVisualStyleBackColor = true;
+            this.register_btn.UseVisualStyleBackColor = false;
             this.register_btn.Click += new System.EventHandler(this.register_btn_Click);
             // 
             // AccountControl
