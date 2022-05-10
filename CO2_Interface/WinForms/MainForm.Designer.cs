@@ -430,9 +430,9 @@
             this.ConfigFile_Status.Location = new System.Drawing.Point(1321, 136);
             this.ConfigFile_Status.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ConfigFile_Status.Name = "ConfigFile_Status";
-            this.ConfigFile_Status.Size = new System.Drawing.Size(44, 16);
+            this.ConfigFile_Status.Size = new System.Drawing.Size(40, 16);
             this.ConfigFile_Status.TabIndex = 20;
-            this.ConfigFile_Status.Text = "label4";
+            this.ConfigFile_Status.Text = "Statut";
             // 
             // flowLayoutPanel2
             // 

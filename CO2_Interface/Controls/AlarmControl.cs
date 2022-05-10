@@ -26,7 +26,6 @@ namespace CO2_Interface.Controls
             Tables.AlarmData.Columns.Add(Tables.Columns.Criitical_max);
             Tables.AlarmData.Columns.Add(Tables.Columns.Status);
 
-
             timer = new Timer();
             timer.Tick += new EventHandler(timer_Tick);
             timer.Interval = 1000; // in miliseconds
@@ -71,9 +70,13 @@ namespace CO2_Interface.Controls
         private void update_data_table(DataTable dt)
         {
 
+
+
+
             dt.Rows.Clear();
             foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
             {
+
 
                 if (obj.config_status)
                 {
@@ -84,6 +87,8 @@ namespace CO2_Interface.Controls
                         obj.WarningMax + SerialDataHandler.Reception.get_unite(obj),
                         obj.CriticalMax + SerialDataHandler.Reception.get_unite(obj),
                         getStatus(obj.ConvertedData,obj.CriticalMin,obj.WarningMin,obj.WarningMax,obj.CriticalMax) });
+
+
                 }
 
             }

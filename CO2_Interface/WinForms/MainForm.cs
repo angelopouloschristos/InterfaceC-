@@ -37,9 +37,6 @@ namespace CO2_Interface
         {
             InitializeComponent();
 
-
-
-
             this.mainConrol = new MainControl();
             this.graphsConrol = new GraphsControl();
             this.AccountControl = new AccountControl() ;
@@ -158,19 +155,45 @@ namespace CO2_Interface
                                 display.Clear();
 
                             }
+                            else if (current_elem == 5)
+                            {
+                                obj.WarningMin = string_to_int16(display);
+                                display.Clear();
+
+                            }
+                            else if (current_elem == 6)
+                            {
+                                obj.WarningMax = string_to_int16(display);
+                                display.Clear();
+
+                            }
+                            else if (current_elem == 7)
+                            {
+                                obj.CriticalMin = string_to_int16(display);
+                                display.Clear();
+
+                            }
+                            else if (current_elem == 8)
+                            {
+                                obj.CriticalMax = string_to_int16(display);
+                                display.Clear();
+
+                            }
 
 
                             i++;
                             current_elem++;
                             //si on a trouve tout les elemets de la ligne
-                            if (current_elem>4)
+                            if (current_elem>8)
                             {
                                 current_elem = 0;
                                 obj.config_status = true;
-                                Collections.ObjectList.Add(obj);
+                                Data.Collections.ObjectList.Add(obj);
                                 combobox_id.Items.Add(obj.ID);
                                 SerialDataHandler.Reception.change_min_max(obj.ID, obj);
                                 obj = new FromSensor.Measure();
+             
+
                             }
                             
                         }
@@ -438,6 +461,10 @@ namespace CO2_Interface
             fileContent += "Data ;";
             fileContent += "Low Limit ;";
             fileContent += "High Limit ;";
+            fileContent += "Warning min ; ";
+            fileContent += "Warning max ; ";
+            fileContent += "Critical min ; ";
+            fileContent += "Critical max ; ";
             fileContent += "\r\n";
             fileContent += "Start";
             fileContent += "\r\n";
@@ -452,6 +479,10 @@ namespace CO2_Interface
                     fileContent += (int)item.ConvertedData + ";";
                     fileContent += item.LowLimit + ";";
                     fileContent += item.HighLimit + ";";
+                    fileContent += item.WarningMin + ";";
+                    fileContent += item.WarningMax + ";";
+                    fileContent += item.CriticalMin + ";";
+                    fileContent += item.CriticalMax + ";";
                     fileContent += "\r\n";
                 }
                 
