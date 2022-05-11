@@ -40,24 +40,28 @@
             this.tb_input_password = new System.Windows.Forms.TextBox();
             this.login_button = new System.Windows.Forms.Button();
             this.register_btn = new System.Windows.Forms.Button();
+            this.btn_logout = new System.Windows.Forms.Button();
+            this.add_account_btn = new System.Windows.Forms.Button();
             this.login_layout.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.Location = new System.Drawing.Point(27, 92);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(57, 13);
+            this.lblFirstName.Size = new System.Drawing.Size(66, 13);
             this.lblFirstName.TabIndex = 0;
             this.lblFirstName.Text = "name here";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.Location = new System.Drawing.Point(27, 117);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(76, 13);
+            this.lblLastName.Size = new System.Drawing.Size(90, 13);
             this.lblLastName.TabIndex = 1;
             this.lblLastName.Text = "last name here";
             // 
@@ -114,7 +118,7 @@
             this.tb_input_name.Location = new System.Drawing.Point(65, 44);
             this.tb_input_name.Name = "tb_input_name";
             this.tb_input_name.Size = new System.Drawing.Size(122, 20);
-            this.tb_input_name.TabIndex = 4;
+            this.tb_input_name.TabIndex = 1;
             // 
             // label1
             // 
@@ -132,7 +136,7 @@
             this.tb_input_password.Location = new System.Drawing.Point(70, 70);
             this.tb_input_password.Name = "tb_input_password";
             this.tb_input_password.Size = new System.Drawing.Size(122, 20);
-            this.tb_input_password.TabIndex = 3;
+            this.tb_input_password.TabIndex = 2;
             // 
             // login_button
             // 
@@ -141,7 +145,7 @@
             this.login_button.Location = new System.Drawing.Point(3, 96);
             this.login_button.Name = "login_button";
             this.login_button.Size = new System.Drawing.Size(197, 43);
-            this.login_button.TabIndex = 0;
+            this.login_button.TabIndex = 3;
             this.login_button.Text = "Login";
             this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.login_button_Click);
@@ -153,16 +157,42 @@
             this.register_btn.Location = new System.Drawing.Point(3, 145);
             this.register_btn.Name = "register_btn";
             this.register_btn.Size = new System.Drawing.Size(197, 25);
-            this.register_btn.TabIndex = 6;
+            this.register_btn.TabIndex = 4;
             this.register_btn.Text = "Register";
             this.register_btn.UseVisualStyleBackColor = false;
             this.register_btn.Click += new System.EventHandler(this.register_btn_Click);
+            // 
+            // btn_logout
+            // 
+            this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_logout.Location = new System.Drawing.Point(30, 145);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(59, 39);
+            this.btn_logout.TabIndex = 5;
+            this.btn_logout.Text = "Logout";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Visible = false;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
+            // add_account_btn
+            // 
+            this.add_account_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_account_btn.Location = new System.Drawing.Point(95, 145);
+            this.add_account_btn.Name = "add_account_btn";
+            this.add_account_btn.Size = new System.Drawing.Size(59, 39);
+            this.add_account_btn.TabIndex = 6;
+            this.add_account_btn.Text = "Add new";
+            this.add_account_btn.UseVisualStyleBackColor = true;
+            this.add_account_btn.Visible = false;
+            this.add_account_btn.Click += new System.EventHandler(this.add_account_btn_Click);
             // 
             // AccountControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
+            this.Controls.Add(this.add_account_btn);
+            this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.login_layout);
             this.Controls.Add(this.profile_picture);
             this.Controls.Add(this.lblLastName);
@@ -190,5 +220,7 @@
         private System.Windows.Forms.TextBox tb_input_password;
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.Button register_btn;
+        private System.Windows.Forms.Button btn_logout;
+        private System.Windows.Forms.Button add_account_btn;
     }
 }

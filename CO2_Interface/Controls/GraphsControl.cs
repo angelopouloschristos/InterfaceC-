@@ -30,6 +30,7 @@ namespace CO2_Interface.Controls
             box = comboBox_time;
             box.Items.Add("minute");
             box.Items.Add("heure");
+            box.SelectedIndex=0;
             
         }
         public static void setCpt() 
@@ -40,6 +41,7 @@ namespace CO2_Interface.Controls
         
         public void GraphBuilder()
         {
+            /*
             GraphPoints = new Series("Value");
             cMin = new Series("Critical Min");
             wMin = new Series("Warning Min");
@@ -47,9 +49,6 @@ namespace CO2_Interface.Controls
             cMax = new Series("Critical Max");
 
             Area = new ChartArea("MyChartArea");
-
-
-            
 
             GraphPoints.ChartType = SeriesChartType.Spline;
             GraphPoints.Color = Color.Blue;
@@ -72,7 +71,6 @@ namespace CO2_Interface.Controls
             Area.AxisY.Minimum = 0;
             Area.AxisY.Maximum = 65535;
             Area.AxisX.Minimum = 0;
-            
 
             Chart.ChartAreas.Add(Area);
             Chart.Series.Add(GraphPoints);
@@ -80,12 +78,23 @@ namespace CO2_Interface.Controls
             Chart.Series.Add(cMin);
             Chart.Series.Add(wMin);
             Chart.Series.Add(wMax);
-            Chart.Series.Add(cMax);
+            Chart.Series.Add(cMax);*/
+
+            Area = new ChartArea("MyChartArea");
+            GraphPoints = new Series("Value");
+            Area.AxisX.MajorGrid.LineDashStyle = ChartDashStyle.NotSet;
+            Area.AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+
+
+            GraphPoints.ChartType = SeriesChartType.Spline;
+
+            GraphPoints.Color = Color.Blue;
+            Chart.ChartAreas.Add(Area);
+            Chart.Series.Add(GraphPoints);
 
         }
         public static void GraphUpdate(double value,byte type, int low, int high, int cmi, int wmi, int wma, int cma)
         {
-
             Area.AxisY.Minimum = low;
             Area.AxisY.Maximum = high;
 
@@ -107,12 +116,11 @@ namespace CO2_Interface.Controls
                 cpt = cpt % 60;
             }
             GraphPoints.Name = ""+ get_type_name(type);
-            //GraphTitle = new Title("Local avec id " + current_id);
             GraphPoints.Points.AddXY(cpt, value);
-            cMin.Points.AddXY(cpt, cmi);
-            wMin.Points.AddXY(cpt, wmi);
-            wMax.Points.AddXY(cpt, wma);
-            cMax.Points.AddXY(cpt, cma);
+            //cMin.Points.AddXY(cpt, cmi);
+            //wMin.Points.AddXY(cpt, wmi);
+            //wMax.Points.AddXY(cpt, wma);
+            //cMax.Points.AddXY(cpt, cma);
         }
         public static string get_type_name(byte b)
         {

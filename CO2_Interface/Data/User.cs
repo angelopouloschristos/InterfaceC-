@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CO2_Interface.Data
 {
-    internal class User
+    public class User
     {
         public Int32 id;
         public string name;

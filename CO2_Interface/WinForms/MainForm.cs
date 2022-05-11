@@ -23,7 +23,6 @@ namespace CO2_Interface
         private AlarmControl alarmControl;
         private SettingsControl settingsControl;
         private ManagerControl managerControl;
-        private ConfigControl configControl;
         private DataGridView ObjectsGrid;
         private bool connected = false; //connected to port
         public int value = 0;
@@ -32,6 +31,7 @@ namespace CO2_Interface
         public string current_control = "start";
         Random rnd = new Random();
         private string port_name = "";
+        
         
         public MainForm()
         {
@@ -43,10 +43,15 @@ namespace CO2_Interface
             this.alarmControl = new AlarmControl();
             this.settingsControl = new SettingsControl();
             this.managerControl = new ManagerControl();
-            configControl = new ConfigControl();
 
             login_container.Controls.Clear();
             login_container.Controls.Add(AccountControl);
+            string [] ports = SerialPort.GetPortNames();
+            foreach (string port in ports) 
+            {
+                combo_box_com.Items.Add(port);
+            }
+            
 
             //AccountControl.Hide();
 
@@ -382,13 +387,6 @@ namespace CO2_Interface
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
         private void button2_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
@@ -416,29 +414,49 @@ namespace CO2_Interface
 
         private void btn_change_minmax_Click(object sender, EventArgs e)
         {
+            if (ManagerControl.is_logged)
+            {
+                if (AccountControl.current_user != null) 
+                {
+                    if (AccountControl.current_user.access_id==2)
+                    {
+                        MessageBox.Show("You dont have permissions to do this");
+                        return;
+                    }
+                    //User current_user = Tables.Users[0];
+                    FromSensor.Measure mesure = new FromSensor.Measure();
+                    int.TryParse(min_value.Text, out mesure.LowLimit);
+                    min_value.Text = "";
+                    int.TryParse(max_value.Text, out mesure.HighLimit);
+                    max_value.Text = "";
+                    int.TryParse(criticalMinValue.Text, out mesure.CriticalMin);
+                    criticalMinValue.Text = "";
+                    int.TryParse(criticalMaxValue.Text, out mesure.CriticalMax);
+                    criticalMaxValue.Text = "";
+                    int.TryParse(warningMinValue.Text, out mesure.WarningMin);
+                    warningMinValue.Text = "";
+                    int.TryParse(warningMaxValue.Text, out mesure.WarningMax);
+                    warningMaxValue.Text = "";
+                    int.TryParse(maxPeriodValue.Text, out mesure.AlarmMaxPeriod);
+                    maxPeriodValue.Text = "";
 
-            FromSensor.Measure mesure = new FromSensor.Measure();
+                    if (mesure.HighLimit < mesure.LowLimit || mesure.CriticalMax < mesure.CriticalMin || mesure.WarningMax < mesure.WarningMin)
+                    {
+                        MessageBox.Show("Max values are bigger then min values");
+                        return;
+                    }
 
+                    int id = 0;
+                    int.TryParse(combobox_id.Text, out id);
 
-
-            int.TryParse(min_value.Text, out mesure.LowLimit);
-
-            int.TryParse(max_value.Text, out mesure.HighLimit);
-       
-            int.TryParse(criticalMinValue.Text, out mesure.CriticalMin);
-
-            int.TryParse(criticalMaxValue.Text, out mesure.CriticalMax);
-    
-            int.TryParse(warningMinValue.Text, out mesure.WarningMin);
-     
-            int.TryParse(warningMaxValue.Text, out mesure.WarningMax);
-
-            int.TryParse(maxPeriodValue.Text, out mesure.AlarmMaxPeriod);
-
-            int id = 0;
-            int.TryParse(combobox_id.Text,out id);
-
-            SerialDataHandler.Reception.change_min_max(id, mesure);
+                    SerialDataHandler.Reception.change_min_max(id, mesure);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please login first");
+            }
+            
         }
 
         private void alarm_button_Click(object sender, EventArgs e)
@@ -519,21 +537,7 @@ namespace CO2_Interface
 
             return "type pas dans le systeme";
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_send_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+ 
 
         private void strip_button_settings_Click(object sender, EventArgs e)
         {

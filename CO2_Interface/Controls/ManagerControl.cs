@@ -19,6 +19,7 @@ namespace CO2_Interface.Controls
         oCenter oC = new oCenter();
         DataTable dt = new DataTable();
         public static bool is_logged = false;
+        public static User current_user = null;
 
         public ManagerControl()
         {

@@ -28,7 +28,7 @@ namespace CO2_Interface.Controls
         }
         private void update_display() 
         {
-            display_time_to_send.Text = "Sending data every " + time_to_send + " seconds";
+            display_time_to_send.Text = "Sending data every " + time_to_send + " sec";
         }
     }
 }

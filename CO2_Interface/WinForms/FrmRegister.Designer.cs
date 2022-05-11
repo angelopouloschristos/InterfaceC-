@@ -58,7 +58,7 @@
             this.cmdLogin.Location = new System.Drawing.Point(96, 369);
             this.cmdLogin.Name = "cmdLogin";
             this.cmdLogin.Size = new System.Drawing.Size(248, 57);
-            this.cmdLogin.TabIndex = 9;
+            this.cmdLogin.TabIndex = 4;
             this.cmdLogin.Text = "Cancel";
             this.cmdLogin.UseVisualStyleBackColor = false;
             this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
@@ -82,7 +82,7 @@
             this.cmdRegister.Location = new System.Drawing.Point(96, 269);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(248, 57);
-            this.cmdRegister.TabIndex = 10;
+            this.cmdRegister.TabIndex = 3;
             this.cmdRegister.Text = "Register";
             this.cmdRegister.UseVisualStyleBackColor = false;
             this.cmdRegister.Click += new System.EventHandler(this.cmdRegister_Click);
@@ -95,7 +95,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(175, 147);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(246, 32);
-            this.txtFirstName.TabIndex = 11;
+            this.txtFirstName.TabIndex = 1;
             this.txtFirstName.Text = "Name";
             this.txtFirstName.Enter += new System.EventHandler(this.txtFirstName_Enter);
             this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
@@ -109,7 +109,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(246, 32);
-            this.txtPassword.TabIndex = 17;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "Password";
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
