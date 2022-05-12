@@ -47,8 +47,6 @@ namespace CO2_Interface.Controls
 
             //LoadInfo();
 
-
-
         }
 
         private void LoadPerm()

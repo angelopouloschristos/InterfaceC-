@@ -70,13 +70,14 @@ namespace CO2_Interface
 
             loadData();
 
-            //TIMER POUR LA HORLOGE
+            //TIMER POUR LA HORLOGE (AFFICHAGE)
             timer_clock = new Timer();
             timer_clock.Tick += new EventHandler(timer_clock_Tick);
             timer_clock.Interval = 1000; // in miliseconds
             timer_clock.Start();
 
 
+            //TIMER POUR ACTUALISATION DU PROGRAMME
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000; // in miliseconds
@@ -187,7 +188,9 @@ namespace CO2_Interface
 
 
                             i++;
+
                             current_elem++;
+
                             //si on a trouve tout les elemets de la ligne
                             if (current_elem>8)
                             {
@@ -198,20 +201,22 @@ namespace CO2_Interface
                                 SerialDataHandler.Reception.change_min_max(obj.ID, obj);
                                 obj = new FromSensor.Measure();
              
-
                             }
                             
                         }
                     }
+
                     ConfigFile_Status.Text = "Load Complete";
                     Reader.Close();
-                    foreach (FromSensor.Measure item in Collections.ObjectList)
-                    {
-                        Console.WriteLine("===================================");
-                        Console.WriteLine(item.ID+" "+item.Type+" "+item.ConvertedData+" "+item.LowLimit+" "+item.HighLimit);
-                        Console.WriteLine("===================================");
 
-                    }
+            //        foreach (FromSensor.Measure item in Collections.ObjectList)
+            //       {
+            //            Console.WriteLine("===================================");
+            //            Console.WriteLine(item.ID+" "+item.Type+" "+item.ConvertedData+" "+item.LowLimit+" "+item.HighLimit);
+            //            Console.WriteLine("===================================");
+            //
+            //        }
+
                 }
                 else ConfigFile_Status.Text = "Load Corrupted incomplete debut fichier";
             }
@@ -416,7 +421,7 @@ namespace CO2_Interface
         {
             if (ManagerControl.is_logged)
             {
-                if (AccountControl.current_user != null) 
+                if (AccountControl.current_user != null) // INUTILE ??????????????????? @todo
                 {
                     if (AccountControl.current_user.access_id==2)
                     {

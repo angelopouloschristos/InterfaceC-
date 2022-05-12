@@ -25,7 +25,6 @@ C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.cspr
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.AccountControl.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmControl.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ConfigControl.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.GraphsControl.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.MainControl.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ManagerControl.resources
@@ -58,3 +57,4 @@ C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_I
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.exe
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.pdb
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.WinForms.UserCreation.resources
+C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.UserCreation.resources
