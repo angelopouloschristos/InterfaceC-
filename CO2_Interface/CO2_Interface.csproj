@@ -60,6 +60,12 @@
     <Compile Include="Controls\AlarmControl.Designer.cs">
       <DependentUpon>AlarmControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ConfigAlarmControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ConfigAlarmControl.Designer.cs">
+      <DependentUpon>ConfigAlarmControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GraphsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AlarmControl.resx">
       <DependentUpon>AlarmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConfigAlarmControl.resx">
+      <DependentUpon>ConfigAlarmControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\GraphsControl.resx">
       <DependentUpon>GraphsControl.cs</DependentUpon>

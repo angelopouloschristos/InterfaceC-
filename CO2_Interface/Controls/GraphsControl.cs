@@ -102,21 +102,27 @@ namespace CO2_Interface.Controls
             {
                 if (cpt > 3599)
                 {
-                    GraphPoints.Points.Clear();
+                    GraphPoints.Points.RemoveAt(0);
                 }
                 cpt = cpt % 3600;
             }
             else
             {
                 //reset le tab si il depasse les 60 sec
-                if (cpt>59)
+                GraphPoints.Points.Clear();
+                for (int i = 0; i < 60; i++)
                 {
-                    GraphPoints.Points.Clear();
+                    GraphPoints.Points.Add(i);
                 }
-                cpt = cpt % 60;
+                
+                
+               // cpt = cpt % 60;
             }
+            
             GraphPoints.Name = ""+ get_type_name(type);
-            GraphPoints.Points.AddXY(cpt, value);
+           //GraphPoints.Points.AddXY(cpt, value);
+            
+
             //cMin.Points.AddXY(cpt, cmi);
             //wMin.Points.AddXY(cpt, wmi);
             //wMax.Points.AddXY(cpt, wma);

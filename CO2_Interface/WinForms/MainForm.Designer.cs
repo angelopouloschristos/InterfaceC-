@@ -60,24 +60,18 @@
             this.strip_button_settings = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.criticalMinValue = new System.Windows.Forms.TextBox();
-            this.criticalMaxValue = new System.Windows.Forms.TextBox();
             this.ConfigFile_Status = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.warningMinValue = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.warningMaxValue = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.maxPeriodValue = new System.Windows.Forms.TextBox();
+            this.btn_load_data = new System.Windows.Forms.Button();
+            this.config_container = new System.Windows.Forms.FlowLayoutPanel();
+            this.usersdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layout_left.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort
@@ -173,7 +167,7 @@
             // 
             this.logo_helb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo_helb.BackgroundImage")));
             this.logo_helb.Enabled = false;
-            this.logo_helb.Location = new System.Drawing.Point(813, 349);
+            this.logo_helb.Location = new System.Drawing.Point(482, 349);
             this.logo_helb.Name = "logo_helb";
             this.logo_helb.Size = new System.Drawing.Size(161, 151);
             this.logo_helb.TabIndex = 11;
@@ -198,11 +192,11 @@
             // 
             this.btn_change_minmax.BackColor = System.Drawing.Color.Lavender;
             this.btn_change_minmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_change_minmax.Location = new System.Drawing.Point(1005, 418);
+            this.btn_change_minmax.Location = new System.Drawing.Point(826, 349);
             this.btn_change_minmax.Name = "btn_change_minmax";
-            this.btn_change_minmax.Size = new System.Drawing.Size(159, 49);
+            this.btn_change_minmax.Size = new System.Drawing.Size(159, 41);
             this.btn_change_minmax.TabIndex = 18;
-            this.btn_change_minmax.Text = "Save Changes";
+            this.btn_change_minmax.Text = "Save Min Max";
             this.btn_change_minmax.UseVisualStyleBackColor = false;
             this.btn_change_minmax.Click += new System.EventHandler(this.btn_change_minmax_Click);
             // 
@@ -371,54 +365,14 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(223, 349);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(253, 100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(253, 151);
             this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 87);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(8, 4, 8, 4);
-            this.label4.Size = new System.Drawing.Size(65, 34);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "critical \r\nmin";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 123);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(8, 4, 8, 4);
-            this.label5.Size = new System.Drawing.Size(65, 34);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "critical \r\nmax";
-            // 
-            // criticalMinValue
-            // 
-            this.criticalMinValue.BackColor = System.Drawing.Color.Lavender;
-            this.criticalMinValue.Location = new System.Drawing.Point(74, 95);
-            this.criticalMinValue.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
-            this.criticalMinValue.Name = "criticalMinValue";
-            this.criticalMinValue.Size = new System.Drawing.Size(96, 20);
-            this.criticalMinValue.TabIndex = 13;
-            // 
-            // criticalMaxValue
-            // 
-            this.criticalMaxValue.BackColor = System.Drawing.Color.Lavender;
-            this.criticalMaxValue.Location = new System.Drawing.Point(74, 131);
-            this.criticalMaxValue.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
-            this.criticalMaxValue.Name = "criticalMaxValue";
-            this.criticalMaxValue.Size = new System.Drawing.Size(96, 20);
-            this.criticalMaxValue.TabIndex = 14;
             // 
             // ConfigFile_Status
             // 
             this.ConfigFile_Status.AutoSize = true;
             this.ConfigFile_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfigFile_Status.Location = new System.Drawing.Point(999, 104);
+            this.ConfigFile_Status.Location = new System.Drawing.Point(997, 151);
             this.ConfigFile_Status.Name = "ConfigFile_Status";
             this.ConfigFile_Status.Size = new System.Drawing.Size(51, 17);
             this.ConfigFile_Status.TabIndex = 20;
@@ -434,67 +388,19 @@
             this.flowLayoutPanel2.Controls.Add(this.min_value);
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Controls.Add(this.max_value);
-            this.flowLayoutPanel2.Controls.Add(this.label4);
-            this.flowLayoutPanel2.Controls.Add(this.criticalMinValue);
-            this.flowLayoutPanel2.Controls.Add(this.label5);
-            this.flowLayoutPanel2.Controls.Add(this.criticalMaxValue);
-            this.flowLayoutPanel2.Controls.Add(this.label6);
-            this.flowLayoutPanel2.Controls.Add(this.warningMinValue);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
-            this.flowLayoutPanel2.Controls.Add(this.warningMaxValue);
             this.flowLayoutPanel2.Controls.Add(this.label8);
             this.flowLayoutPanel2.Controls.Add(this.maxPeriodValue);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(999, 127);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(648, 349);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(173, 275);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(173, 151);
             this.flowLayoutPanel2.TabIndex = 30;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 159);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.label6.Size = new System.Drawing.Size(63, 34);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "warning\r\nmin";
-            // 
-            // warningMinValue
-            // 
-            this.warningMinValue.BackColor = System.Drawing.Color.Lavender;
-            this.warningMinValue.Location = new System.Drawing.Point(72, 167);
-            this.warningMinValue.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
-            this.warningMinValue.Name = "warningMinValue";
-            this.warningMinValue.Size = new System.Drawing.Size(96, 20);
-            this.warningMinValue.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 195);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.label7.Size = new System.Drawing.Size(63, 34);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "warning\r\nmax";
-            // 
-            // warningMaxValue
-            // 
-            this.warningMaxValue.BackColor = System.Drawing.Color.Lavender;
-            this.warningMaxValue.Location = new System.Drawing.Point(72, 203);
-            this.warningMaxValue.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
-            this.warningMaxValue.Name = "warningMaxValue";
-            this.warningMaxValue.Size = new System.Drawing.Size(96, 20);
-            this.warningMaxValue.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 231);
+            this.label8.Location = new System.Drawing.Point(3, 87);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(8, 4, 4, 4);
             this.label8.Size = new System.Drawing.Size(54, 34);
@@ -504,11 +410,31 @@
             // maxPeriodValue
             // 
             this.maxPeriodValue.BackColor = System.Drawing.Color.Lavender;
-            this.maxPeriodValue.Location = new System.Drawing.Point(63, 239);
+            this.maxPeriodValue.Location = new System.Drawing.Point(63, 95);
             this.maxPeriodValue.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.maxPeriodValue.Name = "maxPeriodValue";
             this.maxPeriodValue.Size = new System.Drawing.Size(96, 20);
             this.maxPeriodValue.TabIndex = 17;
+            // 
+            // btn_load_data
+            // 
+            this.btn_load_data.BackColor = System.Drawing.Color.Lavender;
+            this.btn_load_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_load_data.Location = new System.Drawing.Point(999, 107);
+            this.btn_load_data.Name = "btn_load_data";
+            this.btn_load_data.Size = new System.Drawing.Size(161, 41);
+            this.btn_load_data.TabIndex = 31;
+            this.btn_load_data.Text = "Load Alarms";
+            this.btn_load_data.UseVisualStyleBackColor = false;
+            this.btn_load_data.Click += new System.EventHandler(this.btn_load_data_Click);
+            // 
+            // config_container
+            // 
+            this.config_container.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.config_container.Location = new System.Drawing.Point(1000, 171);
+            this.config_container.Name = "config_container";
+            this.config_container.Size = new System.Drawing.Size(173, 275);
+            this.config_container.TabIndex = 8;
             // 
             // MainForm
             // 
@@ -517,6 +443,8 @@
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(1184, 506);
             this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.config_container);
+            this.Controls.Add(this.btn_load_data);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.layout_left);
@@ -534,9 +462,9 @@
             this.toolStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersdataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -575,18 +503,12 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ToolStripButton connect_button;
         private System.Windows.Forms.FlowLayoutPanel login_container;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox criticalMinValue;
-        private System.Windows.Forms.TextBox criticalMaxValue;
         private System.Windows.Forms.Label ConfigFile_Status;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox warningMinValue;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox warningMaxValue;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox maxPeriodValue;
+        private System.Windows.Forms.Button btn_load_data;
+        private System.Windows.Forms.FlowLayoutPanel config_container;
     }
 }
 

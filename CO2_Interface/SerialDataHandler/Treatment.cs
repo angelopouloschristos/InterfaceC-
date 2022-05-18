@@ -17,10 +17,11 @@ namespace CO2_Interface.SerialDataHandler
         {
 
             //CHECK LE DEBUT DE TRAMME ET ENLEVE LES 3 PREMIERS ELEMENTS DE LA QUEUE LIST
-            while (  (Data.Collections.SerialBuffer.ElementAt(0) != 0x55)  &&
-                    (Data.Collections.SerialBuffer.ElementAt(1) != 0x55)  &&
-                    (Data.Collections.SerialBuffer.ElementAt(2) != 0xAA) &&
-                    (Data.Collections.SerialBuffer.Count > 3)) Data.Collections.SerialBuffer.Dequeue();
+            while ((Data.Collections.SerialBuffer.Count > 3) &&
+                ((Data.Collections.SerialBuffer.ElementAt(0) != 0x55)  ||
+                    (Data.Collections.SerialBuffer.ElementAt(1) != 0x55)  ||
+                    (Data.Collections.SerialBuffer.ElementAt(2) != 0xAA)) 
+                    ) Data.Collections.SerialBuffer.Dequeue();
             //-------!!!!!!!!!!!!!!!!!!1 CHANGEMENT DE BASE VERS MESURE
             
             while (Data.Collections.SerialBuffer.Count > 13)
@@ -124,15 +125,15 @@ namespace CO2_Interface.SerialDataHandler
             }
             if (obj.Type == 1)
             {
-                return " °C";
+                return " ppm";
             }
             if (obj.Type == 2)
             {
-                return " %";
+                return " °C";
             }
             if (obj.Type == 3)
             {
-                return " ppm";
+                return " %";
             }
 
             return "error";
@@ -146,27 +147,21 @@ namespace CO2_Interface.SerialDataHandler
             {
                 if (obj.config_status)
                 {
-                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", obj.time > obj.AlarmMaxPeriod ? "Outdated" : getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+                    //dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", obj.time > obj.AlarmMaxPeriod ? "Outdated" : getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
                 }
                 else
                 {
-                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
+                    //dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
                 }
+                dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
+
             }
-            
+
         }
 
         private static void convert_data(FromSensor.Measure obj)
         {
-            
-            if (obj.config_status)
-            {
-                //Console.WriteLine(obj.ID+":"+obj.LowLimit+"/"+obj.HighLimit);
-                obj.ConvertedData = (Int16)(((double)obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit);
-
-   
-
-            }
+            obj.ConvertedData = (Int16)(((double)obj.BinaryData/65535)*(obj.HighLimit-obj.LowLimit)+obj.LowLimit);
 
         }
         private static string get_config_status(bool stat) 
@@ -180,14 +175,32 @@ namespace CO2_Interface.SerialDataHandler
                 return "Not Done";
             }
         }
-
+        /// <summary>
+        /// Cette methode permet de ajouter les valuers max et min d'une mesure
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="mesure"></param>
         public static void change_min_max(int id, FromSensor.Measure mesure)
         {
-
-            //on recois la valeur  depuis mainform
             foreach (FromSensor.Measure item in Data.Collections.ObjectList)
             {
-                //Console.WriteLine(item.ID + "/" );
+                if (item.ID.ToString() == id.ToString())
+                {
+                    item.HighLimit = mesure.HighLimit;  
+                    item.LowLimit = mesure.LowLimit;
+                }
+            }
+        }
+        /// <summary>
+        /// Cette methode permet de configuer une alarme et mettre le config staus a true
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="mesure"></param>
+        public static void configAlarm(int id, FromSensor.Measure mesure)
+        {
+
+            foreach (FromSensor.Measure item in Data.Collections.ObjectList)
+            {
                 if (item.ID.ToString() == id.ToString())
                 {
                     item.WarningMin = mesure.WarningMin;
@@ -195,15 +208,10 @@ namespace CO2_Interface.SerialDataHandler
                     item.CriticalMin = mesure.CriticalMin;  
                     item.CriticalMax = mesure.CriticalMax;  
                     item.AlarmMaxPeriod = mesure.AlarmMaxPeriod;
-                    item.HighLimit = mesure.HighLimit;  
-                    item.LowLimit = mesure.LowLimit;
-
                     item.config_status = true;
-
                 }
             }
         }
-
         public static void update_graph(ComboBox comboBox )
         {
             if ( comboBox.Text != "")
@@ -235,15 +243,15 @@ namespace CO2_Interface.SerialDataHandler
             }
             if (b == 1)
             {
-                return "Temperature";
+                return "Co2";
             }
             if (b == 2)
             {
-                return "Humidite";
+                return "Temperature";
             }
             if (b == 3)
             {
-                return "Co2";
+                return "Humidite";
             }
 
             return "type pas dans le systeme";

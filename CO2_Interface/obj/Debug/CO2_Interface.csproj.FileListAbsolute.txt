@@ -58,3 +58,4 @@ C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_I
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.pdb
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.WinForms.UserCreation.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.UserCreation.resources
+C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.ConfigAlarmControl.resources

@@ -15,7 +15,6 @@ namespace CO2_Interface
     public partial class MainForm : Form
     {
         Timer timer1;
-        Timer timer_clock;
 
         private MainControl mainConrol;
         private GraphsControl graphsConrol;
@@ -24,6 +23,7 @@ namespace CO2_Interface
         private SettingsControl settingsControl;
         private ManagerControl managerControl;
         private DataGridView ObjectsGrid;
+        private ConfigAlarmControl configAlarmControl;
         private bool connected = false; //connected to port
         public int value = 0;
         public int send_time = 0;
@@ -43,15 +43,18 @@ namespace CO2_Interface
             this.alarmControl = new AlarmControl();
             this.settingsControl = new SettingsControl();
             this.managerControl = new ManagerControl();
+            this.configAlarmControl = new ConfigAlarmControl();
+            configAlarmControl.setCombo(combobox_id);
 
             login_container.Controls.Clear();
             login_container.Controls.Add(AccountControl);
-            string [] ports = SerialPort.GetPortNames();
-            foreach (string port in ports) 
+
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string port in ports)
             {
                 combo_box_com.Items.Add(port);
             }
-            
+
 
             //AccountControl.Hide();
 
@@ -68,19 +71,12 @@ namespace CO2_Interface
             managerControl.LoadInfo();
 
 
-            loadData();
-
-            //TIMER POUR LA HORLOGE (AFFICHAGE)
-            timer_clock = new Timer();
-            timer_clock.Tick += new EventHandler(timer_clock_Tick);
-            timer_clock.Interval = 1000; // in miliseconds
-            timer_clock.Start();
-
-
             //TIMER POUR ACTUALISATION DU PROGRAMME
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000; // in miliseconds
+            timer1.Start();
+
 
             Refresh();
 
@@ -263,7 +259,28 @@ namespace CO2_Interface
             return temp;
         }
 
-        private void timer_clock_Tick(object sender, EventArgs e) 
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (connected)
+            {
+
+                MyContainer.Controls.Clear();
+                MyContainer.Controls.Add(mainConrol);
+                ObjectsGrid = mainConrol.ObjectsGrid1;
+                current_control = "main";
+            }
+            else 
+            {
+                ConnexionStatus_Label.Text = "Connect to your port";
+                ConnexionStatus_Label.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+            }
+            
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
             int hh = DateTime.Now.Hour;
             int mm = DateTime.Now.Minute;
@@ -272,9 +289,8 @@ namespace CO2_Interface
             String month = DateTime.Now.Month.ToString();
             String year = DateTime.Now.Year.ToString();
 
-
             //time
-            string time ="";
+            string time = "";
 
             //padding leading zero
             if (hh < 10)
@@ -307,63 +323,48 @@ namespace CO2_Interface
             }
 
             //update label
-            lb_clock.Text = time +" "+day+"/"+month+"/"+year;
-        }
+            lb_clock.Text = time + " " + day + "/" + month + "/" + year;
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
             if (connected)
             {
-                timer1.Start();
-                //ConfigContainer.Controls.Clear();
-                //ConfigContainer.Controls.Add(configControl);
-
-                MyContainer.Controls.Clear();
-                MyContainer.Controls.Add(mainConrol);
-                ObjectsGrid = mainConrol.ObjectsGrid1;
-                current_control = "main";
-            }
-            else 
-            {
-                ConnexionStatus_Label.Text = "Connect to your port";
-                ConnexionStatus_Label.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
-            }
-            
-        }
-
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //partie sending data every x temps
-            send_time++;
-            if (send_time >= settingsControl.time_to_send)
-            {
-                send_time = 0;
-                send_data_to_server();
-            }
-
-
-            SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
-            ObjectsGrid.Sort(ObjectsGrid.Columns[0], ListSortDirection.Ascending);
-
-            if (current_control=="graph")
-            {
-                GraphsControl.setCpt();
-                SerialDataHandler.Reception.update_graph(combobox_id);
-            }
-            
-            foreach (Data.FromSensor.Measure item in Data.Collections.ObjectList)
-            {
-                item.time++;
-                
-                if (item.time > 10 && !item.outdated)
+                send_time++;
+                if (send_time >= settingsControl.time_to_send)
                 {
-                    //MessageBox.Show("Le capteur avec id: " + item.ID + " a pas ete rafrechis", "Alarme", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    item.outdated = true;
+                    send_time = 0;
+                    send_data_to_server();
+                }
+
+                if (ObjectsGrid!=null)
+                {
+                    SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, ObjectsGrid, combobox_id);
+                    if (ObjectsGrid.Columns.Count > 0)
+                    {
+                        ObjectsGrid.Sort(ObjectsGrid.Columns[0], ListSortDirection.Ascending);
+
+                    }
                 }
                 
+
+                if (current_control == "graph")
+                {
+                    GraphsControl.setCpt();
+                    SerialDataHandler.Reception.update_graph(combobox_id);
+                }
+
+                foreach (Data.FromSensor.Measure item in Data.Collections.ObjectList)
+                {
+                    item.time++;
+
+                    if (item.time > 10 && !item.outdated)
+                    {
+                        //MessageBox.Show("Le capteur avec id: " + item.ID + " a pas ete rafrechis", "Alarme", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        item.outdated = true;
+                    }
+
+                }
             }
+            
         }
 
         private void send_data_to_server()
@@ -431,23 +432,11 @@ namespace CO2_Interface
                     //User current_user = Tables.Users[0];
                     FromSensor.Measure mesure = new FromSensor.Measure();
                     int.TryParse(min_value.Text, out mesure.LowLimit);
-                    min_value.Text = "";
                     int.TryParse(max_value.Text, out mesure.HighLimit);
-                    max_value.Text = "";
-                    int.TryParse(criticalMinValue.Text, out mesure.CriticalMin);
-                    criticalMinValue.Text = "";
-                    int.TryParse(criticalMaxValue.Text, out mesure.CriticalMax);
-                    criticalMaxValue.Text = "";
-                    int.TryParse(warningMinValue.Text, out mesure.WarningMin);
-                    warningMinValue.Text = "";
-                    int.TryParse(warningMaxValue.Text, out mesure.WarningMax);
-                    warningMaxValue.Text = "";
-                    int.TryParse(maxPeriodValue.Text, out mesure.AlarmMaxPeriod);
-                    maxPeriodValue.Text = "";
 
-                    if (mesure.HighLimit < mesure.LowLimit || mesure.CriticalMax < mesure.CriticalMin || mesure.WarningMax < mesure.WarningMin)
+                    if (mesure.HighLimit < mesure.LowLimit )
                     {
-                        MessageBox.Show("Max values are bigger then min values");
+                        MessageBox.Show("Min value are bigger then max value");
                         return;
                     }
 
@@ -468,6 +457,8 @@ namespace CO2_Interface
         {
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(alarmControl);
+            config_container.Controls.Clear();
+            config_container.Controls.Add(configAlarmControl);
             current_control = "alarm";
         }
 
@@ -521,28 +512,7 @@ namespace CO2_Interface
             Writer.Close();
             MessageBox.Show("Saved with succes");
         }
-        public string get_type_name(byte b)
-        {
-            if (b == 0)
-            {
-                return "alarme";
-            }
-            if (b == 1)
-            {
-                return "Temperature";
-            }
-            if (b == 2)
-            {
-                return "Humidite";
-            }
-            if (b == 3)
-            {
-                return "Co2";
-            }
-
-            return "type pas dans le systeme";
-        }
- 
+        
 
         private void strip_button_settings_Click(object sender, EventArgs e)
         {
@@ -555,7 +525,7 @@ namespace CO2_Interface
         {
             port_name = combo_box_com.Text;
 
-            if(port_name == "")
+            if (port_name == "")
             {
                 MessageBox.Show("Please select a Port");
                 return;
@@ -601,5 +571,9 @@ namespace CO2_Interface
 
         }
 
+        private void btn_load_data_Click(object sender, EventArgs e)
+        {
+            loadData();
+        }
     }
 }
