@@ -147,13 +147,12 @@ namespace CO2_Interface.SerialDataHandler
             {
                 if (obj.config_status)
                 {
-                    //dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", obj.time > obj.AlarmMaxPeriod ? "Outdated" : getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", obj.time > obj.AlarmMaxPeriod ? "Outdated" : getStatus(obj.ConvertedData, obj.CriticalMin, obj.WarningMin, obj.WarningMax, obj.CriticalMax) });
                 }
                 else
                 {
-                    //dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
+                    dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
                 }
-                dt.Rows.Add(new object[] { obj.ID, get_config_status(obj.config_status), get_type_name(obj.Type), (int)obj.ConvertedData + get_unite(obj), obj.time + "s", "-" });
 
             }
 

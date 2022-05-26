@@ -205,14 +205,6 @@ namespace CO2_Interface
                     ConfigFile_Status.Text = "Load Complete";
                     Reader.Close();
 
-            //        foreach (FromSensor.Measure item in Collections.ObjectList)
-            //       {
-            //            Console.WriteLine("===================================");
-            //            Console.WriteLine(item.ID+" "+item.Type+" "+item.ConvertedData+" "+item.LowLimit+" "+item.HighLimit);
-            //            Console.WriteLine("===================================");
-            //
-            //        }
-
                 }
                 else ConfigFile_Status.Text = "Load Corrupted incomplete debut fichier";
             }

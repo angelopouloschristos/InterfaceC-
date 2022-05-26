@@ -1,1 +1,6 @@
-
+DataSave
+Saved at 26-05-22 16:16:20
+ID ;Type ;Data ;Low Limit ;High Limit ;Warning min ; Warning max ; Critical min ; Critical max ; 
+Start
+2;1;574;0;1000;450;800;100;900;
+End

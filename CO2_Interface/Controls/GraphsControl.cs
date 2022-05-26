@@ -43,23 +43,11 @@ namespace CO2_Interface.Controls
         {
             /*
             GraphPoints = new Series("Value");
-            cMin = new Series("Critical Min");
-            wMin = new Series("Warning Min");
-            wMax = new Series("Warning Max");
-            cMax = new Series("Critical Max");
+            
 
             Area = new ChartArea("MyChartArea");
 
-            GraphPoints.ChartType = SeriesChartType.Spline;
-            GraphPoints.Color = Color.Blue;
-            cMin.ChartType = SeriesChartType.Spline;
-            cMin.Color = Color.Red;
-            wMin.ChartType = SeriesChartType.Spline;
-            wMin.Color = Color.Yellow;
-            wMax.ChartType = SeriesChartType.Spline;
-            wMax.Color = Color.Yellow;
-            cMax.ChartType = SeriesChartType.Spline;
-            cMax.Color = Color.Red;
+            
 
             Area.AxisX.InterlacedColor =Color.White;
             Area.AxisX.MajorGrid.LineDashStyle = ChartDashStyle.NotSet;
@@ -75,30 +63,52 @@ namespace CO2_Interface.Controls
             Chart.ChartAreas.Add(Area);
             Chart.Series.Add(GraphPoints);
 
-            Chart.Series.Add(cMin);
-            Chart.Series.Add(wMin);
-            Chart.Series.Add(wMax);
-            Chart.Series.Add(cMax);*/
+           */
 
             Area = new ChartArea("MyChartArea");
             GraphPoints = new Series("Value");
             Area.AxisX.MajorGrid.LineDashStyle = ChartDashStyle.NotSet;
             Area.AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
 
+            cMin = new Series("Critical Min");
+            wMin = new Series("Warning Min");
+            wMax = new Series("Warning Max");
+            cMax = new Series("Critical Max");
+
+            cMin.ChartType = SeriesChartType.Spline;
+            cMin.Color = Color.Red;
+            wMin.ChartType = SeriesChartType.Spline;
+            wMin.Color = Color.Orange;
+            wMax.ChartType = SeriesChartType.Spline;
+            wMax.Color = Color.Orange;
+            cMax.ChartType = SeriesChartType.Spline;
+            cMax.Color = Color.Red;
+
 
             GraphPoints.ChartType = SeriesChartType.Spline;
 
             GraphPoints.Color = Color.Blue;
             Chart.ChartAreas.Add(Area);
+
+            Chart.Series.Add(cMin);
+            Chart.Series.Add(wMin);
+            Chart.Series.Add(wMax);
+            Chart.Series.Add(cMax);
             Chart.Series.Add(GraphPoints);
 
+            GraphPoints.Points.Clear();
+            /*
+            for (int i = 0; i < 60; i++)
+            {
+                GraphPoints.Points.Add(0);
+            }*/
         }
         public static void GraphUpdate(double value,byte type, int low, int high, int cmi, int wmi, int wma, int cma)
         {
             Area.AxisY.Minimum = low;
             Area.AxisY.Maximum = high;
 
-            if (box.Text == "heure")
+            if (box.Text == "heure")// je le utilise pas encore
             {
                 if (cpt > 3599)
                 {
@@ -109,45 +119,30 @@ namespace CO2_Interface.Controls
             else
             {
                 //reset le tab si il depasse les 60 sec
+                
+            }
+            
+            GraphPoints.Name = ""+ SerialDataHandler.Reception.get_type_name(type);
+            //GraphPoints.Points.AddXY(cpt, value);
+            
+            //jai mis 20 pour debug -> cv plus vite
+            if (cpt>20) 
+            {
+                cpt = 0;
                 GraphPoints.Points.Clear();
-                for (int i = 0; i < 60; i++)
-                {
-                    GraphPoints.Points.Add(i);
-                }
-                
-                
-               // cpt = cpt % 60;
+                cMin.Points.Clear();
+                wMin.Points.Clear();
+                wMax.Points.Clear();
+                cMax.Points.Clear();
             }
-            
-            GraphPoints.Name = ""+ get_type_name(type);
-           //GraphPoints.Points.AddXY(cpt, value);
-            
+            cMin.Points.Add(cmi);
+            wMin.Points.Add(wmi);
+            wMax.Points.Add(wma);
+            cMax.Points.Add(cma);
+            GraphPoints.Points.Add(value);
 
-            //cMin.Points.AddXY(cpt, cmi);
-            //wMin.Points.AddXY(cpt, wmi);
-            //wMax.Points.AddXY(cpt, wma);
-            //cMax.Points.AddXY(cpt, cma);
-        }
-        public static string get_type_name(byte b)
-        {
-            if (b == 0)
-            {
-                return "alarme";
-            }
-            if (b == 1)
-            {
-                return "Temperature";
-            }
-            if (b == 2)
-            {
-                return "Humidite";
-            }
-            if (b == 3)
-            {
-                return "Co2";
-            }
+            //cpt = cpt % 30;
 
-            return "type pas dans le systeme";
         }
     }
 }

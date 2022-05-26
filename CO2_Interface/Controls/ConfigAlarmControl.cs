@@ -49,7 +49,7 @@ namespace CO2_Interface.Controls
                 int id = 0;
                 int.TryParse(comboAlarm.Text, out id);
                 //MessageBox.Show(id.ToString());
-                SerialDataHandler.Reception.change_min_max(id, mesure);
+                //SerialDataHandler.Reception.change_min_max(id, mesure);
                 SerialDataHandler.Reception.configAlarm(id, mesure);
 
 
