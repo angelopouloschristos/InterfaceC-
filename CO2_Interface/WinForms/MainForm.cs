@@ -49,6 +49,7 @@ namespace CO2_Interface
             login_container.Controls.Clear();
             login_container.Controls.Add(AccountControl);
 
+            //ajout des ports existants
             string[] ports = SerialPort.GetPortNames();
             foreach (string port in ports)
             {
@@ -81,14 +82,14 @@ namespace CO2_Interface
             Refresh();
 
         }
-
+        /// <summary>
+        /// Cette methode fetch tout les mesures et configs du fichier csv
+        /// </summary>
         private void loadData()
         {
             int i, j;
-            //string FilePath = Application.StartupPath.ToLower();
             string FilePath = Directory.GetCurrentDirectory();
             
-            //FilePath.Replace(@"\", @"\\");
             FilePath += "\\Config.csv";
             try
             {   
@@ -358,7 +359,9 @@ namespace CO2_Interface
             }
             
         }
-
+        /// <summary>
+        /// Cette methode etait faite pour faire la conexion avec l'interface c# et le serveur pour projet
+        /// </summary>
         private void send_data_to_server()
         {
             
@@ -558,10 +561,6 @@ namespace CO2_Interface
             
         }
 
-        private void accountControl1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_load_data_Click(object sender, EventArgs e)
         {

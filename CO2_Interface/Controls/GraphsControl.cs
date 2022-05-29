@@ -41,29 +41,6 @@ namespace CO2_Interface.Controls
         
         public void GraphBuilder()
         {
-            /*
-            GraphPoints = new Series("Value");
-            
-
-            Area = new ChartArea("MyChartArea");
-
-            
-
-            Area.AxisX.InterlacedColor =Color.White;
-            Area.AxisX.MajorGrid.LineDashStyle = ChartDashStyle.NotSet;
-            Area.AxisY.MajorGrid.LineColor = Color.DimGray;
-            Area.AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
-            Area.BackColor = Color.FromArgb(224, 224,224);
-            Area.BorderColor = Color.DarkGray;
-            Area.AxisY.IsStartedFromZero = false;
-            Area.AxisY.Minimum = 0;
-            Area.AxisY.Maximum = 65535;
-            Area.AxisX.Minimum = 0;
-
-            Chart.ChartAreas.Add(Area);
-            Chart.Series.Add(GraphPoints);
-
-           */
 
             Area = new ChartArea("MyChartArea");
             GraphPoints = new Series("Value");
@@ -97,12 +74,11 @@ namespace CO2_Interface.Controls
             Chart.Series.Add(GraphPoints);
 
             GraphPoints.Points.Clear();
-            /*
-            for (int i = 0; i < 60; i++)
-            {
-                GraphPoints.Points.Add(0);
-            }*/
         }
+
+        /**
+         * cette methode est appele pour ajouter un point dans le graphique
+         */
         public static void GraphUpdate(double value,byte type, int low, int high, int cmi, int wmi, int wma, int cma)
         {
             Area.AxisY.Minimum = low;

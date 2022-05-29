@@ -17,9 +17,12 @@ namespace CO2_Interface.Controls
     {
 
         oCenter oC = new oCenter();
-        DataTable dt = new DataTable();
         public static bool is_logged = false;
         public static User current_user = null;
+
+        /**
+         * creation des tables
+         */
 
         public ManagerControl()
         {
@@ -49,6 +52,10 @@ namespace CO2_Interface.Controls
 
         }
 
+        /// <summary>
+        /// cette methode fetch tout les droits de la table access et store dans le tableau 
+        ///
+        /// </summary>
         private void LoadPerm()
         {
             DataSet dsAction = new DataSet("perm");

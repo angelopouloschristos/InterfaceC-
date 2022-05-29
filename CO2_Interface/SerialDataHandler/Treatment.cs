@@ -59,7 +59,13 @@ namespace CO2_Interface.SerialDataHandler
         }
 
       
-
+        /// <summary>
+        /// cette methode ajoute les premieres mesures au debut de lancement du programme
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="dt"></param>
+        /// <param name="dg"></param>
+        /// <param name="comboBox"></param>
         internal static void ObjToList(Data.FromSensor.Measure obj, DataTable dt, DataGridView dg, ComboBox comboBox)
         {
             string type = get_type_name(obj.Type);
@@ -139,7 +145,10 @@ namespace CO2_Interface.SerialDataHandler
             return "error";
         }
 
-
+        /// <summary>
+        /// cette methode mets a jour le tableau principal
+        /// </summary>
+        /// <param name="dt"></param>
         private static void update_data_table(DataTable dt)
         {
             dt.Rows.Clear(); 
@@ -211,6 +220,11 @@ namespace CO2_Interface.SerialDataHandler
                 }
             }
         }
+
+        /// <summary>
+        /// Cette methode mets a jour le graphique 
+        /// </summary>
+        /// <param name="comboBox"></param>
         public static void update_graph(ComboBox comboBox )
         {
             if ( comboBox.Text != "")

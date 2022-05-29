@@ -199,7 +199,7 @@
             this.Controls.Add(this.lblFirstName);
             this.Name = "AccountControl";
             this.Size = new System.Drawing.Size(210, 188);
-            this.Load += new System.EventHandler(this.AccountControl_Load);
+//            this.Load += new System.EventHandler(this.AccountControl_Load);
             this.login_layout.ResumeLayout(false);
             this.login_layout.PerformLayout();
             this.ResumeLayout(false);

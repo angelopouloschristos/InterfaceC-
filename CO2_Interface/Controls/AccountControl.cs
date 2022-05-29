@@ -24,15 +24,8 @@ namespace CO2_Interface.Controls
             InitializeComponent();
         }
 
-        private void AccountControl_Load(object sender, EventArgs e)
-        {
+     
 
-        }
-
-        private void lblEmail_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void login_button_Click(object sender, EventArgs e)
         {

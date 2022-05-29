@@ -70,9 +70,6 @@ namespace CO2_Interface.Controls
         private void update_data_table(DataTable dt)
         {
 
-
-
-
             dt.Rows.Clear();
             foreach (FromSensor.Measure obj in Data.Collections.ObjectList)
             {
