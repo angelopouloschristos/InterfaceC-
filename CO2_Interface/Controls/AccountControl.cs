@@ -55,6 +55,10 @@ namespace CO2_Interface.Controls
 
                 }
                 ManagerControl.is_logged =true;
+                Logger.WriteLogTxt("user connected : "+ tb_input_name.Text);
+                Logger.WriteLogAccess("user connected : " + tb_input_name.Text);
+                Logger.WriteLogCsv("user connected : " + tb_input_name.Text);
+
                 tb_input_name.Text = "";
                 tb_input_password.Text = "";
             }

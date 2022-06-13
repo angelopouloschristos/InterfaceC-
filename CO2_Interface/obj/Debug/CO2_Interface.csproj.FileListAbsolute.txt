@@ -29,7 +29,6 @@ C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Cont
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ManagerControl.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.SettingsControl.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
-C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmLogin.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\LoginRegis.FrmRegister.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
 C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
@@ -60,3 +59,4 @@ C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinF
 C:\Users\patry\Desktop\OneDrive\2. c#\Interface C#\CO2_Interface\obj\Debug\CO2_Interface.Controls.ConfigAlarmControl.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ConfigAlarmControl.resources
 C:\Users\patry\OneDrive\Pulpit\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.WinForms.UserCreation.resources
+C:\Users\Christos\Desktop\InterfaceC-\CO2_Interface\obj\Debug\CO2_Interface.Controls.ConfigAlarmControl.resources

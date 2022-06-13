@@ -95,6 +95,7 @@
     <Compile Include="Data\FromSensor.cs" />
     <Compile Include="Data\Collections.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="oCenter.cs" />
     <Compile Include="SerialDataHandler\Treatment.cs" />
     <Compile Include="SerialDataHandler\Reception.cs" />

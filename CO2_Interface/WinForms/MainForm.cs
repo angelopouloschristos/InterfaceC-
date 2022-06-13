@@ -259,6 +259,8 @@ namespace CO2_Interface
             if (connected)
             {
 
+
+
                 MyContainer.Controls.Clear();
                 MyContainer.Controls.Add(mainConrol);
                 ObjectsGrid = mainConrol.ObjectsGrid1;
